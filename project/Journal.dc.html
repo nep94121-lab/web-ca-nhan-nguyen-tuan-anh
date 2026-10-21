@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Nhật ký studio — Nguyễn Tuấn Anh</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+body{margin:0;background:#0f0f14}
+a{color:inherit}a:hover{color:inherit}
+sc-if,sc-for{display:contents}
+.site{-webkit-font-smoothing:antialiased}
+.site *{box-sizing:border-box}
+.site :focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.navlink:hover::after,.navlink.is-active::after{transform:scaleX(1);transform-origin:left}
+.pill-cta{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pill-cta:hover{transform:rotate(-4deg) scale(1.05)}
+.pulse{animation:pulse 1.8s ease-out infinite}
+.ulink{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none}
+.ulink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(.25);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ulink:hover::after{transform:scaleX(1)}
+.foot-cta{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.foot-cta:hover{transform:translateX(10px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid #0f0f14;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.btn:hover{transform:rotate(-3deg) scale(1.04)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;min-height:44px;padding:0 20px;border-radius:999px;border:2px solid #0f0f14;background:transparent;color:#0f0f14;cursor:pointer;transition:background .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.chip:hover{transform:translateY(-3px) rotate(-2deg)}
+.chip.is-on{background:#0f0f14;color:#f2f1ec}
+
+.j-title{animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+.feat{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s cubic-bezier(.2,.8,.2,1)}
+.feat:hover{transform:translate(-4px,-4px);box-shadow:16px 16px 0 #0f0f14!important}
+.feat-img{transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.feat:hover .feat-img{transform:scale(1.07)}
+.feat-badge{position:absolute;left:24px;top:24px;width:112px;height:112px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;border:2px solid #0f0f14;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:19px;line-height:1.1;color:#0f0f14;transform:rotate(-12deg);animation:wobble 4s ease-in-out infinite}
+.read-more .ico{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.feat:hover .read-more .ico,.post:hover .read-more .ico{transform:translateX(8px)}
+
+.post{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:540px;border:2px solid #0f0f14;text-decoration:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s cubic-bezier(.2,.8,.2,1)}
+.post:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 #0f0f14}
+.post-img-wrap{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;border-bottom:2px solid #0f0f14}
+.post-img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.post:hover .post-img{transform:scale(1.07) rotate(-1deg)}
+.post-body{position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px}
+.post-title{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.4vw,36px);line-height:1.12}
+.post-text .post-body{justify-content:space-between;padding:36px}
+.post-text .post-title{font-size:clamp(36px,3.4vw,52px);line-height:1.05}
+.post-star{position:absolute;right:-40px;bottom:-40px;width:200px;height:200px;animation:spin 24s linear infinite;opacity:.9}
+.tag{display:inline-flex;align-items:center;padding:4px 10px;border:2px solid currentColor;border-radius:999px}
+
+.news-star{position:absolute;right:-60px;top:-60px;width:240px;height:240px;animation:spin 26s linear infinite}
+.nl-input{flex:1 1 240px;min-height:56px;padding:0 22px;border:2px solid #f2f1ec;border-radius:999px;background:transparent;color:#f2f1ec;font-family:'Space Mono','Courier New',monospace;font-size:16px}
+.nl-input::placeholder{color:#8e8e98}
+.linkbtn{min-height:44px;padding:0;border:0;background:transparent;color:inherit;font-family:'Space Mono','Courier New',monospace;font-size:13px;text-decoration:underline;cursor:pointer}
+.thanks{animation:pop .6s cubic-bezier(.3,1.6,.5,1) both}
+
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wobble{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(6deg) scale(1.06)}}
+@keyframes pop{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}100%{box-shadow:0 0 0 14px transparent}}
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
+@media (max-width:700px){.post{min-height:0}.post-text{min-height:360px}}
+</style>
+</helmet>
+<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow: hidden">
+
+<header id="top" style="background: #f2f1ec; color: #0f0f14">
+<nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="pulse" aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; display: inline-block; background: {{ground}}; color: {{ground}}"></span>tuấn anh</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="navlink" href="Works.dc.html">Tác phẩm</a>
+<a class="navlink" href="About.dc.html">Giới thiệu</a>
+<a class="navlink is-active" href="Journal.dc.html" aria-current="page">Nhật ký</a>
+<a class="pill-cta" href="Commission.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; text-decoration: none; border: 2px solid #0f0f14; background: {{accent}}; color: #0f0f14">Đặt dự án<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</nav>
+
+<section style="max-width: 1440px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 56px) 72px">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52"><a href="Main.dc.html" style="text-decoration: none">Trang chủ</a> / Nhật ký</p>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; margin-top: 20px">
+<h1 class="j-title" style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(80px, 13vw, 210px); line-height: 0.82; letter-spacing: -0.045em">Nhật ký<br><em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.03em; color: {{ground}}">studio</em></h1>
+<p style="margin: 0; max-width: 30ch; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 1.9vw, 25px); line-height: 1.45; text-wrap: pretty">Ghi chép từ bàn vẽ: màu pha hỏng, giấy cắt thừa, và những điều học được giữa hai dự án.</p>
+</div>
+</section>
+</header>
+
+<section aria-label="Bài nổi bật" style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 112px">
+<a class="feat" href="JournalPost.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); overflow: hidden; border: 2px solid #0f0f14; box-shadow: 12px 12px 0 #0f0f14; background: #0f0f14; color: #f2f1ec; text-decoration: none">
+<span style="display: block; position: relative; overflow: hidden; min-height: 440px"><img class="feat-img" src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" alt="Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"><span class="feat-badge" aria-hidden="true" style="background: {{accent}}">bài<br>nổi bật</span></span>
+<span style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: clamp(28px, 4vw, 56px)">
+<span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #c9c9d1">Màu sắc · 18.10.2026 · 8 phút đọc</span>
+<span style="display: flex; flex-direction: column; gap: 20px">
+<span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(40px, 4.6vw, 72px); line-height: 1.02; letter-spacing: -0.02em">Pha một màu xanh không có tên</span>
+<span style="max-width: 36ch; font-size: 19px; line-height: 1.55; color: rgba(242,241,236,0.85)">Ba tuần, mười hai lọ màu và một kết luận: màu đẹp nhất thường là màu bạn không gọi tên được.</span>
+</span>
+<span class="read-more" style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{accent}}">Đọc bài<svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</span>
+</a>
+</section>
+
+<section aria-labelledby="all-title" style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 120px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 2px solid #0f0f14">
+<h2 id="all-title" style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(40px, 4.5vw, 64px); line-height: 1; letter-spacing: -0.03em">Tất cả bài viết <span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; font-size: 0.5em">({{count}})</span></h2>
+<div role="group" aria-label="Lọc theo chủ đề" style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" class="{{chipAll}}" aria-pressed="{{pressAll}}" onClick="{{pickAll}}">Tất cả</button>
+<button type="button" class="{{chipProc}}" aria-pressed="{{pressProc}}" onClick="{{pickProc}}">Quá trình</button>
+<button type="button" class="{{chipColor}}" aria-pressed="{{pressColor}}" onClick="{{pickColor}}">Màu sắc</button>
+<button type="button" class="{{chipNote}}" aria-pressed="{{pressNote}}" onClick="{{pickNote}}">Ghi chép</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 40px 28px; margin-top: 48px">
+<sc-for list="{{posts}}" as="p" hint-placeholder-count="6">
+<a class="{{p.cls}}" href="JournalPost.dc.html" style="background: {{p.bg}}; color: {{p.fg}}">
+<sc-if value="{{p.hasImg}}" hint-placeholder-val="{{ true }}">
+<span class="post-img-wrap"><img class="post-img" src="{{p.src}}" alt=""></span>
+</sc-if>
+<sc-if value="{{p.isText}}" hint-placeholder-val="{{ false }}">
+<svg class="post-star" viewBox="0 0 40 40" aria-hidden="true" style="color: {{p.starColor}}"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
+</sc-if>
+<span class="post-body">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase"><span class="tag">{{p.tag}}</span><span>{{p.date}} · {{p.read}}</span></span>
+<span class="post-title">{{p.title}}</span>
+<span style="font-size: 17px; line-height: 1.55; max-width: 34ch">{{p.excerpt}}</span>
+<span class="read-more" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Đọc<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="nl-title" style="background: #0f0f14; color: #f2f1ec">
+<div style="max-width: 1440px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px)">
+<div style="position: relative; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 72px; align-items: end; padding: clamp(28px, 4vw, 56px); border: 2px solid #f2f1ec">
+<svg class="news-star" viewBox="0 0 40 40" aria-hidden="true" style="color: {{accent}}"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
+<div style="position: relative">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad">Thư từ studio</p>
+<h2 id="nl-title" style="margin: 12px 0 0; max-width: 14ch; font-weight: 800; font-stretch: 75%; font-size: clamp(44px, 5.5vw, 84px); line-height: 0.92; letter-spacing: -0.035em">Mỗi tháng một lá thư, <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; color: {{accent}}">không hơn</em>.</h2>
+<p style="margin: 20px 0 0; max-width: 40ch; font-size: 18px; line-height: 1.55; color: rgba(242,241,236,0.85)">Tranh mới, bản in sắp mở bán, và vài dòng nhật ký không đăng ở đây.</p>
+</div>
+<div style="position: relative">
+<sc-if value="{{notSubbed}}" hint-placeholder-val="{{ true }}">
+<label for="nl-email" style="display: block; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c9d1">Email của bạn</label>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px">
+<input id="nl-email" class="nl-input" type="email" placeholder="ban@email.com" autocomplete="email">
+<button type="button" class="btn" onClick="{{subscribe}}" style="background: {{accent}}; color: #0f0f14; border-color: {{accent}}">Đăng ký</button>
+</div>
+<p style="margin: 12px 0 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; color: #a3a3ad">Hủy bất cứ lúc nào, chỉ với một cú bấm.</p>
+</sc-if>
+<sc-if value="{{subbed}}" hint-placeholder-val="{{ false }}">
+<p class="thanks" style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.2; color: {{accent}}">Cảm ơn! Hẹn gặp bạn trong hộp thư.</p>
+<button type="button" class="linkbtn" onClick="{{unsub}}">Dùng một email khác</button>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="position: relative; overflow: hidden; background: {{ground}}; color: #ffffff">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
+<a class="foot-cta" href="Commission.dc.html" style="max-width: 12ch; text-decoration: none; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.04em">Cùng làm một điều <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">rực rỡ</em>?</a>
+<nav aria-label="Sơ đồ trang" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="ulink" href="Main.dc.html">Trang chủ</a>
+<a class="ulink" href="Works.dc.html">Tác phẩm</a>
+<a class="ulink" href="About.dc.html">Giới thiệu</a>
+<a class="ulink" href="Journal.dc.html">Nhật ký</a>
+<a class="ulink" href="Commission.dc.html">Đặt dự án</a>
+</nav>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
+<a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const s = this.state || {};
+    const ground = p.ground ?? '#2B2EF0';
+    const accent = p.accent ?? '#D8FF3C';
+    const t = s.tag || 'all';
+    const P = [
+      { title: 'Vì sao tôi cắt giấy thay vì vẽ', tag: 'Quá trình', key: 'proc', date: '09.10.2026', read: '5 phút', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', excerpt: 'Kéo không cho phép do dự. Một đường cắt là một quyết định — và đó là điều tôi cần học lại.' },
+      { title: 'Bảng màu tháng mười', tag: 'Màu sắc', key: 'color', date: '05.10.2026', read: '2 phút', src: '', excerpt: 'Năm màu tôi dùng nhiều nhất tháng này, và lý do tôi bỏ màu thứ sáu.', look: 'ground' },
+      { title: 'Một tuần với mực và nước', tag: 'Quá trình', key: 'proc', date: '27.09.2026', read: '6 phút', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', excerpt: 'Bảy ngày làm Mực loang: những chậu nước hỏng, và giọt mực đã cứu cả bức tranh.' },
+      { title: 'Ghi chép từ buổi treo tranh', tag: 'Ghi chép', key: 'note', date: '14.09.2026', read: '3 phút', src: '', excerpt: 'Treo tranh là vẽ thêm một lần nữa — lần này bằng ánh sáng và khoảng trống.', look: 'accent' },
+      { title: 'Màu cam của buổi trưa', tag: 'Màu sắc', key: 'color', date: '02.09.2026', read: '4 phút', src: '/_blob/80535c369d55d41873b43749680ba93e', excerpt: 'Vì sao cam gần đỏ lại khiến ta thấy nóng hơn cả đỏ? Vài thử nghiệm nhỏ trên giấy nháp.' },
+      { title: 'Code cũng là một cây cọ', tag: 'Ghi chép', key: 'note', date: '21.08.2026', read: '7 phút', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', excerpt: 'Không có gì máy móc trong một thuật toán được viết lúc hai giờ sáng.' }
+    ];
+    const posts = P.filter((x) => t === 'all' || x.key === t).map((x) => {
+      const isText = !x.src;
+      const bg = x.look === 'ground' ? ground : x.look === 'accent' ? accent : '#ffffff';
+      const fg = x.look === 'ground' ? '#ffffff' : '#0f0f14';
+      return {
+        ...x,
+        isText,
+        hasImg: !isText,
+        cls: isText ? 'post post-text' : 'post',
+        bg,
+        fg,
+        starColor: x.look === 'ground' ? accent : '#0f0f14'
+      };
+    });
+    const chip = (k) => (t === k ? 'chip is-on' : 'chip');
+    const pick = (k) => () => this.setState({ tag: k });
+    return {
+      ground,
+      accent,
+      siteCls: (p.motion ?? true) ? 'site anim' : 'site still',
+      posts,
+      count: String(posts.length).padStart(2, '0'),
+      chipAll: chip('all'), chipProc: chip('proc'), chipColor: chip('color'), chipNote: chip('note'),
+      pressAll: String(t === 'all'), pressProc: String(t === 'proc'), pressColor: String(t === 'color'), pressNote: String(t === 'note'),
+      pickAll: pick('all'), pickProc: pick('proc'), pickColor: pick('color'), pickNote: pick('note'),
+      subbed: !!s.subbed,
+      notSubbed: !s.subbed,
+      subscribe: () => this.setState({ subbed: true }),
+      unsub: () => this.setState({ subbed: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

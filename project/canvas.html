@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Canvas — Web cá nhân Nguyễn Tuấn Anh</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0f0f14; color: #f2f1ec; font-family: 'Bricolage Grotesque', sans-serif; }
+  header { padding: 24px 40px; border-bottom: 2px solid #2b2ef0; display: flex; justify-content: space-between; align-items: center; background: #14141d; position: sticky; top: 0; z-index: 10; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 28px; padding: 40px; max-width: 1800px; margin: 0 auto; }
+  .board { border: 2px solid #f2f1ec; background: #1a1a24; box-shadow: 8px 8px 0 #2b2ef0; display: flex; flex-direction: column; overflow: hidden; }
+  .board-head { padding: 12px 16px; background: #0f0f14; border-bottom: 2px solid #f2f1ec; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Mono', monospace; font-size: 13px; }
+  .board-head a { color: #d8ff3c; text-decoration: none; font-weight: 700; }
+  .frame-wrap { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #f2f1ec; }
+  iframe { width: 1440px; height: 900px; border: 0; transform: scale(0.3); transform-origin: 0 0; pointer-events: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 style="margin:0;font-size:24px;">Web cá nhân — Nguyễn Tuấn Anh</h1>
+    <p style="margin:4px 0 0;font-family:'Space Mono',monospace;font-size:12px;color:#a3a3ad;">Bấm vào tên từng trang để mở toàn màn hình và tương tác trực tiếp</p>
+  </div>
+  <a href="/Main.dc.html" style="padding:10px 20px;background:#d8ff3c;color:#0f0f14;font-family:'Space Mono',monospace;font-weight:700;text-decoration:none;border-radius:999px;">Mở Trang Chủ</a>
+</header>
+<div class="grid" id="boards"></div>
+<script>
+fetch('/canvas.json').then(r => r.json()).then(data => {
+  const container = document.getElementById('boards');
+  (data.order || Object.keys(data.boards)).forEach(file => {
+    const b = data.boards[file];
+    if (!b) return;
+    const card = document.createElement('div');
+    card.className = 'board';
+    card.innerHTML = `
+      <div class="board-head">
+        <span><b>${b.title}</b></span>
+        <a href="/${file}">Mở trang</a>
+      </div>
+      <a href="/${file}" class="frame-wrap">
+        <iframe src="/${file}" loading="lazy"></iframe>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+});
+</script>
+</body>
+</html>

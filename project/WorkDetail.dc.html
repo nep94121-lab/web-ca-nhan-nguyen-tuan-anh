@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Chi tiết tác phẩm — Nguyễn Tuấn Anh</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+body{margin:0;background:#0f0f14}
+a{color:inherit}a:hover{color:inherit}
+sc-if,sc-for{display:contents}
+.site{-webkit-font-smoothing:antialiased}
+.site *{box-sizing:border-box}
+.site :focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.navlink:hover::after,.navlink.is-active::after{transform:scaleX(1);transform-origin:left}
+.pill-cta{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pill-cta:hover{transform:rotate(-4deg) scale(1.05)}
+.pulse{animation:pulse 1.8s ease-out infinite}
+.ulink{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none}
+.ulink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(.25);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ulink:hover::after{transform:scaleX(1)}
+.foot-cta{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.foot-cta:hover{transform:translateX(10px)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid #0f0f14;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.btn:hover{transform:rotate(-3deg) scale(1.04)}
+.more{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.more:hover{transform:rotate(-3deg) scale(1.04)}
+
+.dimg{animation:dropIn 1s cubic-bezier(.2,.8,.2,1) both}
+.dstar{position:absolute;right:-28px;top:-28px;width:84px;height:84px;animation:spin 16s linear infinite}
+.dtitle{animation:rise 1s .15s cubic-bezier(.2,.8,.2,1) both}
+
+.sketchy{filter:grayscale(1) contrast(1.9) brightness(1.15)}
+.cmp-line{position:absolute;top:0;bottom:0;width:3px;margin-left:-1.5px;background:#f2f1ec;pointer-events:none}
+.cmp-knob{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;border:2px solid #0f0f14;display:flex;align-items:center;justify-content:center;color:#0f0f14;animation:nudge 2.4s ease-in-out infinite}
+.cmp-tag{position:absolute;bottom:16px;padding:6px 12px;font-family:'Space Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid #0f0f14}
+.range{width:100%;height:44px;cursor:pointer}
+
+.sw{flex:1 1 0;min-width:48px;position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:16px;border:2px solid #0f0f14;cursor:pointer;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.04em;transition:flex-grow .6s cubic-bezier(.2,.8,.2,1),transform .3s}
+.sw:hover{transform:translateY(-6px)}
+.sw-hex{writing-mode:vertical-rl;transform:rotate(180deg)}
+
+.crop-img{position:absolute;width:300%;height:300%;max-width:none;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.crop:hover .crop-img{transform:scale(1.25)}
+
+.pn-btn{position:relative;overflow:hidden;flex:1 1 360px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:48px clamp(16px,4vw,56px);border:0;text-align:left;cursor:pointer;font:inherit}
+.pn-thumb{position:absolute;right:48px;top:50%;width:150px;height:auto;border:3px solid #0f0f14;box-shadow:8px 8px 0 #0f0f14;transform:translateY(-50%) rotate(6deg);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.pn-btn:hover .pn-thumb{transform:translateY(-50%) rotate(-4deg) scale(1.12)}
+
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes dropIn{from{opacity:0;transform:translateY(60px) rotate(-3deg)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}100%{box-shadow:0 0 0 14px transparent}}
+@keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
+@media (max-width:700px){
+.pn-thumb{width:96px;right:20px}
+.dstar{right:-8px}
+}
+</style>
+</helmet>
+<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow: hidden">
+
+<header id="top" style="background: #f2f1ec; color: #0f0f14; border-bottom: 2px solid #0f0f14">
+<nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="pulse" aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; display: inline-block; background: #0f0f14; color: #0f0f14"></span>tuấn anh</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="navlink is-active" href="Works.dc.html" aria-current="page">Tác phẩm</a>
+<a class="navlink" href="About.dc.html">Giới thiệu</a>
+<a class="navlink" href="Journal.dc.html">Nhật ký</a>
+<a class="pill-cta" href="Commission.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; text-decoration: none; border: 2px solid #0f0f14; background: {{accent}}; color: #0f0f14">Đặt dự án<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</nav>
+</header>
+
+<section style="max-width: 1440px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 56px) 120px">
+<nav aria-label="Đường dẫn" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #4a4a52">
+<a class="ulink" href="Main.dc.html">Trang chủ</a><span aria-hidden="true">/</span>
+<a class="ulink" href="Works.dc.html">Tác phẩm</a><span aria-hidden="true">/</span>
+<span aria-current="page" style="color: #0f0f14; font-weight: 700">{{work.title}}</span>
+</nav>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: 56px 72px; align-items: start; margin-top: 32px">
+<figure style="position: relative; margin: 0">
+<img class="dimg" src="{{work.src}}" width="{{work.w}}" height="{{work.h}}" alt="{{work.alt}}" style="display: block; width: 100%; height: auto; border: 3px solid #0f0f14; box-shadow: 16px 16px 0 #0f0f14">
+<svg class="dstar" viewBox="0 0 40 40" aria-hidden="true" style="color: {{accent}}; stroke: #0f0f14; stroke-width: 1.2"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
+<figcaption style="margin-top: 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: #4a4a52">{{work.no}} / 06 — {{work.title}}, {{work.year}}</figcaption>
+</figure>
+<div>
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">{{work.no}} / 06 · {{work.catLabel}}</p>
+<h1 class="dtitle" style="margin: 12px 0 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(64px, 8vw, 132px); line-height: 0.95; letter-spacing: -0.03em">{{work.title}}</h1>
+<p style="margin: 28px 0 0; max-width: 34em; font-family: 'Fraunces', Georgia, serif; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.5; text-wrap: pretty">{{work.story}}</p>
+<dl style="margin: 36px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); border-top: 2px solid #0f0f14">
+<dt style="padding: 16px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4a52">Năm</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid #0f0f14; font-size: 18px">{{work.year}}</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4a52">Mảng</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid #0f0f14; font-size: 18px">{{work.material}}</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4a52">Định dạng</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid #0f0f14; font-size: 18px">{{work.size}}</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4a52">Vai trò</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid #0f0f14; font-size: 18px">Từ ý tưởng đến bản cuối</dd>
+</dl>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px">
+<a class="btn" href="Commission.dc.html" style="background: #0f0f14; color: #f2f1ec">Làm một dự án như thế<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn" href="https://zalo.me/0375492993" style="background: transparent; color: #0f0f14">Hỏi qua Zalo</a>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="cmp-title" style="background: #0f0f14; color: #f2f1ec">
+<div style="max-width: 1440px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
+<div>
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad">Từ phác thảo đến hoàn thiện</p>
+<h2 id="cmp-title" style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.035em">Kéo để so sánh</h2>
+</div>
+<p style="margin: 0; max-width: 32ch; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(19px, 1.7vw, 22px); line-height: 1.45; color: rgba(242,241,236,0.85)">Bên trái là bản phác sáng–tối trước khi lên màu; bên phải là bản hoàn thiện.</p>
+</div>
+<div style="position: relative; margin-top: 48px; aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #f2f1ec; background: #1d1d26">
+<img src="{{work.src}}" alt="{{work.title}} — bản hoàn thiện" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img class="sketchy" src="{{work.src}}" alt="{{work.title}} — bản nghiên cứu sáng tối" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 {{clipR}}% 0 0)">
+<span class="cmp-tag" style="left: 16px; background: #f2f1ec; color: #0f0f14">Phác</span>
+<span class="cmp-tag" style="right: 16px; background: {{accent}}; color: #0f0f14">Hoàn thiện</span>
+<span class="cmp-line" aria-hidden="true" style="left: {{clip}}%"><span class="cmp-knob" style="background: {{accent}}"><svg class="ico" viewBox="0 0 24 24" width="24" height="24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"></path></svg></span></span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; margin-top: 20px">
+<label for="cmp-range" style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad; white-space: nowrap">Vị trí thanh</label>
+<input id="cmp-range" class="range" type="range" min="0" max="100" step="1" value="{{clip}}" onChange="{{onClip}}" style="accent-color: {{accent}}">
+<span style="min-width: 4ch; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px">{{clip}}%</span>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="pal-title" style="background: #f2f1ec">
+<div style="max-width: 1440px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px) 0">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">Bảng màu trích từ tác phẩm</p>
+<h2 id="pal-title" style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(40px, 5.5vw, 84px); line-height: 0.95; letter-spacing: -0.03em">Năm màu dựng nên <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%">{{work.title}}</em></h2>
+<div role="group" aria-label="Bảng màu" style="display: flex; gap: 10px; height: 280px; margin-top: 48px">
+<sc-for list="{{palette}}" as="c" hint-placeholder-count="5">
+<button type="button" class="sw" aria-pressed="{{c.pressed}}" aria-label="Màu {{c.hex}}" onClick="{{c.pick}}" style="background: {{c.hex}}; color: {{c.ink}}; flex-grow: {{c.grow}}"><span>{{c.n}}</span><span class="sw-hex">{{c.hex}}</span></button>
+</sc-for>
+</div>
+<p style="margin: 16px 0 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: #4a4a52">Bấm vào một màu để mở rộng nó.</p>
+</div>
+</section>
+
+<section aria-labelledby="crop-title" style="background: #f2f1ec">
+<div style="max-width: 1440px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px)">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">Cận cảnh</p>
+<h2 id="crop-title" style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(40px, 5.5vw, 84px); line-height: 0.95; letter-spacing: -0.03em">Ba chi tiết đáng nhìn gần</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; margin-top: 48px">
+<figure class="crop" style="margin: 0">
+<span style="display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; border: 2px solid #0f0f14; background: #0f0f14"><img class="crop-img" src="{{work.src}}" alt="Cận cảnh góc trên của {{work.title}}" style="left: -20%; top: -30%"></span>
+<figcaption style="margin-top: 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px">01 — Góc trên · phóng ×3</figcaption>
+</figure>
+<figure class="crop" style="margin: 0">
+<span style="display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; border: 2px solid #0f0f14; background: #0f0f14"><img class="crop-img" src="{{work.src}}" alt="Cận cảnh giữa tác phẩm {{work.title}}" style="left: -150%; top: -110%"></span>
+<figcaption style="margin-top: 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px">02 — Chính giữa · phóng ×3</figcaption>
+</figure>
+<figure class="crop" style="margin: 0">
+<span style="display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; border: 2px solid #0f0f14; background: #0f0f14"><img class="crop-img" src="{{work.src}}" alt="Cận cảnh góc dưới của {{work.title}}" style="left: -90%; top: -190%"></span>
+<figcaption style="margin-top: 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px">03 — Góc dưới · phóng ×3</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section aria-label="Tác phẩm khác" style="display: flex; flex-wrap: wrap; border-top: 2px solid #0f0f14">
+<button type="button" class="pn-btn" onClick="{{goPrev}}" style="background: #f2f1ec; color: #0f0f14; border-right: 2px solid #0f0f14">
+<span style="position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Tác phẩm trước</span>
+<span style="position: relative; z-index: 1; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 1">{{prev.title}}</span>
+<img class="pn-thumb" src="{{prev.src}}" width="{{prev.w}}" height="{{prev.h}}" alt="">
+</button>
+<button type="button" class="pn-btn" onClick="{{goNext}}" style="background: {{accent}}; color: #0f0f14">
+<span style="position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Tác phẩm tiếp theo<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="position: relative; z-index: 1; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 1">{{next.title}}</span>
+<img class="pn-thumb" src="{{next.src}}" width="{{next.w}}" height="{{next.h}}" alt="">
+</button>
+</section>
+<div style="display: flex; justify-content: center; padding: 56px 16px; background: #f2f1ec; border-top: 2px solid #0f0f14"><a class="more" href="Works.dc.html"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"></path></svg>Về bộ sưu tập</a></div>
+
+<footer style="position: relative; overflow: hidden; background: {{ground}}; color: #ffffff">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
+<a class="foot-cta" href="Commission.dc.html" style="max-width: 12ch; text-decoration: none; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.04em">Cùng làm một điều <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">rực rỡ</em>?</a>
+<nav aria-label="Sơ đồ trang" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="ulink" href="Main.dc.html">Trang chủ</a>
+<a class="ulink" href="Works.dc.html">Tác phẩm</a>
+<a class="ulink" href="About.dc.html">Giới thiệu</a>
+<a class="ulink" href="Journal.dc.html">Nhật ký</a>
+<a class="ulink" href="Commission.dc.html">Đặt dự án</a>
+</nav>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
+<a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":5000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const s = this.state || {};
+    const idx = s.idx ?? 1;
+    const clip = s.clip ?? 50;
+    const sw = s.sw ?? 0;
+    const cats = { paint: 'Đồ họa in', collage: 'Minh họa & 3D', digital: 'Số & tương tác' };
+    const W = [
+      { no: '01', title: 'Đi lạc', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', w: 1800, h: 1200, material: 'Giao diện / UX', size: 'Ứng dụng di động · 3 màn hình', year: 2026, cat: 'digital', alt: 'Đi lạc — ba màn hình ứng dụng bản đồ: màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc', story: 'Một ứng dụng bản đồ cố tình chỉ sai đường, để người dùng lạc vào những ngõ chưa từng đi. Bạn bè bảo ý tưởng này điên; bản thử thì ai cũng xin dùng.', pal: ['#2B2EF0', '#D8FF3C', '#FF5A2C', '#0F0F14', '#ECE9E1'] },
+      { no: '02', title: 'Điên vừa đủ', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', w: 1200, h: 1500, material: 'Poster', size: 'Khổ 60 × 75 cm', year: 2026, cat: 'paint', alt: 'Điên vừa đủ — chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%', story: 'Poster cho một triển lãm cá nhân tưởng tượng. Chữ ĐIÊN được thả cho nghiêng ngả, chữ VỪA ĐỦ thì xếp thẳng hàng — và cây thước đo đúng 87%.', pal: ['#2B2EF0', '#D8FF3C', '#FF5A2C', '#FF8FB8', '#F2F1EC'] },
+      { no: '03', title: 'Long Biên, 5 giờ sáng', src: '/_blob/80535c369d55d41873b43749680ba93e', w: 1200, h: 1500, material: 'Minh họa', size: 'Minh họa số · tỉ lệ 4:5', year: 2025, cat: 'collage', alt: 'Long Biên, 5 giờ sáng — cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông', story: 'Cây cầu sắt lúc mặt trời vừa nhô lên sau dàn thép, mấy chiếc xe đạp chở hoa đi chợ sớm. Bầu trời chỉ có bảy dải màu, như một bản in lụa.', pal: ['#2A2D7A', '#8C4D8F', '#F49274', '#FFE19A', '#1E5C4A'] },
+      { no: '04', title: 'Gác Xép', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', w: 1400, h: 1400, material: 'Nhận diện thương hiệu', size: 'Logo · bảng màu · ấn phẩm', year: 2025, cat: 'paint', alt: 'Gác Xép — bảng nhận diện: logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp', story: 'Nhận diện cho một quán cà phê sân thượng tưởng tượng. Leo năm tầng thang bộ mới tới, nên logo là một cái thang chui vào mái ngói.', pal: ['#D2553A', '#17473A', '#E9B53C', '#F3E9D8', '#1B1A17'] },
+      { no: '05', title: 'Cân bằng giả', src: '/_blob/950d916a2103e84df23e30b44bf91101', w: 1200, h: 1500, material: '3D', size: 'Ảnh render · tỉ lệ 4:5', year: 2026, cat: 'collage', alt: 'Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên', story: 'Bốn viên đá terrazzo màu kẹo chồng lên nhau theo cách không thể đứng vững ngoài đời. Trong phần mềm 3D, trọng lực chỉ là một thanh trượt.', pal: ['#2B2EF0', '#FF5A2C', '#FF8FB8', '#D8FF3C', '#E8DFD1'] },
+      { no: '06', title: 'Đêm phố', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', w: 1800, h: 1200, material: 'Nghệ thuật tạo sinh', size: 'Viết bằng code · khổ tùy biến', year: 2026, cat: 'digital', alt: 'Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen', story: 'Hàng nghìn đường thẳng đi theo một dòng chảy vô hình — giống xe máy lúc nửa đêm. Mỗi lần chạy code là một bản khác nhau.', pal: ['#0A0A10', '#2B2EF0', '#7D86FF', '#D8FF3C', '#FF5A2C'] }
+    ];
+    const lum = (hex) => {
+      const n = parseInt(hex.slice(1), 16);
+      const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => {
+        v /= 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+    };
+    const N = W.length;
+    const base = W[idx];
+    const work = { ...base, catLabel: cats[base.cat] };
+    return {
+      ground: p.ground ?? '#2B2EF0',
+      accent: p.accent ?? '#D8FF3C',
+      siteCls: (p.motion ?? true) ? 'site anim' : 'site still',
+      work,
+      prev: W[(idx + N - 1) % N],
+      next: W[(idx + 1) % N],
+      clip,
+      clipR: 100 - clip,
+      onClip: (e) => this.setState({ clip: Number(e.target.value) }),
+      palette: base.pal.map((hex, i) => ({
+        hex,
+        n: '0' + (i + 1),
+        ink: lum(hex) > 0.35 ? '#0f0f14' : '#ffffff',
+        grow: i === sw ? 4 : 1,
+        pressed: String(i === sw),
+        pick: () => this.setState({ sw: i })
+      })),
+      goPrev: () => this.setState({ idx: (idx + N - 1) % N, sw: 0, clip: 50 }),
+      goNext: () => this.setState({ idx: (idx + 1) % N, sw: 0, clip: 50 })
+    };
+  }
+}
+</script>
+</body>
+</html>

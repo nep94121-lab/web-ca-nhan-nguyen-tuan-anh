@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Đặt dự án — Nguyễn Tuấn Anh</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+body{margin:0;background:#0f0f14}
+a{color:inherit}a:hover{color:inherit}
+sc-if,sc-for{display:contents}
+.site{-webkit-font-smoothing:antialiased}
+.site *{box-sizing:border-box}
+.site :focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.navlink:hover::after{transform:scaleX(1);transform-origin:left}
+.pill-cta{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pill-cta:hover{transform:rotate(-4deg) scale(1.05)}
+.pulse{animation:pulse 1.8s ease-out infinite}
+.ulink{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none}
+.ulink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(.25);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ulink:hover::after{transform:scaleX(1)}
+.foot-cta{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.foot-cta:hover{transform:translateX(10px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid currentColor;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.btn:hover{transform:rotate(-2deg) scale(1.04)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.chip{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.04em;min-height:44px;padding:0 18px;border-radius:999px;border:2px solid rgba(242,241,236,.5);background:transparent;color:#f2f1ec;cursor:pointer;transition:background .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.chip:hover{transform:translateY(-3px)}
+.chip.is-on{background:#f2f1ec;color:#0f0f14;border-color:#f2f1ec}
+
+.c-title{animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+.step{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px 0 6px;border:2px solid rgba(242,241,236,.4);border-radius:999px;background:transparent;color:#f2f1ec;cursor:pointer;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:border-color .25s,color .25s,background .25s}
+.step .num{width:34px;height:34px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center}
+.step.is-on{border-color:#d8ff3c;color:#d8ff3c}
+.step.is-done .num{background:#f2f1ec;color:#0f0f14;border-color:#f2f1ec}
+.prog{position:relative;height:6px;margin-top:20px;background:rgba(242,241,236,.18);overflow:hidden}
+.prog-fill{position:absolute;left:0;top:0;bottom:0;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.panel{animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+.choice{position:relative;display:flex;flex-direction:column;padding:0;border:2px solid rgba(242,241,236,.4);background:#17171e;color:#f2f1ec;cursor:pointer;overflow:hidden;text-align:left;font:inherit;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .25s,box-shadow .35s}
+.choice:hover{transform:translateY(-4px)}
+.choice.is-on{border-color:#d8ff3c;box-shadow:8px 8px 0 #d8ff3c}
+.choice img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.choice:hover img{transform:scale(1.06)}
+.check{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:2px solid #0f0f14;background:#d8ff3c;color:#0f0f14;display:flex;align-items:center;justify-content:center;transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.choice.is-on .check{transform:scale(1)}
+.viz-paint{transition:width .6s cubic-bezier(.3,1.4,.5,1),height .6s cubic-bezier(.3,1.4,.5,1)}
+.swatch{position:relative;width:56px;height:56px;border-radius:50%;border:2px solid #f2f1ec;cursor:pointer;transition:transform .3s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.swatch:hover{transform:scale(1.1)}
+.swatch.is-on{transform:scale(1.12);box-shadow:0 0 0 4px #0f0f14,0 0 0 7px #d8ff3c}
+.flab{display:block;margin-bottom:8px;font-family:'Space Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c9c9d1}
+.inp{width:100%;min-height:56px;padding:14px 18px;border:2px solid rgba(242,241,236,.5);border-radius:0;background:transparent;color:#f2f1ec;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-size:18px;transition:border-color .2s}
+.inp:focus{border-color:#d8ff3c}
+.inp::placeholder{color:#8e8e98}
+textarea.inp{min-height:140px;resize:vertical;line-height:1.5}
+select.inp option{color:#0f0f14}
+.range{width:100%;height:44px;cursor:pointer}
+.sum-star{position:absolute;right:-30px;top:-30px;width:110px;height:110px;animation:spin 18s linear infinite}
+
+.faq-btn{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 52px;align-items:center;gap:16px;min-height:96px;padding:12px 0;background:transparent;border:0;border-bottom:2px solid #0f0f14;color:#0f0f14;cursor:pointer;text-align:left;font:inherit}
+.faq-q{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(24px,2.6vw,36px);line-height:1.15;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.faq-btn:hover .faq-q{transform:translateX(12px)}
+.faq-ic{width:52px;height:52px;border-radius:50%;border:2px solid #0f0f14;display:flex;align-items:center;justify-content:center;transition:transform .45s cubic-bezier(.3,1.6,.5,1),background .3s}
+.faq-ic.open{transform:rotate(45deg);background:#0f0f14;color:#f2f1ec}
+.faq-a{margin:0;padding:24px 72px 32px 0;border-bottom:2px solid #0f0f14;font-size:18px;line-height:1.6;animation:rise .45s cubic-bezier(.2,.8,.2,1) both}
+
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}100%{box-shadow:0 0 0 14px transparent}}
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
+@media (max-width:700px){.step .lbl{display:none}.step{padding:0 6px}.faq-a{padding-right:0}}
+</style>
+</helmet>
+<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #f2f1ec; background: #0f0f14; overflow: hidden">
+
+<header id="top" style="background: #0f0f14; color: #f2f1ec">
+<nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="pulse" aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; display: inline-block; background: {{accent}}; color: {{accent}}"></span>tuấn anh</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="navlink" href="Works.dc.html">Tác phẩm</a>
+<a class="navlink" href="About.dc.html">Giới thiệu</a>
+<a class="navlink" href="Journal.dc.html">Nhật ký</a>
+<a class="pill-cta" href="Commission.dc.html" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; text-decoration: none; border: 2px solid {{accent}}; background: transparent; color: {{accent}}">Đặt dự án<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</nav>
+<section style="max-width: 1440px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 56px) 72px">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad"><a href="Main.dc.html" style="text-decoration: none">Trang chủ</a> / Đặt dự án</p>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; margin-top: 20px">
+<h1 class="c-title" style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(64px, 9vw, 144px); line-height: 0.88; letter-spacing: -0.045em">Đặt một dự án<br><em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.03em; color: {{accent}}">hơi điên một chút</em></h1>
+<p style="margin: 0; max-width: 32ch; font-family: 'Fraunces', Georgia, serif; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.45; color: rgba(242,241,236,0.85)">Bốn bước ngắn. Bạn kể ý tưởng — kể cả ý tưởng từng bị gọi là điên — Tuấn Anh phác thảo, rồi dự án bắt đầu thành hình.</p>
+</div>
+</section>
+</header>
+
+<section aria-label="Biểu mẫu đặt dự án" style="background: #0f0f14">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 120px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px">
+<div style="flex: 999 1 600px; min-width: 0">
+<ol aria-label="Các bước" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="4"><li><button type="button" class="{{st.cls}}" aria-current="{{st.current}}" onClick="{{st.go}}"><span class="num">{{st.n}}</span><span class="lbl">{{st.label}}</span></button></li></sc-for>
+</ol>
+<div class="prog" aria-hidden="true"><span class="prog-fill" style="width: {{progress}}%; background: {{accent}}"></span></div>
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
+<div class="panel" style="margin-top: 40px">
+<h2 style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -0.02em">Bạn cần làm mảng nào?</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 20px; margin-top: 28px">
+<sc-for list="{{types}}" as="c" hint-placeholder-count="4">
+<button type="button" class="{{c.cls}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">
+<img src="{{c.src}}" alt="">
+<span class="check" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5 9-10"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px 20px">
+<span style="font-weight: 800; font-stretch: 75%; font-size: 26px; line-height: 1.05">{{c.label}}</span>
+<span style="font-size: 15px; line-height: 1.4; color: #c9c9d1">{{c.desc}}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<div class="panel" style="margin-top: 40px">
+<h2 style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -0.02em">Quy mô cỡ nào?</h2>
+<div role="group" aria-label="Quy mô" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px">
+<sc-for list="{{sizes}}" as="z" hint-placeholder-count="4"><button type="button" class="{{z.cls}}" aria-pressed="{{z.pressed}}" onClick="{{z.pick}}">{{z.label}}</button></sc-for>
+</div>
+<div aria-label="Minh họa quy mô dự án: {{sizeLabel}}" role="img" style="position: relative; height: 400px; margin-top: 28px; border: 2px solid rgba(242,241,236,0.4); background: #17171e; overflow: hidden">
+<sc-for list="{{sheets}}" as="sh" hint-placeholder-count="4"><span class="viz-paint" aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 170px; height: 220px; margin: -130px 0 0 -85px; border: 3px solid #0f0f14; background: {{sh.bg}}; box-shadow: 6px 6px 0 #0f0f14; transform: translate({{sh.x}}px, {{sh.y}}px) rotate({{sh.r}}deg)"></span></sc-for>
+<span style="position: absolute; left: 20px; top: 16px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; color: #c9c9d1">{{sizeLabel}} · khoảng {{sheetCount}} hạng mục</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<div class="panel" style="margin-top: 40px">
+<h2 style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -0.02em">Chọn tối đa ba màu chủ đạo</h2>
+<div role="group" aria-label="Bảng màu" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px">
+<sc-for list="{{swatches}}" as="w" hint-placeholder-count="10"><button type="button" class="{{w.cls}}" aria-pressed="{{w.pressed}}" aria-label="{{w.name}}" title="{{w.name}}" onClick="{{w.pick}}" style="background: {{w.hex}}"></button></sc-for>
+</div>
+<p style="margin: 28px 0 10px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c9d1">Bảng màu của bạn</p>
+<div style="display: flex; height: 140px; border: 2px solid rgba(242,241,236,0.5); background: #17171e">
+<sc-if value="{{noPicked}}" hint-placeholder-val="{{ true }}"><span style="flex: 1; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 22px; color: #8e8e98">Chưa chọn màu nào</span></sc-if>
+<sc-for list="{{picked}}" as="pc" hint-placeholder-count="0"><span style="flex: 1; display: flex; align-items: flex-end; padding: 12px; background: {{pc.hex}}; color: {{pc.ink}}; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700">{{pc.name}}</span></sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+<div class="panel" style="margin-top: 40px">
+<h2 style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -0.02em">Kể cho Tuấn Anh nghe</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px; margin-top: 28px">
+<div><label class="flab" for="f-name">Họ và tên</label><input id="f-name" class="inp" type="text" autocomplete="name" placeholder="Nguyễn Văn A"></div>
+<div><label class="flab" for="f-email">Email</label><input id="f-email" class="inp" type="email" autocomplete="email" placeholder="ban@email.com"></div>
+</div>
+<div style="margin-top: 20px"><label class="flab" for="f-idea">Ý tưởng của bạn</label><textarea id="f-idea" class="inp" placeholder="Dự án dùng vào việc gì? Ý tưởng điên nhất bạn đang nghĩ tới là gì?"></textarea></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px; margin-top: 20px">
+<div>
+<label class="flab" for="f-budget">Ngân sách dự kiến: {{budget}} triệu đồng</label>
+<input id="f-budget" class="range" type="range" min="5" max="100" step="5" value="{{budget}}" onChange="{{onBudget}}" style="accent-color: {{accent}}">
+</div>
+<div>
+<label class="flab" for="f-time">Thời gian mong muốn</label>
+<select id="f-time" class="inp"><option>Không gấp</option><option>Trong 1–2 tháng</option><option>Trên 3 tháng</option></select>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 24px; border-top: 2px solid rgba(242,241,236,0.25)">
+<button type="button" class="btn" onClick="{{back}}" disabled="{{atFirst}}" style="background: transparent; color: #f2f1ec"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Quay lại</button>
+<sc-if value="{{notLast}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn" onClick="{{next}}" style="background: {{accent}}; color: #0f0f14; border-color: {{accent}}">Tiếp tục<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></sc-if>
+<sc-if value="{{isLast}}" hint-placeholder-val="{{ false }}"><a class="btn" href="Thanks.dc.html" style="background: {{accent}}; color: #0f0f14; border-color: {{accent}}">Gửi yêu cầu<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></sc-if>
+</div>
+</div>
+
+<aside aria-label="Tóm tắt yêu cầu" style="flex: 1 1 320px; position: relative; overflow: hidden; padding: 32px; border: 2px solid #0f0f14; background: #f2f1ec; color: #0f0f14; box-shadow: 10px 10px 0 {{accent}}">
+<svg class="sum-star" viewBox="0 0 40 40" aria-hidden="true" style="color: {{ground}}"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
+<p style="position: relative; margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">Tóm tắt · bước {{step}}/4</p>
+<p style="position: relative; margin: 10px 0 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 34px; line-height: 1.05">Yêu cầu của bạn</p>
+<dl style="margin: 24px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); border-top: 2px solid #0f0f14">
+<dt style="padding: 14px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; text-transform: uppercase; color: #4a4a52">Mảng</dt>
+<dd style="margin: 0; padding: 14px 0; border-bottom: 1px solid #0f0f14; font-size: 17px; font-weight: 700">{{typeLabel}}</dd>
+<dt style="padding: 14px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; text-transform: uppercase; color: #4a4a52">Quy mô</dt>
+<dd style="margin: 0; padding: 14px 0; border-bottom: 1px solid #0f0f14; font-size: 17px; font-weight: 700">{{sizeLabel}}</dd>
+<dt style="padding: 14px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; text-transform: uppercase; color: #4a4a52">Tông màu</dt>
+<dd style="margin: 0; padding: 14px 0; border-bottom: 1px solid #0f0f14; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 15px"><sc-if value="{{noPicked}}" hint-placeholder-val="{{ true }}"><span style="color: #4a4a52">Chưa chọn</span></sc-if><sc-for list="{{picked}}" as="pc" hint-placeholder-count="0"><span title="{{pc.name}}" style="width: 26px; height: 26px; border-radius: 50%; border: 2px solid #0f0f14; background: {{pc.hex}}"></span></sc-for></dd>
+<dt style="padding: 14px 0; border-bottom: 1px solid #0f0f14; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; text-transform: uppercase; color: #4a4a52">Ngân sách</dt>
+<dd style="margin: 0; padding: 14px 0; border-bottom: 1px solid #0f0f14; font-size: 17px; font-weight: 700">{{budget}} triệu đồng</dd>
+</dl>
+<p style="position: relative; margin: 20px 0 0; font-size: 15px; line-height: 1.5; color: #2a2a31">Tuấn Anh sẽ trả lời trong 1–2 ngày làm việc, kèm vài bản phác nhỏ. Gấp thì nhắn Zalo 0375 492 993.</p>
+</aside>
+</div>
+</section>
+
+<section aria-labelledby="faq-title" style="background: #f2f1ec; color: #0f0f14">
+<div style="max-width: 1100px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px)">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">Câu hỏi thường gặp</p>
+<h2 id="faq-title" style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 104px); line-height: 0.9; letter-spacing: -0.035em">Trước khi bạn gửi</h2>
+<div style="margin-top: 48px; border-top: 2px solid #0f0f14">
+<h3 style="margin: 0"><button type="button" class="faq-btn" aria-expanded="{{fx0}}" aria-controls="faq-0" onClick="{{ft0}}"><span class="faq-q">Một dự án thường mất bao lâu?</span><span class="{{fi0}}" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{fo0}}" hint-placeholder-val="{{ false }}"><p id="faq-0" class="faq-a">Thường từ 2–4 tuần, tùy quy mô và mảng. Bạn sẽ thấy tiến độ ở mỗi chặng.</p></sc-if>
+<h3 style="margin: 0"><button type="button" class="faq-btn" aria-expanded="{{fx1}}" aria-controls="faq-1" onClick="{{ft1}}"><span class="faq-q">Tôi có được xem bản phác trước không?</span><span class="{{fi1}}" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{fo1}}" hint-placeholder-val="{{ false }}"><p id="faq-1" class="faq-a">Có. Sau buổi trao đổi, Tuấn Anh gửi vài bản phác để bạn chọn hướng trước khi làm chi tiết.</p></sc-if>
+<h3 style="margin: 0"><button type="button" class="faq-btn" aria-expanded="{{fx2}}" aria-controls="faq-2" onClick="{{ft2}}"><span class="faq-q">Đặt cọc như thế nào?</span><span class="{{fi2}}" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{fo2}}" hint-placeholder-val="{{ false }}"><p id="faq-2" class="faq-a">Đặt cọc 50% khi chốt hướng phác thảo và thanh toán 50% còn lại khi bàn giao đầy đủ file gốc.</p></sc-if>
+<h3 style="margin: 0"><button type="button" class="faq-btn" aria-expanded="{{fx3}}" aria-controls="faq-3" onClick="{{ft3}}"><span class="faq-q">Làm việc từ xa được không?</span><span class="{{fi3}}" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{fo3}}" hint-placeholder-val="{{ false }}"><p id="faq-3" class="faq-a">Được. Trao đổi qua Zalo, Facebook hoặc email; gặp trực tiếp nếu bạn ở Hà Nội.</p></sc-if>
+</div>
+</div>
+</section>
+
+<footer style="position: relative; overflow: hidden; background: {{ground}}; color: #ffffff">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
+<a class="foot-cta" href="Works.dc.html" style="max-width: 12ch; text-decoration: none; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.04em">Chưa chắc? Xem <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">tác phẩm</em> trước.</a>
+<nav aria-label="Sơ đồ trang" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="ulink" href="Main.dc.html">Trang chủ</a>
+<a class="ulink" href="Works.dc.html">Tác phẩm</a>
+<a class="ulink" href="About.dc.html">Giới thiệu</a>
+<a class="ulink" href="Journal.dc.html">Nhật ký</a>
+<a class="ulink" href="Commission.dc.html">Đặt dự án</a>
+</nav>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
+<a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const s = this.state || {};
+    const step = s.step ?? 1;
+    const type = s.type || 'poster';
+    const size = s.size || 'm';
+    const colors = s.colors || ['#2B2EF0', '#D8FF3C'];
+    const budget = s.budget ?? 30;
+    const faq = s.faq ?? -1;
+    const T = [
+      { id: 'poster', label: 'Poster', desc: 'Chữ lớn, ý tưởng to hơn', src: '/_blob/618c1af3907225f2605c3d89c62bd96c' },
+      { id: 'brand', label: 'Nhận diện', desc: 'Logo, bảng màu, ấn phẩm', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2' },
+      { id: 'illus', label: 'Minh họa', desc: 'Kể chuyện bằng hình', src: '/_blob/80535c369d55d41873b43749680ba93e' },
+      { id: '3d', label: '3D', desc: 'Vật thể không cần trọng lực', src: '/_blob/950d916a2103e84df23e30b44bf91101' },
+      { id: 'ui', label: 'Giao diện', desc: 'App, web, trải nghiệm', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2' },
+      { id: 'code', label: 'Tạo sinh', desc: 'Hình vẽ bằng code', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af' }
+    ];
+    const Z = [
+      { id: 's', label: 'Một ấn phẩm', n: 1 },
+      { id: 'm', label: 'Một bộ nhỏ', n: 4 },
+      { id: 'l', label: 'Cả hệ thống nhận diện', n: 8 },
+      { id: 'xl', label: 'Sản phẩm số nhiều màn hình', n: 12 }
+    ];
+    const SHEETC = ['#d8ff3c', '#2b2ef0', '#ff5a2c', '#ff8fb8', '#f2f1ec'];
+    const C = [
+      { hex: '#2B2EF0', name: 'Xanh cobalt' }, { hex: '#D8FF3C', name: 'Vàng chanh' }, { hex: '#FF5A2C', name: 'Cam son' },
+      { hex: '#FF8FB8', name: 'Hồng' }, { hex: '#E8B62A', name: 'Vàng nghệ' }, { hex: '#5A0E14', name: 'Đỏ sẫm' },
+      { hex: '#5B1FD1', name: 'Tím' }, { hex: '#0B5D3B', name: 'Xanh rêu' }, { hex: '#0F0F14', name: 'Mực' }, { hex: '#F2F1EC', name: 'Trắng giấy' }
+    ];
+    const lum = (hex) => {
+      const n = parseInt(hex.slice(1), 16);
+      const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+      return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+    };
+    const toggle = (hex) => () => {
+      let next;
+      if (colors.includes(hex)) next = colors.filter((x) => x !== hex);
+      else next = colors.length >= 3 ? colors.slice(1).concat(hex) : colors.concat(hex);
+      this.setState({ colors: next });
+    };
+    const z = Z.find((x) => x.id === size) || Z[1];
+    const t = T.find((x) => x.id === type) || T[1];
+    const L = ['Mảng', 'Quy mô', 'Tông màu', 'Thông tin'];
+    const v = {
+      ground: p.ground ?? '#2B2EF0',
+      accent: p.accent ?? '#D8FF3C',
+      siteCls: (p.motion ?? true) ? 'site anim' : 'site still',
+      step,
+      s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      progress: Math.round(((step - 1) / 3) * 100),
+      steps: L.map((label, i) => ({
+        n: i + 1,
+        label,
+        cls: step === i + 1 ? 'step is-on' : (i + 1 < step ? 'step is-done' : 'step'),
+        current: step === i + 1 ? 'step' : 'false',
+        go: () => this.setState({ step: i + 1 })
+      })),
+      types: T.map((x) => ({ ...x, cls: x.id === type ? 'choice is-on' : 'choice', pressed: String(x.id === type), pick: () => this.setState({ type: x.id }) })),
+      sizes: Z.map((x) => ({ ...x, cls: x.id === size ? 'chip is-on' : 'chip', pressed: String(x.id === size), pick: () => this.setState({ size: x.id }) })),
+      sheets: Array.from({ length: z.n }, (_, i) => {
+        const k = i - (z.n - 1) / 2;
+        return { x: Math.round(k * 26), y: Math.round(Math.abs(k) * 6), r: Math.round(k * 4), bg: SHEETC[i % SHEETC.length] };
+      }),
+      sheetCount: z.n,
+      swatches: C.map((x) => ({ ...x, cls: colors.includes(x.hex) ? 'swatch is-on' : 'swatch', pressed: String(colors.includes(x.hex)), pick: toggle(x.hex) })),
+      picked: colors.map((hex) => {
+        const c = C.find((x) => x.hex === hex) || { name: hex };
+        return { hex, name: c.name, ink: lum(hex) > 0.35 ? '#0f0f14' : '#ffffff' };
+      }),
+      noPicked: colors.length === 0,
+      typeLabel: t.label,
+      sizeLabel: z.label,
+      budget,
+      onBudget: (e) => this.setState({ budget: Number(e.target.value) }),
+      atFirst: step === 1,
+      isLast: step === 4,
+      notLast: step !== 4,
+      back: () => this.setState({ step: Math.max(1, step - 1) }),
+      next: () => this.setState({ step: Math.min(4, step + 1) })
+    };
+    [0, 1, 2, 3].forEach((i) => {
+      v['fo' + i] = faq === i;
+      v['fx' + i] = String(faq === i);
+      v['fi' + i] = faq === i ? 'faq-ic open' : 'faq-ic';
+      v['ft' + i] = () => this.setState({ faq: faq === i ? -1 : i });
+    });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

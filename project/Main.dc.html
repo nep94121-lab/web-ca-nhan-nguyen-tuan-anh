@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Nguyễn Tuấn Anh — Thiết kế nghệ thuật</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Space+Mono:wght@400;700&display=swap">
+<style>
+body{margin:0;background:#0f0f14}
+a{color:inherit}a:hover{color:inherit}
+sc-if,sc-for{display:contents}
+.site{-webkit-font-smoothing:antialiased}
+.site *{box-sizing:border-box}
+.site :focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hide-notes .hn{display:none!important}
+
+/* ---------- M1 margin pen ---------- */
+.note{display:inline-block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:420;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:clamp(19px,1.7vw,26px);line-height:1.1;letter-spacing:-.005em;rotate:-4deg}
+.ink{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;animation:inkDraw 1.2s .4s cubic-bezier(.65,0,.25,1) both}
+.ink.late{animation-delay:1.5s;animation-duration:.45s}
+.ink.thin{stroke-width:2}
+.ink.mid{stroke-width:4.5}
+.ink-h{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .8s cubic-bezier(.65,0,.25,1)}
+.ink-h.late{transition-delay:.55s;transition-duration:.35s}
+.ink-host:hover .ink-h,.ink-host:focus-visible .ink-h,.ink-host.is-on .ink-h,.card:focus-within .ink-h{stroke-dashoffset:0}
+
+/* ---------- M2 torn seams ---------- */
+.tear{position:relative;height:0;z-index:5;pointer-events:none}
+.tear>i{position:absolute;left:0;right:0;bottom:-1px;height:clamp(22px,2.6vw,38px)}
+.tear .fib{background:#ffffff;clip-path:polygon(0 100%, 0% 35%, 0.8% 48.9%, 2.2% 42.1%, 3.9% 20.6%, 4.9% 30%, 5.7% 27.5%, 7.2% 11.8%, 8.4% 32.5%, 9.3% 21.8%, 11.1% 28.7%, 11.7% 26.9%, 13.2% 19.4%, 14.5% 12.2%, 15.6% 19%, 16.9% 8.3%, 18.3% 8.6%, 19.7% 0%, 20.3% 20.7%, 21.8% 23.3%, 23.1% 9.1%, 23.9% 15.6%, 24.9% 8.6%, 26.9% 20%, 27.5% 11.1%, 28.7% 37.3%, 30.5% 15%, 31.4% 15.6%, 32.5% 38.6%, 34% 24.5%, 34.5% 26.5%, 36.3% 21.3%, 37.2% 30.5%, 38.2% 14.8%, 39.9% 20.4%, 41.4% 36.3%, 41.9% 13.3%, 43.5% 37.1%, 44.4% 31.7%, 46% 42%, 47.2% 39.1%, 47.9% 34.2%, 49.7% 42.8%, 50.7% 32.8%, 52% 31.3%, 53.3% 28.1%, 54.2% 40.2%, 55.7% 49.2%, 57% 29.6%, 57.5% 29.3%, 59.4% 47.1%, 60.1% 37.6%, 61.4% 35.2%, 62.3% 34.3%, 64% 43.3%, 64.9% 27.9%, 66.6% 28.4%, 67.3% 28.2%, 68.7% 30.8%, 69.8% 26.4%, 71.2% 32.6%, 72% 19.3%, 73.2% 35%, 74.9% 17.9%, 76.1% 13%, 77.2% 23.4%, 78.7% 23.7%, 79.3% 22.6%, 81% 29.2%, 81.6% 41.7%, 83.6% 11.9%, 84.4% 30.6%, 85.6% 36.2%, 87.2% 33.5%, 88.2% 41%, 89.4% 18.9%, 90% 18%, 91.4% 26.9%, 92.4% 14.7%, 93.7% 28.1%, 94.9% 10.3%, 96.7% 22.9%, 97.3% 29.6%, 98.6% 14.2%, 100% 0%, 100% 100%)}
+.tear .sht{clip-path:polygon(0 100%, 0% 48.9%, 0.8% 63.7%, 2.2% 56.3%, 3.9% 42.3%, 4.9% 49.5%, 5.7% 52%, 7.2% 33%, 8.4% 47.3%, 9.3% 37%, 11.1% 40.7%, 11.7% 40.8%, 13.2% 39.1%, 14.5% 33.9%, 15.6% 33.7%, 16.9% 23.9%, 18.3% 31.4%, 19.7% 22.1%, 20.3% 32%, 21.8% 34.5%, 23.1% 31.3%, 23.9% 33.5%, 24.9% 25.4%, 26.9% 40.1%, 27.5% 33.2%, 28.7% 48.5%, 30.5% 40.4%, 31.4% 40.9%, 32.5% 55.2%, 34% 42%, 34.5% 40.9%, 36.3% 40.7%, 37.2% 43.8%, 38.2% 33.4%, 39.9% 44.9%, 41.4% 54.4%, 41.9% 36.5%, 43.5% 50%, 44.4% 55.8%, 46% 53.9%, 47.2% 52.5%, 47.9% 55.8%, 49.7% 57.6%, 50.7% 44.7%, 52% 42.7%, 53.3% 50.8%, 54.2% 50.5%, 55.7% 60.1%, 57% 54.8%, 57.5% 51.8%, 59.4% 63.1%, 60.1% 50.7%, 61.4% 59.1%, 62.3% 56.9%, 64% 64%, 64.9% 46.4%, 66.6% 46.8%, 67.3% 53.9%, 68.7% 49.2%, 69.8% 37.7%, 71.2% 43.8%, 72% 38.8%, 73.2% 56.7%, 74.9% 38%, 76.1% 34.9%, 77.2% 38.1%, 78.7% 39.6%, 79.3% 36.8%, 81% 45.2%, 81.6% 56%, 83.6% 35.2%, 84.4% 42.9%, 85.6% 49.5%, 87.2% 54.9%, 88.2% 57.4%, 89.4% 34.4%, 90% 43.6%, 91.4% 51.2%, 92.4% 28.2%, 93.7% 40.5%, 94.9% 28.2%, 96.7% 42.1%, 97.3% 45.1%, 98.6% 33.6%, 100% 19.1%, 100% 100%)}
+.tear.flip>i{transform:scaleX(-1)}
+.torn{clip-path:polygon(0% 2.5%, 4.8% 1.3%, 9.5% 2.5%, 14.3% 0.2%, 19% 1.6%, 23.8% 1%, 28.6% 2.1%, 33.3% 0.5%, 38.1% 2.3%, 42.9% 1.4%, 47.6% 2.3%, 52.4% 1.2%, 57.1% 1.1%, 61.9% 2.1%, 66.7% 2.6%, 71.4% 1%, 76.2% 2.5%, 81% 2.4%, 85.7% 0.5%, 90.5% 1.6%, 95.2% 1.8%, 100% 2.5%, 99.5% 30%, 99.9% 70%, 100% 98.7%, 95.2% 98.7%, 90.5% 98.7%, 85.7% 97.5%, 81% 99.1%, 76.2% 99.4%, 71.4% 98.6%, 66.7% 98.3%, 61.9% 97.6%, 57.1% 98.5%, 52.4% 99.3%, 47.6% 97.6%, 42.9% 98.7%, 38.1% 98.2%, 33.3% 98.8%, 28.6% 99.4%, 23.8% 98.2%, 19% 98%, 14.3% 99.5%, 9.5% 98.8%, 4.8% 99.1%, 0% 99.6%, 0.2% 70%, 0.8% 30%)}
+.drop{filter:drop-shadow(8px 8px 0 #0f0f14)}
+
+/* ---------- M3 masking tape ---------- */
+.tape-strip{position:absolute;z-index:4;width:clamp(84px,9vw,132px);height:30px;background-color:rgba(236,233,220,.8);background-image:repeating-linear-gradient(90deg,rgba(15,15,20,.05) 0 1px,transparent 1px 6px);clip-path:polygon(98.8% 0%, 96% 10%, 99.2% 20%, 98.6% 30%, 99.9% 40%, 98.1% 50%, 99.4% 60%, 99.8% 70%, 99.9% 80%, 95% 90%, 99% 100%, 0.4% 100%, 2.2% 90%, 1.5% 80%, 4.5% 70%, 1.3% 60%, 2% 50%, 0.7% 40%, 3.4% 30%, 0.1% 20%, 2.8% 10%, 0.4% 0%);mix-blend-mode:multiply;pointer-events:none;rotate:-6deg;transition:translate .35s cubic-bezier(.3,1.6,.5,1),scale .35s cubic-bezier(.3,1.6,.5,1)}
+.tape-strip.lime{background-color:rgba(216,255,60,.75)}
+.tape-strip.pink{background-color:rgba(255,143,184,.75)}
+.tape-strip.dark{mix-blend-mode:normal;background-color:rgba(242,241,236,.86)}
+.tp-tl{left:-26px;top:4px;rotate:-38deg}
+.tp-tr{right:-26px;top:4px;rotate:38deg}
+.tp-top{left:50%;top:-15px;translate:-50% 0;rotate:-4deg}
+.tp-bl{left:-22px;bottom:6px;rotate:32deg}
+.tp-br{right:-22px;bottom:6px;rotate:-32deg}
+.peel:hover .tape-strip{scale:1.05 .88}
+
+/* ---------- M4 riso plates ---------- */
+.riso{position:relative;isolation:isolate}
+.riso::before,.riso::after{content:attr(data-riso);position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;pointer-events:none;transition:translate .5s cubic-bezier(.3,1.6,.5,1)}
+.riso::before{color:#FF8FB8;translate:var(--rx,-5px) var(--ry,3px);mix-blend-mode:multiply}
+.riso::after{color:#5257FF;translate:calc(var(--rx,-5px) * -.7) calc(var(--ry,3px) * -.7);mix-blend-mode:multiply}
+.riso.on-dark::before,.riso.on-dark::after{mix-blend-mode:screen}
+.riso.on-dark::after{color:#D8FF3C}
+
+/* ---------- M5 seal ---------- */
+.seal{display:inline-block;width:var(--seal,96px);aspect-ratio:1/1;rotate:-7deg;animation:stampIn .7s .9s cubic-bezier(.3,1.5,.5,1) both}
+.seal svg{display:block;width:100%;height:100%;overflow:visible}
+.seal-ink{fill:#FF5A2C}
+.seal-rim{fill:none;stroke:#F2F1EC;stroke-width:2}
+.seal-cut{fill:#F2F1EC;font-family:'Bricolage Grotesque','Arial Narrow',sans-serif;font-weight:800;font-stretch:75%;font-size:40px;text-anchor:middle}
+.seal-cut.sq{font-size:34px}
+.seal-arw{fill:none;stroke:#F2F1EC;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.seal.stamp-a{animation:stampA .55s cubic-bezier(.3,1.5,.5,1) both}
+.seal.stamp-b{animation:stampB .55s cubic-bezier(.3,1.5,.5,1) both}
+.press{position:relative;display:block;transition:scale .25s cubic-bezier(.3,1.6,.5,1)}
+.press .seal{display:block}
+.ghost{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;translate:var(--gx,8px) var(--gy,6px);transition:opacity .3s;pointer-events:none}
+.stamp-cta:hover .press,.stamp-cta:focus-visible .press{scale:.94}
+.stamp-cta:hover .ghost,.stamp-cta:focus-visible .ghost{opacity:var(--go,.35)}
+.spec{position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:2px;max-width:calc(100% - 18px);margin:-26px 0 0 18px;padding:10px 16px 12px 34px;background:#ffffff;color:#0f0f14;border:1.5px solid #0f0f14;box-shadow:4px 4px 0 #0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:12px;line-height:1.45;letter-spacing:.02em;rotate:-1.5deg}
+.spec.r{rotate:1.2deg}
+.spec::before{content:"";position:absolute;left:11px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;border:1.5px solid #0f0f14;background:#F2F1EC}
+.spec h3{margin:2px 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-variation-settings:"SOFT" 60,"WONK" 1;font-size:clamp(24px,2.2vw,32px);letter-spacing:0;line-height:1.1}
+
+/* ---------- M6 wet ink ---------- */
+.bp-wet{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;scale:1.05;opacity:0;transition:opacity .7s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.card:hover .bp-wet,.card:focus-within .bp-wet{opacity:1}
+.splat{display:block;fill:currentColor;overflow:visible}
+.splat-in{animation:splatIn .5s cubic-bezier(.3,1.6,.5,1) both}
+.spl-a{animation:splatA .5s cubic-bezier(.3,1.6,.5,1) both}
+.spl-b{animation:splatB .5s cubic-bezier(.3,1.6,.5,1) both}
+.grain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;opacity:.16}
+.grain.on-dark{mix-blend-mode:overlay;opacity:.38}
+
+/* ---------- nav ---------- */
+.navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.navlink:hover::after{transform:scaleX(1);transform-origin:left}
+.pill-cta{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pill-cta:hover{transform:rotate(-4deg) scale(1.05)}
+.pill-cta:hover .ico{transform:translateX(3px)}
+.pill-cta .ico{transition:transform .3s}
+.pulse{animation:pulse 1.8s ease-out infinite}
+.dot{border-radius:50%;transition:scale .4s cubic-bezier(.3,1.6,.5,1),border-radius .4s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover .dot,.logo:focus-visible .dot{scale:1.8;border-radius:45% 55% 60% 40%}
+
+/* ---------- hero: the first wall ---------- */
+.hero-wrap{position:relative;min-height:clamp(560px,50vw,700px)}
+.giant{position:relative;z-index:1}
+.giant .ch{display:inline-block;animation:rise 1.2s cubic-bezier(.2,.8,.2,1) both}
+.giant .c1{animation-delay:.05s}.giant .c2{animation-delay:.15s}.giant .c3{animation-delay:.25s}.giant .c4{animation-delay:.35s}
+.scribble{position:absolute;z-index:5;white-space:nowrap;rotate:-8deg;filter:drop-shadow(3px 3px 0 #0f0f14);animation:stampNote .9s 1.1s cubic-bezier(.3,1.6,.5,1) both;pointer-events:none}
+.scribble .ink{animation-delay:1.9s}
+.scribble .ink.late{animation-delay:2.9s}
+.hero-arrow{position:absolute;left:100%;top:-150%;width:clamp(140px,21vw,300px);height:auto;margin-left:4px;overflow:visible}
+.hero-foot{position:relative;z-index:4}
+.scroll-cue .ico{animation:bob 1.6s ease-in-out infinite}
+.collage{position:absolute;z-index:3;right:0;top:8px;width:min(46%,600px);height:clamp(440px,46vw,640px)}
+.hero-splat{position:absolute;z-index:0;top:8%;left:2%;width:74%;height:auto;rotate:-12deg;animation-delay:.3s}
+.piece{position:absolute;z-index:1;display:block;margin:0;text-decoration:none;transition:scale .35s cubic-bezier(.3,1.6,.5,1)}
+.piece img{display:block;width:100%;height:auto;filter:drop-shadow(10px 12px 0 #0f0f14)}
+.piece:hover,.piece:focus-visible{scale:1.04;z-index:2}
+.pA{top:0;right:2%;width:46%;rotate:5deg;animation:dropIn 1.1s .45s cubic-bezier(.2,.8,.2,1) both}
+.pB{top:40%;left:0;width:62%;rotate:-6deg;animation:dropIn 1.1s .65s cubic-bezier(.2,.8,.2,1) both}
+.pC{top:63%;right:0;width:40%;rotate:9deg;animation:dropIn 1.1s .85s cubic-bezier(.2,.8,.2,1) both}
+.star-cut{position:absolute;z-index:2;top:-3%;left:34%;width:46px;height:46px;overflow:visible;rotate:14deg;filter:drop-shadow(3px 3px 0 #0f0f14)}
+.star-cut path{fill:#FF5A2C;stroke:#ffffff;stroke-width:2;stroke-linejoin:round}
+.badge{position:absolute;z-index:6;left:-64px;bottom:2%;display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;color:#ffffff}
+.badge .seal{--seal:128px}
+.stampline{display:inline-block;padding:6px 10px;border:2px solid #0f0f14;color:#0f0f14;box-shadow:3px 3px 0 #0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;white-space:nowrap;rotate:-4deg}
+
+/* ---------- tapes ---------- */
+.tape{position:absolute;top:50%;padding:18px 0;overflow:hidden}
+.tape-a{z-index:2;left:3%;width:94%;transform:translateY(-50%) rotate(-3deg);background-image:repeating-linear-gradient(90deg,rgba(15,15,20,.06) 0 1px,transparent 1px 6px),linear-gradient(180deg,rgba(255,255,255,.18),transparent 40%,rgba(15,15,20,.06));clip-path:polygon(calc(100% - 3px) 0%, calc(100% - 11px) 7.1%, calc(100% - 11px) 14.3%, calc(100% - 7px) 21.4%, calc(100% - 14px) 28.6%, calc(100% - 5px) 35.7%, calc(100% - 14px) 42.9%, calc(100% - 17px) 50%, calc(100% - 3px) 57.1%, calc(100% - 17px) 64.3%, calc(100% - 17px) 71.4%, calc(100% - 5px) 78.6%, 100% 85.7%, 100% 92.9%, calc(100% - 9px) 100%, 11px 100%, 2px 92.9%, 3px 85.7%, 5px 78.6%, 5px 71.4%, 0px 64.3%, 11px 57.1%, 11px 50%, 14px 42.9%, 0px 35.7%, 9px 28.6%, 17px 21.4%, 14px 14.3%, 2px 7.1%, 9px 0%)}
+.tape-b{left:-5%;width:110%;transform:translateY(-50%) rotate(2.5deg);background:linear-gradient(180deg,#26262e 0,#0f0f14 28%,#0f0f14 72%,#050507 100%);color:#f2f1ec}
+.tape-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.tape-b .tape-track{animation-direction:reverse;animation-duration:46s}
+.tape:hover .tape-track{animation-play-state:paused}
+.tape-item{display:flex;align-items:center;gap:28px;padding-right:28px;line-height:1;white-space:nowrap}
+.tape-a .tape-item{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:clamp(30px,4.2vw,60px);letter-spacing:-.01em}
+.tape-sep{font-family:'Space Mono','Courier New',monospace;font-style:normal;font-size:.5em}
+.tape-b .tape-item{gap:40px;padding-right:40px;font-family:'Space Mono','Courier New',monospace;font-weight:700;font-size:clamp(22px,2.6vw,36px);letter-spacing:.14em;text-transform:uppercase;color:#f2f1ec;text-shadow:0 1px 0 rgba(255,255,255,.35),0 -1px 0 #000}
+.tape-star{width:.5em;height:.5em;flex-shrink:0}
+
+/* ---------- works ---------- */
+.tabs{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px;padding:0 8px}
+.tabs::after{content:"";position:absolute;z-index:2;left:0;right:0;bottom:-8px;height:8px;background:linear-gradient(#0f0f14 0 2px,#f2f1ec 2px);pointer-events:none}
+.tab{position:relative;z-index:1;min-height:48px;padding:0 20px;border:2px solid #0f0f14;border-bottom:0;border-radius:10px 10px 0 0;color:#0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;translate:0 6px;transition:translate .3s cubic-bezier(.3,1.6,.5,1)}
+.tab:hover{translate:0 2px}
+.tab.is-on,.tab.is-on:hover{translate:0 0;z-index:3}
+.tab-loop{position:absolute;inset:-18% -12%;width:124%;height:136%;overflow:visible;pointer-events:none;color:#2B2EF0}
+.tab-loop .ink-h{stroke-width:4}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:80px 24px;align-items:start}
+.g4{grid-column:span 4}.g5{grid-column:span 5}.g7{grid-column:span 7}.g8{grid-column:span 8}
+.gs3{grid-column:3/span 8}
+.lift{margin-top:96px}
+.card{position:relative}
+.frame{display:block;position:relative;overflow:hidden;background:#0f0f14}
+.art{display:block;width:100%;height:auto;object-fit:cover}
+.plates{position:absolute;inset:0;background:#f2f1ec;isolation:isolate;opacity:0;transition:opacity .4s;pointer-events:none}
+.plate{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:translate .5s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .plates,.card:focus-within .plates{opacity:1}
+.card:hover .pl-pink,.card:focus-within .pl-pink{translate:-1% .6%}
+.card:hover .pl-blue,.card:focus-within .pl-blue{translate:1% -.6%}
+.codegrid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(216,255,60,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(216,255,60,.25) 1px,transparent 1px);background-size:calc(100% / 12) calc(100% / 12);opacity:0;transition:opacity .4s}
+.seedtag{position:absolute;left:14px;bottom:14px;padding:6px 10px;background:#0f0f14;color:#D8FF3C;font-family:'Space Mono','Courier New',monospace;font-size:12px;letter-spacing:.04em;translate:0 calc(100% + 24px);transition:translate .45s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .codegrid,.card:focus-within .codegrid{opacity:1}
+.card:hover .seedtag,.card:focus-within .seedtag{translate:0 0}
+.hnote{position:absolute;z-index:4;left:clamp(8px,4%,40px);top:-50px;display:flex;align-items:flex-end;gap:0;color:#2B2EF0;pointer-events:none}
+.hnote .note{opacity:0;transition:opacity .3s .15s}
+.card:hover .hnote .note,.card:focus-within .hnote .note{opacity:1}
+.harrow{width:64px;height:auto;overflow:visible;rotate:70deg;margin:0 0 -26px -4px}
+.harrow .ink-h{stroke-width:5}
+
+/* ---------- manifesto ---------- */
+.pillw{position:relative;display:inline-block;vertical-align:-.06em;line-height:0}
+.pill{display:block;height:.78em;width:1.9em;object-fit:cover;clip-path:polygon(0% 4.2%, 8.3% 2%, 16.7% 8.5%, 25% 0.9%, 33.3% 7%, 41.7% 4.8%, 50% 0.8%, 58.3% 6.6%, 66.7% 0.5%, 75% 5.6%, 83.3% 0.9%, 91.7% 1.2%, 100% 5.5%, 95.9% 25%, 99.4% 50%, 98.9% 75%, 100% 91.8%, 91.7% 87.7%, 83.3% 92.5%, 75% 94.8%, 66.7% 87.3%, 58.3% 99.4%, 50% 88.8%, 41.7% 96.2%, 33.3% 98.1%, 25% 98.5%, 16.7% 96%, 8.3% 89.4%, 0% 97.7%, 2.9% 75%, 3.2% 50%, 1.9% 25%);animation:pillpan 9s ease-in-out infinite alternate}
+.tape-strip.ptape{width:34px;height:12px;left:50%;top:-5px;margin-left:-17px;rotate:-5deg}
+.strike{position:relative;display:inline-block}
+.loopw{position:relative;display:inline-block;white-space:nowrap;font-style:italic}
+.pframe{width:100%;max-width:520px}
+.pstage{position:relative}
+.psheet{position:relative;aspect-ratio:4/5;background-color:#f2f1ec;background-image:radial-gradient(rgba(15,15,20,0.22) 1.6px,transparent 1.6px);background-size:18px 18px;isolation:isolate}
+.portrait{position:absolute;left:0;bottom:0;width:100%;height:auto}
+.psplat{position:absolute;z-index:1;width:34%;height:auto;translate:-50% -50%;mix-blend-mode:multiply}
+.pnote{position:absolute;z-index:5;left:6%;top:5%;margin:0;color:#0f0f14;rotate:-6deg}
+.parrow{position:absolute;z-index:5;left:24%;top:14%;width:17%;height:auto;overflow:visible;rotate:70deg;color:#0f0f14}
+.parrow .ink{stroke-width:4.5}
+.pctl{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:32px}
+.dabdot{display:inline-block;width:14px;height:14px;flex-shrink:0;border-radius:46% 54% 60% 40%/50% 42% 58% 50%;background:#FF5A2C}
+
+/* ---------- studio: sketchbook pages ---------- */
+.step{position:relative;transition:scale .35s cubic-bezier(.2,.8,.2,1)}
+.step:hover{scale:1.02}
+.page{background:#fbfbf8;padding:30px 22px 34px}
+.pg-area{position:relative;height:280px;overflow:hidden;border:2px solid #0f0f14}
+.pg-title{margin:0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:44px;line-height:1;letter-spacing:-.01em}
+.tool{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:2px solid #0f0f14;background:#fbfbf8;color:#0f0f14;box-shadow:3px 3px 0 #0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:translate .15s,box-shadow .15s}
+.tool:hover{translate:-1px -1px;box-shadow:4px 4px 0 #0f0f14}
+.tool:active{translate:2px 2px;box-shadow:1px 1px 0 #0f0f14}
+.sk{fill:none;stroke:#3a3a42;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.run-a .sk{animation:skA 2.2s .4s cubic-bezier(.45,0,.25,1) both}
+.run-b .sk{animation:skB 2.2s cubic-bezier(.45,0,.25,1) both}
+.mixsp{position:absolute;left:50%;top:50%;width:200px;height:auto;mix-blend-mode:multiply}
+.mx-a{translate:-68% -62%;rotate:-18deg}
+.mx-b{translate:-32% -62%;rotate:36deg}
+.readout{position:absolute;z-index:2;left:10px;top:10px;margin:0;display:flex;align-items:center;gap:8px;padding:5px 8px;background:#fbfbf8;border:1.5px solid #0f0f14;color:#0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:11px;letter-spacing:.02em;white-space:nowrap}
+.swatch{display:inline-block;width:16px;height:16px;flex-shrink:0;border:1.5px solid #0f0f14}
+.dabs{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:10px}
+.dab{width:48px;height:48px;padding:0;border:2px solid #0f0f14;border-radius:46% 54% 60% 40%/50% 42% 58% 50%;cursor:pointer;transition:scale .3s cubic-bezier(.3,1.6,.5,1),rotate .3s cubic-bezier(.3,1.6,.5,1)}
+.dab:hover{scale:1.1;rotate:-10deg}
+.dab[aria-pressed="true"]{box-shadow:0 0 0 3px #fbfbf8,0 0 0 5px #0f0f14}
+.canvas{position:relative;height:176px;aspect-ratio:4/5}
+.canvas img{display:block;width:100%;height:100%;object-fit:cover;border:2px solid #0f0f14;box-shadow:6px 6px 0 #0f0f14}
+.cseal{position:absolute;right:-26px;bottom:-20px;--seal:76px}
+
+.more{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.more:hover{transform:rotate(-3deg) scale(1.04)}
+.more .ico{transition:transform .3s}
+.more:hover .ico{transform:translateX(4px)}
+.more.mini{min-height:44px;padding:0 18px;font-size:12px;background:transparent;cursor:pointer}
+
+/* ---------- contact ---------- */
+.ulink{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none}
+.ulink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:currentColor;transform:scaleX(.25);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ulink:hover::after{transform:scaleX(1)}
+.big{--gx:10px;--gy:8px;--go:.3}
+.big .seal{--seal:220px}
+.wordmark{font-weight:800;font-stretch:75%;font-size:34vw;line-height:.74;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55);text-align:center;margin-bottom:-.1em;white-space:nowrap;user-select:none}
+
+/* ---------- keyframes ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(55%) rotate(10deg)}to{opacity:1;transform:none}}
+@keyframes stampNote{from{opacity:0;rotate:-34deg;scale:.4}to{opacity:1;rotate:-8deg;scale:1}}
+@keyframes dropIn{from{opacity:0;translate:0 80px}to{opacity:1;translate:0 0}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}100%{box-shadow:0 0 0 14px transparent}}
+@keyframes pillpan{from{object-position:0% 50%}to{object-position:100% 50%}}
+@keyframes inkDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes skA{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes skB{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes stampIn{0%{opacity:0;scale:1.7;rotate:-18deg}55%{opacity:1;scale:.92;rotate:-5deg}100%{opacity:1;scale:1;rotate:-7deg}}
+@keyframes stampA{0%{opacity:0;scale:1.7;rotate:-18deg}55%{opacity:1;scale:.92;rotate:-5deg}100%{opacity:1;scale:1;rotate:-7deg}}
+@keyframes stampB{0%{opacity:0;scale:1.7;rotate:-18deg}55%{opacity:1;scale:.92;rotate:-5deg}100%{opacity:1;scale:1;rotate:-7deg}}
+@keyframes splatIn{0%{opacity:0;scale:.2}60%{opacity:1;scale:1.08}100%{opacity:1;scale:1}}
+@keyframes splatA{0%{opacity:0;scale:.2}60%{opacity:1;scale:1.08}100%{opacity:1;scale:1}}
+@keyframes splatB{0%{opacity:0;scale:.2}60%{opacity:1;scale:1.08}100%{opacity:1;scale:1}}
+
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+.hero-wrap{min-height:0}
+.hero-arrow{display:none}
+.collage{position:relative;top:auto;right:auto;width:100%;height:min(110vw,560px);margin-top:40px}
+.badge{left:0;bottom:-40px}
+.badge .seal{--seal:96px}
+.g4,.g5{grid-column:span 6}
+.g7,.g8,.gs3{grid-column:span 12}
+.lift{margin-top:0}
+}
+@media (max-width:600px){
+.g4,.g5{grid-column:span 12}
+.gallery{gap:72px 16px}
+.card .tp-tr{right:-8px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;padding:0}
+.tabs::after{display:none}
+.tab,.tab:hover,.tab.is-on,.tab.is-on:hover{translate:0 0}
+.tab{border-bottom:2px solid #0f0f14;border-radius:10px 10px 4px 4px;padding:0 12px}
+.tab.is-on{box-shadow:4px 4px 0 #0f0f14}
+}
+</style>
+</helmet>
+<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow: hidden">
+<svg class="fx" width="0" height="0" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden"><defs>
+<filter id="mnBleed" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="11" result="t"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+<filter id="mnGrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+<filter id="mnWear" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="4" result="n"></feTurbulence><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.85" result="holes"></feColorMatrix><feComposite in="SourceGraphic" in2="holes" operator="in" result="worn"></feComposite><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" seed="9" result="w"></feTurbulence><feDisplacementMap in="worn" in2="w" scale="3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+<filter id="mnRisoBlue" x="0" y="0" width="100%" height="100%" style="color-interpolation-filters: sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.17  0 0 0 0 0.18  0 0 0 0 0.94  -1.2 0 0 0 1.15"></feColorMatrix></filter>
+<filter id="mnRisoPink" x="0" y="0" width="100%" height="100%" style="color-interpolation-filters: sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.37  0 0 0 0 0.64  0 -1.2 0 0 1.15"></feColorMatrix></filter>
+<g id="mnSplatG"><path d="M147.9 100.4 Q146.4 100.1 140.9 111.1 Q135.4 122.2 149.2 132 Q163 141.7 151.9 135.4 Q140.7 129.1 137.8 129.4 Q134.9 129.8 126.1 134.8 Q117.3 139.9 120.3 148.8 Q123.3 157.6 120.2 152.2 Q117.1 146.8 115.8 144.6 Q114.6 142.3 116 148.7 Q117.5 155.1 115.5 151.7 Q113.4 148.2 112.8 147.6 Q112.2 147 110 145.1 Q107.8 143.2 109.7 159.3 Q111.6 175.4 108.8 162.9 Q106 150.4 101.5 147.4 Q97.1 144.5 95.3 158.3 Q93.5 172.1 93.2 164.4 Q92.9 156.8 84.2 147.6 Q75.4 138.5 67.8 148.7 Q60.2 159 65.1 150.2 Q69.9 141.4 63.4 132 Q56.9 122.5 52.5 124 Q48.1 125.5 51.6 122.8 Q55.1 120.1 58.7 117.5 Q62.3 114.9 60.8 115.3 Q59.3 115.7 61.7 111 Q64.1 106.3 49.3 108.1 Q34.5 109.9 40.4 108 Q46.3 106.2 54.9 88.8 Q63.6 71.5 68.3 71.2 Q72.9 70.9 64.2 60.3 Q55.5 49.7 61.6 55.3 Q67.8 60.9 71 61.2 Q74.2 61.5 76.1 60 Q77.9 58.5 80.5 62.4 Q83.1 66.3 74.6 49.3 Q66.1 32.4 73 44.2 Q79.8 56 83.5 58.8 Q87.3 61.7 88 58.9 Q88.7 56.1 98.6 56.4 Q108.6 56.7 118.7 59.5 Q128.8 62.4 139.5 50 Q150.2 37.6 142.2 49 Q134.2 60.4 136.2 74.5 Q138.3 88.6 142.6 88 Q146.9 87.4 146.2 91 Q145.5 94.5 154.5 94.2 Q163.6 93.9 159.6 95.3 Q155.7 96.6 152.6 97.2 Q149.6 97.7 162.3 98.1 Q175 98.5 162.2 99.6 Q149.3 100.7 147.9 100.4 Z"></path><circle cx="98.9" cy="21.2" r="2.5"></circle><circle cx="138" cy="175.6" r="4.8"></circle><circle cx="69.8" cy="27.4" r="5.6"></circle><circle cx="36" cy="163.5" r="2"></circle><circle cx="27.7" cy="54.8" r="2.3"></circle><circle cx="108" cy="13.9" r="7.7"></circle><circle cx="131.1" cy="174.5" r="7.2"></circle></g>
+</defs></svg>
+
+<header style="background: {{ground}}; color: #ffffff; position: relative; overflow: hidden">
+<sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
+<svg class="grain on-dark" aria-hidden="true" style="z-index: 0"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
+</sc-if>
+<nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+<a class="logo" href="#top" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="dot pulse" aria-hidden="true" style="width: 12px; height: 12px; display: inline-block; background: {{accent}}; color: {{accent}}"></span>tuấn anh</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="navlink" href="Works.dc.html">Tác phẩm</a>
+<a class="navlink" href="About.dc.html">Giới thiệu</a>
+<a class="navlink" href="Journal.dc.html">Nhật ký</a>
+<a class="pill-cta" href="Commission.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; text-decoration: none; background: {{accent}}; color: #0f0f14">Đặt dự án<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</nav>
+
+<section id="top" style="position: relative; z-index: 2; max-width: 1440px; margin: 0 auto; padding: 8px clamp(16px, 4vw, 56px) 88px">
+<div class="hero-wrap" onPointerMove="{{heroMove}}" onPointerLeave="{{heroLeave}}">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85)">Thiết kế nghệ thuật — Poster · Minh họa · Nhận diện · 3D · Giao diện</p>
+<div style="position: relative; margin-top: 20px">
+<h1 class="giant" aria-label="Nguyễn Tuấn Anh" style="margin: 0; padding-top: 0.16em; font-weight: 800; font-stretch: 75%; font-size: clamp(104px, 21vw, 300px); line-height: 0.82; letter-spacing: -0.045em; color: #ffffff"><span class="riso on-dark" data-riso="TUẤN" aria-hidden="true" style="--rx: {{rx}}px; --ry: {{ry}}px; display: flex; width: max-content"><span class="ch c1">T</span><span class="ch c2">U</span><span class="ch c3">Ấ</span><span class="ch c4">N</span></span><span class="riso on-dark" data-riso="ANH" aria-hidden="true" style="--rx: {{rx}}px; --ry: {{ry}}px; display: flex; width: max-content; margin-left: 0.62em"><span class="ch" style="animation-delay: 0.45s">A</span><span class="ch" style="animation-delay: 0.55s">N</span><span class="ch" style="animation-delay: 0.65s">H</span></span></h1>
+<p class="note scribble" aria-hidden="true" style="left: 34%; top: 60%; margin: 0; font-size: clamp(38px, 6vw, 92px); line-height: 1; color: {{accent}}">điên <span style="position: relative; display: inline-block">vừa đủ<svg class="hn" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -6%; bottom: -0.22em; width: 112%; height: 0.36em; overflow: visible"><path class="ink mid" pathLength="1" d="M4 15 C 40 7, 72 21, 112 13 S 184 5, 222 14 S 282 21, 296 10"></path><path class="ink mid late" pathLength="1" d="M26 22 C 90 17, 170 24, 270 18"></path></svg></span><svg class="hn hero-arrow" viewBox="0 0 140 90" aria-hidden="true"><path class="ink" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></p>
+</div>
+<div class="hero-foot" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 40px; margin-top: 44px; max-width: 640px">
+<p style="margin: 0; max-width: 30ch; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 2vw, 26px); line-height: 1.35; text-wrap: pretty">Tôi làm những thứ hay bị gọi là điên — poster nghiêng ngả, ứng dụng cố tình chỉ sai đường, đá chồng ngược trọng lực.</p>
+<a class="scroll-cue" href="#tac-pham" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Cuộn xuống<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
+</div>
+
+<div class="collage">
+<svg class="splat splat-in hero-splat" viewBox="0 0 200 200" aria-hidden="true" style="color: {{accent}}"><use href="#mnSplatG"></use></svg>
+<a class="piece pA peel" href="WorkDetail.dc.html" aria-label="Xem Điên vừa đủ"><img src="/_blob/ba35d4e2d42f76a23e2811874855e02d" width="640" height="800" alt="Điên vừa đủ — poster chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-top" aria-hidden="true"></span></a>
+<a class="piece pB peel" href="WorkDetail.dc.html" aria-label="Xem Đêm phố"><img src="/_blob/a423d9596a472000b5c35702848b8e4b" width="820" height="547" alt="Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-tl" aria-hidden="true"></span><span class="tape-strip dark tp-br" aria-hidden="true"></span></a>
+<a class="piece pC peel" href="WorkDetail.dc.html" aria-label="Xem Gác Xép"><img src="/_blob/e360ecb345186299a175c9ecb988d921" width="600" height="600" alt="Gác Xép — bảng nhận diện với logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-top" aria-hidden="true"></span></a>
+<svg class="star-cut" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
+<a class="badge stamp-cta" href="#tac-pham" aria-label="Xem tác phẩm"><span class="press"><span class="seal" aria-hidden="true"><svg viewBox="0 0 100 100"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="94" height="94" rx="7"></rect><rect class="seal-rim" x="10" y="10" width="80" height="80" rx="3"></rect><text class="seal-cut" x="50" y="46" textLength="70" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">TUẤN</text><text class="seal-cut" x="50" y="84" textLength="56" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">ANH</text></g></svg></span><span class="ghost" aria-hidden="true"><span class="seal"><svg viewBox="0 0 100 100"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="94" height="94" rx="7"></rect><rect class="seal-rim" x="10" y="10" width="80" height="80" rx="3"></rect><text class="seal-cut" x="50" y="46" textLength="70" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">TUẤN</text><text class="seal-cut" x="50" y="84" textLength="56" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">ANH</text></g></svg></span></span></span><span class="stampline" aria-hidden="true" style="background: {{accent}}">ĐANG NHẬN DỰ ÁN</span></a>
+</div>
+</div>
+</section>
+</header>
+
+<div class="tear flip" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #f2f1ec"></i></div>
+<div aria-hidden="true" style="position: relative; height: 240px; overflow: hidden; background: #f2f1ec">
+<div class="tape tape-b">
+<div class="tape-track">
+<sc-for list="{{tapeB}}" as="t" hint-placeholder-count="12"><span class="tape-item"><span>{{t}}</span><svg class="tape-star" viewBox="0 0 40 40"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg></span></sc-for>
+</div>
+</div>
+<div class="tape tape-a" style="background-color: {{accent}}; color: #0f0f14">
+<div class="tape-track">
+<sc-for list="{{tapeA}}" as="t" hint-placeholder-count="10"><span class="tape-item"><span>{{t}}</span><span class="tape-sep">✶</span></span></sc-for>
+</div>
+</div>
+</div>
+
+<section id="tac-pham" style="position: relative; background: #f2f1ec; color: #0f0f14">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 140px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 80px">
+<div>
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">(01) — Tác phẩm chọn lọc</p>
+<h2 style="margin: 12px 0 0; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-stretch: 75%; font-size: clamp(64px, 11vw, 168px); line-height: 0.85; letter-spacing: -0.04em">Tác phẩm<span style="margin-top: 0.12em; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-stretch: 100%; font-size: 0.28em; line-height: 1; letter-spacing: 0">({{count}})</span></h2>
+</div>
+<div class="tabs" role="group" aria-label="Lọc theo lĩnh vực">
+<button type="button" class="{{chipAll}}" aria-pressed="{{pressAll}}" onClick="{{pickAll}}" style="background: #ffffff">Tất cả<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
+<button type="button" class="{{chipPaint}}" aria-pressed="{{pressPaint}}" onClick="{{pickPaint}}" style="background: #FF5A2C">Đồ họa in<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
+<button type="button" class="{{chipCollage}}" aria-pressed="{{pressCollage}}" onClick="{{pickCollage}}" style="background: {{accent}}">Minh họa &amp; 3D<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
+<button type="button" class="{{chipDigital}}" aria-pressed="{{pressDigital}}" onClick="{{pickDigital}}" style="background: #7D86FF">Số &amp; tương tác<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
+</div>
+</div>
+
+<div class="gallery">
+<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}">
+<article class="card g5 ink-host">
+<div class="hnote hn" aria-hidden="true"><span class="note">thước đo đúng 87%</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Điên vừa đủ — chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%"><img class="bp-wet" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt="" aria-hidden="true" style="filter: url(#mnBleed)"></a>
+<div class="spec"><span>MẪU Nº 02 · 2026</span><h3>Điên vừa đủ</h3><span>Poster · khổ 60 × 75 cm</span></div>
+</article>
+<article class="card g7 lift ink-host peel">
+<span class="tape-strip tp-tr" aria-hidden="true"></span>
+<div class="hnote hn" aria-hidden="true"><span class="note">leo năm tầng mới tới</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" width="1400" height="1400" style="aspect-ratio: 1 / 1" alt="Gác Xép — bảng nhận diện: logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp"><span class="plates" aria-hidden="true"><img class="plate pl-pink" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" alt="" style="filter: url(#mnRisoPink)"><img class="plate pl-blue" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" alt="" style="filter: url(#mnRisoBlue)"></span></a>
+<div class="spec r"><span>MẪU Nº 04 · 2025</span><h3>Gác Xép</h3><span>Nhận diện thương hiệu · logo, màu, ấn phẩm</span></div>
+</article>
+</sc-if>
+<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}">
+<article class="card g4 ink-host">
+<div class="hnote hn" aria-hidden="true"><span class="note">dậy từ 4 giờ để xem</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/80535c369d55d41873b43749680ba93e" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Long Biên, 5 giờ sáng — cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông"><span class="plates" aria-hidden="true"><img class="plate pl-pink" src="/_blob/80535c369d55d41873b43749680ba93e" alt="" style="filter: url(#mnRisoPink)"><img class="plate pl-blue" src="/_blob/80535c369d55d41873b43749680ba93e" alt="" style="filter: url(#mnRisoBlue)"></span></a>
+<div class="spec"><span>MẪU Nº 03 · 2025</span><h3>Long Biên, 5 giờ sáng</h3><span>Minh họa số · tỉ lệ 4:5</span></div>
+</article>
+<article class="card g4 lift ink-host peel">
+<span class="tape-strip tp-tr" aria-hidden="true"></span>
+<div class="hnote hn" aria-hidden="true"><span class="note">ngoài đời là đổ</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">trọng lực = 0</span></a>
+<div class="spec r"><span>MẪU Nº 05 · 2026</span><h3>Cân bằng giả</h3><span>3D · ảnh render · tỉ lệ 4:5</span></div>
+</article>
+</sc-if>
+<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}">
+<article class="card g4 ink-host">
+<div class="hnote hn" aria-hidden="true"><span class="note">mỗi sợi là một chiếc xe</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/5c7bd031a4aa5734c27fc7388907c0af" width="1800" height="1200" style="aspect-ratio: 3 / 2" alt="Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">seed 0417 · chạy lại</span></a>
+<div class="spec"><span>MẪU Nº 06 · 2026</span><h3>Đêm phố</h3><span>Nghệ thuật tạo sinh · viết bằng code</span></div>
+</article>
+<article class="card g8 gs3 ink-host">
+<div class="hnote hn" aria-hidden="true"><span class="note">chỉ sai đường, cố ý</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
+<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/e6dda941d38e6e2b7ebe29d21f804cf2" width="1800" height="1200" style="aspect-ratio: 3 / 2" alt="Đi lạc — ba màn hình ứng dụng bản đồ: màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">bản thử · 47 phút lạc</span></a>
+<div class="spec r"><span>MẪU Nº 01 · 2026</span><h3>Đi lạc</h3><span>Giao diện / UX · ứng dụng di động, 3 màn hình</span></div>
+</article>
+</sc-if>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 96px"><a class="more" href="Works.dc.html">Xem toàn bộ bộ sưu tập<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
+<svg class="grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
+</sc-if>
+</section>
+
+<div class="tear" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #0f0f14"></i></div>
+<section id="tuyen-ngon" style="background: #0f0f14; color: #f2f1ec; position: relative; overflow: hidden">
+<div style="max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px)">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad">(02) — Tuyên ngôn</p>
+<p style="margin: 32px 0 0; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(34px, 5.4vw, 84px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: pretty">Tôi làm <span class="pillw" style="rotate: -4deg"><img class="pill" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span> những thứ <span class="strike hn" aria-hidden="true"><span style="opacity: 0.55">an toàn</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; top: 38%; width: 108%; height: 0.4em; overflow: visible; color: #FF5A2C"><path class="ink" pathLength="1" d="M2 12 C 50 8, 96 15, 150 10 S 250 7, 298 12"></path><path class="ink late" pathLength="1" d="M10 15 C 90 13, 190 9, 292 6"></path></svg></span> <span class="loopw" style="color: {{accent}}">bị gọi là điên<svg class="hn" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: -18% -6%; width: 112%; height: 136%; overflow: visible; pointer-events: none"><path class="ink" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></span> — tấm bản đồ chỉ sai đường, chồng đá không chịu đổ <span class="pillw" style="rotate: 3deg"><img class="pill" src="/_blob/950d916a2103e84df23e30b44bf91101" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>, và những ý tưởng <em>chưa ai dám làm</em> <span class="pillw" style="rotate: -2deg"><img class="pill" src="/_blob/80535c369d55d41873b43749680ba93e" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 64px 80px; align-items: end; margin-top: 120px">
+<div class="pframe">
+<div class="pstage">
+<span class="tape-strip dark tp-tl" aria-hidden="true"></span>
+<span class="tape-strip dark tp-tr" aria-hidden="true"></span>
+<div style="filter: drop-shadow(14px 14px 0 {{ground}})">
+<div class="torn psheet">
+<img class="portrait" src="/_blob/8b3ccd25421622e7159367cc161d69b8" width="1200" height="1500" alt="Ảnh chân dung Nguyễn Tuấn Anh đã tách nền: tóc buộc sau gáy, kính gọng mảnh, sơ mi trắng, nhìn nghiêng, dán lên tờ giấy kẻ chấm">
+<sc-for list="{{splats}}" as="s" hint-placeholder-count="1"><svg class="{{s.cls}}" viewBox="0 0 200 200" aria-hidden="true" style="left: {{s.x}}%; top: {{s.y}}%; rotate: {{s.rot}}deg; color: {{s.color}}"><use href="#mnSplatG"></use></svg></sc-for>
+</div>
+</div>
+<p class="note hn pnote" aria-hidden="true">đây là tôi —<br>trước khi dính màu</p>
+<svg class="hn parrow" viewBox="0 0 140 90" aria-hidden="true"><path class="ink" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg>
+</div>
+<div class="pctl">
+<button type="button" class="more mini" onClick="{{throwPaint}}" style="color: #f2f1ec"><span class="dabdot" aria-hidden="true"></span>Vẩy màu</button>
+<sc-if value="{{hasSplats}}" hint-placeholder-val="{{ true }}"><button type="button" class="more mini" onClick="{{wipe}}" style="color: #f2f1ec">Lau sạch</button></sc-if>
+<a class="more mini" href="PortraitLab.dc.html" style="color: {{accent}}">Xem 7 lần làm lại chân dung<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+<div>
+<p style="margin: 0; max-width: 34em; font-size: clamp(19px, 1.6vw, 23px); line-height: 1.55; text-wrap: pretty">Nguyễn Tuấn Anh làm thiết kế nghệ thuật — poster, minh họa, nhận diện thương hiệu, 3D, giao diện và cả code. Một người tự do, ngẫu hứng, với những ý tưởng thường bị coi là của thằng điên. Phần lớn trong số đó, làm ra rồi thì ai cũng thích.</p>
+<p style="margin: 20px 0 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 14px; line-height: 1.6; color: #a3a3ad">Học ở Đại học Bách khoa Hà Nội · sống và làm việc tự do ở Hà Nội.</p>
+<dl style="margin: 40px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); border-top: 1px solid rgba(242,241,236,0.3)">
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Lĩnh vực</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Poster, minh họa, nhận diện, 3D, giao diện, code</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Nơi làm việc</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Hà Nội · nhận làm từ xa</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Nhận dự án</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Đang nhận — nhắn Zalo hoặc email</dd>
+</dl>
+<a class="more" href="About.dc.html" style="margin-top: 40px; color: #f2f1ec">Đọc câu chuyện đầy đủ<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="tear flip" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #f2f1ec"></i></div>
+<section id="studio" style="position: relative; background: #f2f1ec; color: #0f0f14">
+<div style="max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px)">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
+<div>
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">(03) — Trên bàn làm việc</p>
+<h2 style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.035em">Một thiết kế<br>ra đời thế nào</h2>
+</div>
+<p style="margin: 0; max-width: 26ch; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4">Ba bước, lặp lại cho đến khi sản phẩm tự nói “xong rồi”.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 56px 36px; align-items: start; margin-top: 88px">
+<article class="step peel" style="rotate: -1.5deg">
+<span class="tape-strip pink tp-top" aria-hidden="true"></span>
+<div class="drop">
+<div class="torn page">
+<div class="pg-area" style="background: {{accent}}">
+<svg class="{{sketchCls}}" viewBox="0 0 380 280" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Một nét chì xoắn ốc chạy liền một mạch từ trái sang phải"><path class="sk" pathLength="1" d="M25.6 140.0 L26.9 147.4 L28.8 154.8 L31.3 161.9 L34.3 168.6 L37.9 174.6 L41.8 179.9 L46.2 184.2 L50.8 187.5 L55.6 189.7 L60.5 190.6 L65.4 190.4 L70.1 188.9 L74.6 186.3 L78.8 182.5 L82.6 177.8 L85.8 172.3 L88.5 166.1 L90.5 159.4 L91.9 152.4 L92.7 145.4 L92.7 138.6 L92.1 132.2 L90.9 126.4 L89.2 121.4 L87.0 117.4 L84.4 114.5 L81.6 112.9 L78.6 112.6 L75.5 113.7 L72.6 116.2 L69.9 120.0 L67.4 125.1 L65.5 131.4 L64.0 138.6 L63.2 146.7 L63.0 155.4 L63.6 164.4 L64.9 173.6 L66.9 182.7 L69.7 191.3 L73.2 199.4 L77.4 206.5 L82.1 212.6 L87.2 217.4 L92.7 220.9 L98.5 222.8 L104.4 223.1 L110.2 221.7 L115.8 218.8 L121.2 214.4 L126.2 208.6 L130.6 201.5 L134.4 193.3 L137.4 184.3 L139.7 174.6 L141.2 164.7 L141.9 154.7 L141.7 144.9 L140.8 135.7 L139.1 127.2 L136.8 119.8 L133.9 113.6 L130.5 108.9 L126.8 105.7 L123.0 104.2 L119.1 104.4 L115.3 106.3 L111.8 109.8 L108.7 115.0 L106.0 121.5 L104.0 129.2 L102.8 138.0 L102.3 147.4 L102.7 157.4 L104.0 167.4 L106.1 177.3 L109.2 186.8 L113.0 195.5 L117.6 203.1 L122.8 209.5 L128.6 214.4 L134.8 217.6 L141.2 219.0 L147.8 218.6 L154.4 216.3 L160.7 212.1 L166.7 206.2 L172.2 198.7 L177.1 189.7 L181.3 179.5 L184.7 168.4 L187.2 156.6 L188.8 144.5 L189.5 132.4 L189.2 120.5 L188.1 109.4 L186.1 99.1 L183.4 90.0 L180.0 82.4 L176.2 76.5 L172.0 72.3 L167.6 70.0 L163.2 69.7 L158.9 71.4 L154.9 74.9 L151.3 80.2 L148.2 87.0 L145.9 95.3 L144.4 104.6 L143.7 114.8 L143.9 125.5 L145.2 136.4 L147.3 147.1 L150.4 157.3 L154.4 166.8 L159.2 175.1 L164.7 182.1 L170.8 187.5 L177.3 191.1 L184.1 192.8 L191.0 192.6 L197.8 190.4 L204.5 186.2 L210.8 180.2 L216.6 172.6 L221.8 163.4 L226.2 153.0 L229.7 141.7 L232.3 129.7 L234.0 117.3 L234.7 105.1 L234.4 93.1 L233.3 81.9 L231.2 71.7 L228.5 62.7 L225.0 55.3 L221.1 49.6 L216.8 45.8 L212.3 43.9 L207.8 44.1 L203.3 46.3 L199.2 50.4 L195.5 56.4 L192.4 63.9 L190.0 72.9 L188.3 83.0 L187.6 93.9 L187.8 105.4 L189.0 117.0 L191.1 128.5 L194.1 139.6 L198.0 149.8 L202.7 159.0 L208.1 166.8 L214.1 173.1 L220.5 177.6 L227.2 180.3 L234.0 181.1 L240.7 179.9 L247.3 176.9 L253.5 172.1 L259.2 165.7 L264.3 157.8 L268.6 148.8 L272.1 138.9 L274.8 128.3 L276.5 117.5 L277.3 106.7 L277.1 96.3 L276.1 86.5 L274.3 77.7 L271.7 70.1 L268.6 63.9 L265.0 59.4 L261.0 56.6 L256.8 55.7 L252.6 56.7 L248.5 59.6 L244.7 64.2 L241.3 70.5 L238.4 78.3 L236.2 87.4 L234.7 97.5 L234.1 108.3 L234.3 119.7 L235.4 131.1 L237.4 142.4 L240.2 153.3 L243.8 163.4 L248.2 172.5 L253.2 180.4 L258.7 186.8 L264.6 191.7 L270.7 194.9 L277.0 196.4 L283.2 196.1 L289.3 194.2 L295.0 190.6 L300.2 185.6 L304.9 179.4 L309.0 172.1 L312.3 163.9 L314.8 155.3 L316.5 146.3 L317.4 137.4 L317.5 128.8 L316.8 120.7 L315.4 113.5 L313.3 107.2 L310.7 102.2 L307.7 98.6 L304.5 96.5 L301.0 95.9 L297.5 96.9 L294.1 99.5 L291.0 103.6 L288.2 109.0 L285.9 115.6 L284.1 123.3 L283.0 131.8 L282.5 140.8 L282.8 150.3 L283.9 159.8 L285.7 169.1 L288.2 178.0 L291.5 186.3 L295.3 193.7 L299.6 200.1 L304.4 205.2 L309.5 209.1 L314.8 211.6 L320.2 212.6 L325.6 212.2 L330.8 210.4 L335.7 207.3 L340.3 203.1 L344.4 197.8 L348.0 191.7 L351.0 184.9 L353.3 177.6 L354.9 170.2 L355.9 162.7 L356.2 155.5 L355.9 148.7 L355.0 142.6 L353.7 137.2 L351.8 132.7 L349.7 129.4 L347.3 127.1 L344.8 126.0 L342.3 126.1 L339.8 127.4 L337.6 129.8 L335.6 133.1 L334.0 137.4 L332.8 142.4 L332.2 148.1 L332.1 154.1 L332.5 160.3 L333.6 166.6"></path></svg>
+<p class="note hn" aria-hidden="true" style="position: absolute; right: 14px; bottom: 16px; margin: 0; color: #0f0f14">chưa cần đúng</p>
+<button type="button" class="tool" onClick="{{redraw}}" style="position: absolute; left: 12px; bottom: 12px">Vẽ lại</button>
+</div>
+<div style="padding: 24px 4px 4px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: #4a4a52">01</span>
+<h3 class="pg-title">Phác thảo</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2a2a31">Bắt đầu bằng những nét chì thật nhanh. Chưa cần đúng — chỉ cần còn sống.</p>
+</div>
+</div>
+</div>
+</article>
+
+<article class="step peel" style="rotate: 1deg">
+<span class="tape-strip tp-top" aria-hidden="true"></span>
+<div class="drop">
+<div class="torn page">
+<div class="pg-area" style="background: #fbfbf8; isolation: isolate">
+<svg class="splat mixsp mx-a" viewBox="0 0 200 200" aria-hidden="true" style="color: {{mixAHex}}"><use href="#mnSplatG"></use></svg>
+<svg class="{{mixCls}}" viewBox="0 0 200 200" aria-hidden="true" style="color: {{mixBHex}}"><use href="#mnSplatG"></use></svg>
+<p class="readout" aria-live="polite"><span class="swatch" aria-hidden="true" style="background: {{mixHex}}"></span>{{mixAHex}} × {{mixBHex}} = {{mixHex}}</p>
+<div class="dabs" role="group" aria-label="Bảng màu: chọn hai màu để pha">
+<sc-for list="{{dabs}}" as="d" hint-placeholder-count="4"><button type="button" class="dab" aria-label="{{d.label}}" aria-pressed="{{d.pressed}}" onClick="{{d.onPick}}" style="background: {{d.hex}}"></button></sc-for>
+</div>
+</div>
+<div style="padding: 24px 4px 4px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: #4a4a52">02</span>
+<h3 class="pg-title">Pha màu</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2a2a31">Mỗi dự án có một bảng màu riêng: ba đến năm sắc, thử trên giấy nháp trước khi chạm vào file chính.</p>
+</div>
+</div>
+</div>
+</article>
+
+<article class="step peel" style="rotate: -0.5deg">
+<span class="tape-strip lime tp-top" aria-hidden="true"></span>
+<div class="drop">
+<div class="torn page">
+<div class="pg-area" style="background: {{ground}}; display: flex; justify-content: center; align-items: flex-start; padding-top: 26px">
+<div class="canvas">
+<img src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" alt="Điên vừa đủ — poster chữ ĐIÊN vàng chanh trên nền xanh cobalt">
+<sc-if value="{{stamped}}" hint-placeholder-val="{{ true }}"><span class="{{stampCls}}" aria-hidden="true"><svg viewBox="0 0 100 100"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="94" height="94" rx="7"></rect><rect class="seal-rim" x="10" y="10" width="80" height="80" rx="3"></rect><text class="seal-cut" x="50" y="46" textLength="70" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">TUẤN</text><text class="seal-cut" x="50" y="84" textLength="56" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">ANH</text></g></svg></span></sc-if>
+</div>
+<sc-if value="{{stamped}}" hint-placeholder-val="{{ true }}"><p class="note hn" aria-hidden="true" style="position: absolute; right: 14px; bottom: 18px; margin: 0; color: #ffffff">xong rồi.</p></sc-if>
+<button type="button" class="tool" onClick="{{toggleStamp}}" style="position: absolute; left: 12px; bottom: 12px">{{stampLabel}}</button>
+</div>
+<div style="padding: 24px 4px 4px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: #4a4a52">03</span>
+<h3 class="pg-title">Hoàn thiện</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2a2a31">Căn lại từng pixel, đóng dấu, rồi để file nghỉ một đêm trước khi gửi khách.</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 80px"><a class="more" href="Journal.dc.html">Đọc nhật ký làm việc<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
+<svg class="grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
+</sc-if>
+</section>
+
+<div class="tear" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: {{ground}}"></i></div>
+<section id="lien-he" style="background: {{ground}}; color: #ffffff; position: relative; overflow: hidden">
+<sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
+<svg class="grain on-dark" aria-hidden="true"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
+</sc-if>
+<div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px) 0">
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85)">(04) — Liên hệ</p>
+<h2 style="margin: 24px 0 0; max-width: 11ch; font-weight: 800; font-stretch: 75%; font-size: clamp(56px, 9.5vw, 150px); line-height: 0.9; letter-spacing: -0.04em">Cùng làm một điều <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">rực rỡ</em>?</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 48px; margin-top: 64px">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 560px">
+<p style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 2vw, 26px); line-height: 1.4">Một dự án, một ý tưởng điên điên, hay chỉ muốn nói xin chào — nhắn Zalo hoặc gửi thư đều được.</p>
+<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: clamp(14px, 1.5vw, 17px); font-weight: 700; overflow-wrap: anywhere"><a href="mailto:nguyentuananh512005@gmail.com" style="position: relative; display: inline-block; text-decoration: none">nguyentuananh512005@gmail.com<svg class="hn" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -2%; bottom: -0.75em; width: 104%; height: 0.9em; overflow: visible; color: {{accent}}"><path class="ink mid" pathLength="1" d="M4 15 C 40 7, 72 21, 112 13 S 184 5, 222 14 S 282 21, 296 10"></path><path class="ink mid late" pathLength="1" d="M26 22 C 90 17, 170 24, 270 18"></path></svg></a></p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="ulink" href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" rel="noopener">Facebook<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
+<a class="ulink" href="https://zalo.me/0375492993" target="_blank" rel="noopener">Zalo · 0375 492 993<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
+<a class="ulink" href="tel:0375492993">Gọi điện<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
+</div>
+</div>
+<a class="stamp-cta big" href="Commission.dc.html" aria-label="Đặt dự án với Tuấn Anh" style="position: relative; flex-shrink: 0; display: block; width: 220px; margin-right: 12px; text-decoration: none; color: #ffffff"><span class="press"><span class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="114" height="114" rx="8"></rect><rect class="seal-rim" x="11" y="11" width="98" height="98" rx="4"></rect><text class="seal-cut sq" x="60" y="47">VIẾT</text><text class="seal-cut sq" x="60" y="76">CHO</text><text class="seal-cut sq" x="52" y="105">TÔI</text><path class="seal-arw" d="M88 103 L102 89 M92 89 L102 89 L102 99"></path></g></svg></span><span class="ghost" aria-hidden="true"><span class="seal"><svg viewBox="0 0 120 120"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="114" height="114" rx="8"></rect><rect class="seal-rim" x="11" y="11" width="98" height="98" rx="4"></rect><text class="seal-cut sq" x="60" y="47">VIẾT</text><text class="seal-cut sq" x="60" y="76">CHO</text><text class="seal-cut sq" x="52" y="105">TÔI</text><path class="seal-arw" d="M88 103 L102 89 M92 89 L102 89 L102 99"></path></g></svg></span></span></span></a>
+</div>
+<footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 96px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
+<a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+</footer>
+</div>
+<div class="wordmark" aria-hidden="true" style="filter: url(#mnBleed); font-size: 19vw; padding-top: 0.12em">TUẤN ANH</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"grain":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"notes":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":9000}}'>
+class Component extends DCLogic {
+  live() {
+    if ((this.props.motion ?? true) === false) return false;
+    try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
+  }
+  componentWillUnmount() { this._mt = 0; }
+  renderVals() {
+    const p = this.props;
+    const s = this.state || {};
+    const f = s.filter || 'all';
+    const counts = { all: 6, paint: 2, collage: 2, digital: 2 };
+    const chip = (k) => 'tab tab-' + k + ' ink-host' + (f === k ? ' is-on' : '');
+    const pick = (k) => () => this.setState({ filter: k });
+    const tapeA = ['điên vừa đủ', 'chỉ sai đường cho vui', 'trọng lực nghỉ phép', 'code chạy lại lần nữa', 'Long Biên lúc 5 giờ sáng'];
+    const tapeB = ['Nº 01 ĐI LẠC', 'Nº 02 ĐIÊN VỪA ĐỦ', 'Nº 03 LONG BIÊN, 5 GIỜ SÁNG', 'Nº 04 GÁC XÉP', 'Nº 05 CÂN BẰNG GIẢ', 'Nº 06 ĐÊM PHỐ'];
+
+    // hero: the pointer pulls the two riso plates of the name apart
+    const RX0 = -6, RY0 = 4;
+    const rx = typeof s.rx === 'number' ? s.rx : RX0;
+    const ry = typeof s.ry === 'number' ? s.ry : RY0;
+    const heroMove = (e) => {
+      if (!this.live() || !e || typeof e.clientX !== 'number') return;
+      const now = Date.now();
+      if (now - (this._mt || 0) < 33) return;
+      this._mt = now;
+      const el = e.currentTarget;
+      if (!el || !el.getBoundingClientRect) return;
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const mx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+      const my = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+      const nx = Math.round(mx * 14);
+      const ny = Math.round(my * 9);
+      const st = this.state || {};
+      if (st.rx === nx && st.ry === ny) return;
+      this.setState({ rx: nx, ry: ny });
+    };
+    const heroLeave = () => {
+      const st = this.state || {};
+      if ((st.rx === undefined || st.rx === RX0) && (st.ry === undefined || st.ry === RY0)) return;
+      this.setState({ rx: RX0, ry: RY0 });
+    };
+
+    // manifesto: paint flicked onto the taped-up portrait, 5 preset spots
+    const SPOTS = [
+      { x: 76, y: 82, rot: 18 },
+      { x: 16, y: 52, rot: -34 },
+      { x: 33, y: 88, rot: 64 },
+      { x: 84, y: 30, rot: 150 },
+      { x: 56, y: 66, rot: -72 }
+    ];
+    const PAL = ['#FF5A2C', '#D8FF3C', '#2B2EF0', '#FF8FB8', '#FF5A2C'];
+    const spl = typeof s.spl === 'number' ? s.spl : 1;
+    const splats = [];
+    for (let i = 0; i < 5 && i < spl; i++) {
+      const j = i + 5 * Math.floor((spl - 1 - i) / 5);
+      const round = Math.floor(j / 5);
+      const sp = SPOTS[i];
+      splats.push({
+        cls: 'splat psplat ' + (round % 2 ? 'spl-b' : 'spl-a'),
+        x: sp.x,
+        y: sp.y,
+        rot: sp.rot + round * 41,
+        color: PAL[(i + 2 * round) % 5]
+      });
+    }
+    const throwPaint = () => {
+      const st = this.state || {};
+      const n = typeof st.spl === 'number' ? st.spl : 1;
+      this.setState({ spl: n + 1 });
+    };
+    const wipe = () => this.setState({ spl: 0 });
+
+    // studio page 1: redraw the sketch (alternating classes restart the CSS draw)
+    const sk = s.sk || 0;
+    const redraw = () => this.setState({ sk: ((this.state && this.state.sk) || 0) + 1 });
+
+    // studio page 2: mix two paints for real (per-channel multiply)
+    const DAB = [
+      { k: 'blue', hex: '#5257FF', label: 'Thêm màu xanh' },
+      { k: 'coral', hex: '#FF5A2C', label: 'Thêm màu cam' },
+      { k: 'lime', hex: '#D8FF3C', label: 'Thêm màu chanh' },
+      { k: 'pink', hex: '#FF8FB8', label: 'Thêm màu hồng' }
+    ];
+    const hexOf = (k) => {
+      for (let i = 0; i < DAB.length; i++) if (DAB[i].k === k) return DAB[i].hex;
+      return '#FFFFFF';
+    };
+    const mul = (a, b) => {
+      const x = parseInt(a.slice(1), 16);
+      const y = parseInt(b.slice(1), 16);
+      let out = '#';
+      [16, 8, 0].forEach((sh) => {
+        const v = Math.round((((x >> sh) & 255) * ((y >> sh) & 255)) / 255);
+        out += (v < 16 ? '0' : '') + v.toString(16);
+      });
+      return out.toUpperCase();
+    };
+    const mix = Array.isArray(s.mix) ? s.mix : ['blue', 'coral'];
+    const mixN = s.mixN || 0;
+    const mixAHex = hexOf(mix[0]);
+    const mixBHex = hexOf(mix[1]);
+    const dabs = DAB.map((d) => ({
+      label: d.label,
+      hex: d.hex,
+      pressed: String(mix[0] === d.k || mix[1] === d.k),
+      onPick: () => {
+        const st = this.state || {};
+        const m = Array.isArray(st.mix) ? st.mix : ['blue', 'coral'];
+        if (m[1] === d.k) return;
+        this.setState({ mix: [m[1], d.k], mixN: (st.mixN || 0) + 1 });
+      }
+    }));
+
+    // studio page 3: stamp the finished canvas with the seal
+    const stamped = s.stamped ?? true;
+    const stampN = s.stampN || 0;
+    const toggleStamp = () => {
+      const st = this.state || {};
+      const cur = st.stamped ?? true;
+      this.setState({ stamped: !cur, stampN: (st.stampN || 0) + 1 });
+    };
+
+    return {
+      ground: p.ground ?? '#2B2EF0',
+      accent: p.accent ?? '#D8FF3C',
+      siteCls: ((p.motion ?? true) ? 'site anim' : 'site still') + ((p.notes ?? true) ? '' : ' hide-notes'),
+      grain: p.grain ?? true,
+      rx: rx,
+      ry: ry,
+      heroMove: heroMove,
+      heroLeave: heroLeave,
+      showPaint: f === 'all' || f === 'paint',
+      showCollage: f === 'all' || f === 'collage',
+      showDigital: f === 'all' || f === 'digital',
+      count: String(counts[f]).padStart(2, '0'),
+      chipAll: chip('all'),
+      chipPaint: chip('paint'),
+      chipCollage: chip('collage'),
+      chipDigital: chip('digital'),
+      pressAll: String(f === 'all'),
+      pressPaint: String(f === 'paint'),
+      pressCollage: String(f === 'collage'),
+      pressDigital: String(f === 'digital'),
+      pickAll: pick('all'),
+      pickPaint: pick('paint'),
+      pickCollage: pick('collage'),
+      pickDigital: pick('digital'),
+      tapeA: tapeA.concat(tapeA),
+      tapeB: tapeB.concat(tapeB),
+      splats: splats,
+      hasSplats: spl > 0,
+      throwPaint: throwPaint,
+      wipe: wipe,
+      sketchCls: sk % 2 ? 'sk-svg run-b' : 'sk-svg run-a',
+      redraw: redraw,
+      mixAHex: mixAHex,
+      mixBHex: mixBHex,
+      mixHex: mul(mixAHex, mixBHex),
+      mixCls: 'splat mixsp mx-b ' + (mixN % 2 ? 'spl-b' : 'spl-a'),
+      dabs: dabs,
+      stamped: stamped,
+      stampCls: 'seal cseal' + (stampN === 0 ? '' : (stampN % 2 ? ' stamp-a' : ' stamp-b')),
+      stampLabel: stamped ? 'Gỡ dấu' : 'Đóng dấu',
+      toggleStamp: toggleStamp
+    };
+  }
+}
+</script>
+</body>
+</html>
