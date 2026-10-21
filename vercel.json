@@ -4,6 +4,8 @@
     { "source": "/", "destination": "/project/Main.dc.html" },
     { "source": "/index.html", "destination": "/project/Main.dc.html" },
     { "source": "/canvas", "destination": "/project/canvas.html" },
+    { "source": "/og-image.png", "destination": "/assets/og-image.png" },
+    { "source": "/og-image.jpg", "destination": "/assets/og-image.jpg" },
     { "source": "/_blob/2dfe8bf3b1450e792096c28c7430a508", "destination": "/assets/chan-dung-anh-goc.jpg" },
     { "source": "/_blob/8b3ccd25421622e7159367cc161d69b8", "destination": "/assets/chan-dung-tach-nen.webp" },
     { "source": "/_blob/618c1af3907225f2605c3d89c62bd96c", "destination": "/assets/tp02-poster-dien-vua-du.webp" },
@@ -20,6 +22,6 @@
     { "source": "/_blob/e2a2c579e9bc86263bfa1a879609cd4d", "destination": "/assets/chandung-muc-loang.webp" },
     { "source": "/_blob/687277fe3aa253132c17187592f0686c", "destination": "/assets/chandung-riso-xanh.webp" },
     { "source": "/_blob/768e50fd17905c1ce8a967a20115cd3d", "destination": "/assets/chandung-riso-hong.webp" },
-    { "source": "/:file(Main\\.dc\\.html|Works\\.dc\\.html|WorkDetail\\.dc\\.html|About\\.dc\\.html|PortraitLab\\.dc\\.html|Journal\\.dc\\.html|JournalPost\\.dc\\.html|Commission\\.dc\\.html|Thanks\\.dc\\.html|Sitemap\\.dc\\.html|support\\.js|canvas\\.json|favicon\\.png|favicon\\.ico|favicon-512\\.png|apple-touch-icon\\.png)", "destination": "/project/:file" }
+    { "source": "/:file(Main\\.dc\\.html|Works\\.dc\\.html|WorkDetail\\.dc\\.html|About\\.dc\\.html|PortraitLab\\.dc\\.html|Journal\\.dc\\.html|JournalPost\\.dc\\.html|Commission\\.dc\\.html|Thanks\\.dc\\.html|Sitemap\\.dc\\.html|support\\.js|canvas\\.json|favicon\\.png|favicon\\.ico|favicon-512\\.png|apple-touch-icon\\.png|og-image\\.png|og-image\\.jpg)", "destination": "/project/:file" }
   ]
 }
