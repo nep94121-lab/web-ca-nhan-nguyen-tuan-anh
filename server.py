@@ -137,6 +137,10 @@ class DCHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         if raw_path == "/canvas":
+            canvas_file = os.path.join(PROJECT_DIR, "canvas.html")
+            if os.path.isfile(canvas_file):
+                self.send_file_bytes(canvas_file, "text/html; charset=utf-8")
+                return
             data = CANVAS_HTML.encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
