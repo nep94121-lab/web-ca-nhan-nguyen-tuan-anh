@@ -29,62 +29,221 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Mono:wght@400;700&display=swap">
 <style>
-html,body{margin:0;min-height:100vh;background-color:#f2f1ec;background-image:radial-gradient(#cfcdc4 1.2px,transparent 1.2px);background-size:24px 24px}
+body{margin:0;background:#F2F1EC}
 a{color:inherit}a:hover{color:inherit}
-.node{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s cubic-bezier(.2,.8,.2,1)}
-.node:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 #0f0f14}
-.node:focus-visible{outline:3px solid #2b2ef0;outline-offset:4px}
+sc-if,sc-for{display:contents}
+.sm{position:relative;width:1600px;height:1000px;overflow:hidden;box-sizing:border-box;color:#0F0F14;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;-webkit-font-smoothing:antialiased;background-color:#F2F1EC;background-image:radial-gradient(rgba(15,15,20,.12) 1.2px,transparent 1.2px);background-size:24px 24px}
+.sm *{box-sizing:border-box}
+.sm :focus-visible{outline:3px solid #2B2EF0;outline-offset:5px}
+.sm-full{position:absolute;left:0;top:0;width:1600px;height:1000px;overflow:visible;pointer-events:none}
+.sm-crease{position:absolute;pointer-events:none}
+.sm-crease.v{top:0;bottom:0;width:10px;background:linear-gradient(90deg,rgba(15,15,20,0),rgba(15,15,20,.07) 45%,rgba(255,255,255,.75) 55%,rgba(255,255,255,0))}
+.sm-crease.h{left:0;right:0;height:10px;background:linear-gradient(rgba(15,15,20,0),rgba(15,15,20,.06) 45%,rgba(255,255,255,.7) 55%,rgba(255,255,255,0))}
+.sm-mono{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.sm-it{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400}
+.sm-ink{fill:none;stroke:#0F0F14;stroke-linecap:round;stroke-linejoin:round}
+
+.stn{position:absolute;display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:#0F0F14}
+.stn-no{display:block;height:16px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;line-height:16px;letter-spacing:.06em;color:#3a3a42}
+.stn-name{display:block;height:30px;margin-bottom:2px;font-weight:800;font-stretch:75%;font-size:30px;line-height:30px;letter-spacing:-.02em;white-space:nowrap;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:3px;text-underline-offset:5px;transition:text-decoration-color .2s}
+.stn-dot{display:block;flex:none;width:28px;height:28px;border-radius:50%;background:#FFFFFF;border:5px solid #0F0F14;transition:scale .3s cubic-bezier(.3,1.6,.5,1)}
+.stn-dot.end{background:radial-gradient(circle,#FFFFFF 0 4px,#0F0F14 5px)}
+.stn-desc{display:block;margin-top:4px;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:15px;line-height:20px;color:#3a3a42}
+.stn:hover .stn-dot,.stn:focus-visible .stn-dot{scale:1.3}
+.stn:hover .stn-name,.stn:focus-visible .stn-name{text-decoration-color:#FF5A2C}
+
+.hub{position:absolute;display:block;text-decoration:none;color:#0F0F14}
+.hub-mark{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#FFFFFF;border:5px solid #0F0F14;border-radius:28px;box-shadow:6px 6px 0 #0F0F14;transition:translate .3s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.hub-mark b{font-family:'Space Mono',ui-monospace,monospace;font-size:13px;line-height:1}
+.hub:hover .hub-mark,.hub:focus-visible .hub-mark{translate:-3px -3px;box-shadow:9px 9px 0 #0F0F14}
+.hub:hover .stn-name,.hub:focus-visible .stn-name{text-decoration-color:#FF5A2C}
+
+.bullet{position:absolute;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:3px solid #0F0F14;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:13px;pointer-events:none}
+
+.train{position:absolute;left:0;top:0;width:30px;height:12px;border-radius:6px;background:linear-gradient(90deg,#0F0F14 0 18%,#D8FF3C 18% 34%,#0F0F14 34% 50%,#D8FF3C 50% 66%,#0F0F14 66%);box-shadow:0 0 0 2.5px #F2F1EC;offset-rotate:auto;offset-distance:0%;opacity:0;pointer-events:none;animation:smRun 9s linear infinite}
+@keyframes smRun{0%{offset-distance:2%;opacity:0}6%{opacity:1}90%{opacity:1}100%{offset-distance:98%;opacity:0}}
+
+.tk{position:absolute;display:grid;grid-template-columns:62px minmax(0,1fr);background:#FBFBF8;border:2px solid #0F0F14;box-shadow:8px 8px 0 #0F0F14}
+.tk-stub{position:relative;border-right:2px dashed #0F0F14;background:#FF5A2C}
+.tk-stub span{position:absolute;left:50%;top:50%;white-space:nowrap;translate:-50% -50%;rotate:-90deg;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.tk-tape{position:absolute;z-index:2;top:-14px;left:46%;width:112px;height:28px;background-color:rgba(216,255,60,.85);background-image:repeating-linear-gradient(90deg,rgba(15,15,20,.06) 0 1px,transparent 1px 6px);rotate:-4deg}
+.tk-lines{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}
+.tk-lines li{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;line-height:1.1}
+.tk-lines i{display:block;flex:none;width:34px;height:13px;border:3px solid #0F0F14;border-radius:2px}
+.tk-sym{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;padding-top:10px;border-top:1.5px solid #0F0F14;font-size:14px}
+.tk-sym span{display:flex;align-items:center;gap:7px}
+.tk-walk{display:flex;gap:10px;align-items:flex-start;margin-top:10px;font-size:14px;line-height:1.35}
+
+.rl-tick{position:absolute;top:-6px;width:2px;height:12px;background:#0F0F14}
+.rl-tick.big{top:-10px;height:20px;width:3px}
+.rl-lab{position:absolute;top:18px;width:160px;margin-left:-80px;text-align:center}
+.rl-lab b{display:block;font-weight:800;font-stretch:75%;font-size:22px;line-height:1}
+.rl-lab span{display:block;margin-top:3px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#3a3a42}
+@media (prefers-reduced-motion:reduce){.train{display:none}.stn-dot,.hub-mark{transition:none}}
 </style>
 </helmet>
-<div style="position: relative; width: 1600px; height: 1000px; margin: 0 auto; overflow: hidden; background-color: #f2f1ec; background-image: radial-gradient(#cfcdc4 1.2px, transparent 1.2px); background-size: 24px 24px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14">
-<svg width="8" height="48" viewBox="0 0 8 48" preserveAspectRatio="none" style="position: absolute; left: 796px; top: 312px; width: 8px; height: 48px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 48"></path></svg>
-<svg width="1020" height="8" viewBox="0 0 1020 8" preserveAspectRatio="none" style="position: absolute; left: 290px; top: 356px; width: 1020px; height: 8px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 1020 4"></path></svg>
-<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 286px; top: 360px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-1" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 59" marker-end="url(#dc-arrow-head-filled-1)"></path></svg>
-<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 626px; top: 360px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-2" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 59" marker-end="url(#dc-arrow-head-filled-2)"></path></svg>
-<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 966px; top: 360px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-3" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 59" marker-end="url(#dc-arrow-head-filled-3)"></path></svg>
-<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 1306px; top: 360px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-4" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 59" marker-end="url(#dc-arrow-head-filled-4)"></path></svg>
-<svg width="8" height="127" viewBox="0 0 8 127" preserveAspectRatio="none" style="position: absolute; left: 286px; top: 560px; width: 8px; height: 127px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-5" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 123" marker-end="url(#dc-arrow-head-filled-5)"></path></svg>
-<svg width="8" height="127" viewBox="0 0 8 127" preserveAspectRatio="none" style="position: absolute; left: 626px; top: 560px; width: 8px; height: 127px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-6" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 123" marker-end="url(#dc-arrow-head-filled-6)"></path></svg>
-<svg width="8" height="127" viewBox="0 0 8 127" preserveAspectRatio="none" style="position: absolute; left: 966px; top: 560px; width: 8px; height: 127px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-7" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 123" marker-end="url(#dc-arrow-head-filled-7)"></path></svg>
-<svg width="8" height="127" viewBox="0 0 8 127" preserveAspectRatio="none" style="position: absolute; left: 1306px; top: 560px; width: 8px; height: 127px; overflow: visible; fill: none; stroke: #0f0f14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-8" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#0f0f14" stroke="none" style="stroke: none; fill: #0f0f14; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 123" marker-end="url(#dc-arrow-head-filled-8)"></path></svg>
+<div class="{{rootCls}}">
 
-<a class="node" href="Main.dc.html" style="position: absolute; left: 640px; top: 200px; width: 320px; height: 112px; box-sizing: border-box; padding: 14px 20px; display: flex; align-items: center; text-decoration: none; background: #d8ff3c; color: #0f0f14; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">00 · /</span><br><b style="font-size: 24px; font-weight: 800; font-stretch: 75%">Trang chủ</b><br><span style="font-size: 14px; line-height: 20px">Tên in lệch màu · mẩu tác phẩm xé · sổ tay · con dấu liên hệ</span></span></a>
+<div class="sm-crease v" aria-hidden="true" style="left: 528px"></div>
+<div class="sm-crease v" aria-hidden="true" style="left: 1062px"></div>
+<div class="sm-crease h" aria-hidden="true" style="top: 495px"></div>
 
-<a class="node" href="Works.dc.html" style="position: absolute; left: 160px; top: 424px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #ffffff; color: #0f0f14; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">01 · /tac-pham</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Tác phẩm</b><br><span style="font-size: 14px; line-height: 20px; color: #3a3a42">Cuộn phim · tường treo đúng tỷ lệ · sổ kiểm kê · lọc theo mảng</span></span></a>
+<svg class="sm-full" aria-hidden="true" width="1600" height="1000" viewBox="0 0 1600 1000"><path d="M1118 -30 C1010 190, 1130 420, 1030 610 S 990 880, 1070 1040" fill="none" stroke="#2B2EF0" stroke-opacity="0.12" stroke-width="72" stroke-linecap="round"></path><path d="M1118 -30 C1010 190, 1130 420, 1030 610 S 990 880, 1070 1040" fill="none" stroke="#2B2EF0" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="2 11" stroke-linecap="round"></path></svg>
+<p class="sm-it" style="position: absolute; left: 1024px; top: 268px; width: 96px; margin: 0; font-size: 19px; text-align: center; color: #2B2EF0; rotate: 88deg">sông Hồng</p>
 
-<a class="node" href="About.dc.html" style="position: absolute; left: 500px; top: 424px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #ffffff; color: #0f0f14; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">02 · /gioi-thieu</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Giới thiệu</b><br><span style="font-size: 14px; line-height: 20px; color: #3a3a42">Ba bàn tay · sợi dây thời gian · ngăn kéo kỹ năng</span></span></a>
+<svg class="sm-full" aria-hidden="true" width="1600" height="1000" viewBox="0 0 1600 1000"><path d="M340 627 H420 L613 820 H1250" fill="none" stroke="#0F0F14" stroke-width="21" stroke-linejoin="round"></path><path d="M340 627 H420 L613 820 H1250" fill="none" stroke="#FF5A2C" stroke-width="13" stroke-linejoin="round"></path></svg>
+<svg class="sm-full" aria-hidden="true" width="1600" height="1000" viewBox="0 0 1600 1000"><path d="M340 609 H440 L511 680 H1250" fill="none" stroke="#0F0F14" stroke-width="21" stroke-linejoin="round"></path><path d="M340 609 H440 L511 680 H1250" fill="none" stroke="#D8FF3C" stroke-width="13" stroke-linejoin="round"></path></svg>
+<svg class="sm-full" aria-hidden="true" width="1600" height="1000" viewBox="0 0 1600 1000"><path d="M340 591 H440 L491 540 H1250" fill="none" stroke="#0F0F14" stroke-width="21" stroke-linejoin="round"></path><path d="M340 591 H440 L491 540 H1250" fill="none" stroke="#FF8FB8" stroke-width="13" stroke-linejoin="round"></path></svg>
+<svg class="sm-full" aria-hidden="true" width="1600" height="1000" viewBox="0 0 1600 1000"><path d="M340 573 H420 L593 400 H1250" fill="none" stroke="#0F0F14" stroke-width="21" stroke-linejoin="round"></path><path d="M340 573 H420 L593 400 H1250" fill="none" stroke="#2B2EF0" stroke-width="13" stroke-linejoin="round"></path></svg>
 
-<a class="node" href="Journal.dc.html" style="position: absolute; left: 840px; top: 424px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #ffffff; color: #0f0f14; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">03 · /nhat-ky</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Nhật ký</b><br><span style="font-size: 14px; line-height: 20px; color: #3a3a42">Bài nổi bật · lọc chủ đề · lưới tạp chí · thư từ</span></span></a>
+<sc-if value="{{motion}}" hint-placeholder-val="{{ true }}">
+<i class="train" aria-hidden="true" style="offset-path: path('M340 573 H420 L593 400 H1250'); animation-delay: 0s"></i>
+<i class="train" aria-hidden="true" style="offset-path: path('M340 591 H440 L491 540 H1250'); animation-delay: -2.4s"></i>
+<i class="train" aria-hidden="true" style="offset-path: path('M340 609 H440 L511 680 H1250'); animation-delay: -5.1s"></i>
+<i class="train" aria-hidden="true" style="offset-path: path('M340 627 H420 L613 820 H1250'); animation-delay: -7.3s"></i>
+</sc-if>
 
-<a class="node" href="Commission.dc.html" style="position: absolute; left: 1180px; top: 424px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #ffffff; color: #0f0f14; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">04 · /dat-du-an</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Đặt dự án</b><br><span style="font-size: 14px; line-height: 20px; color: #3a3a42">Form 4 bước · chọn mảng &amp; quy mô · tông màu · FAQ</span></span></a>
+<span class="bullet" aria-hidden="true" style="left: 672px; top: 382px; background: #2B2EF0; color: #FFFFFF">01</span>
+<span class="bullet" aria-hidden="true" style="left: 672px; top: 522px; background: #FF8FB8">02</span>
+<span class="bullet" aria-hidden="true" style="left: 672px; top: 662px; background: #D8FF3C">03</span>
+<span class="bullet" aria-hidden="true" style="left: 672px; top: 802px; background: #FF5A2C">04</span>
 
-<a class="node" href="WorkDetail.dc.html" style="position: absolute; left: 160px; top: 688px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #2b2ef0; color: #ffffff; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">01.1 · /tac-pham/…</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Chi tiết tác phẩm</b><br><span style="font-size: 14px; line-height: 20px">Kéo so sánh phác ↔ thật · bảng màu · cận cảnh</span></span></a>
+<a class="stn" href="Works.dc.html" style="left: 786px; top: 338px; width: 360px">
+<span class="stn-no">01 · /tac-pham</span>
+<span class="stn-name">Tác phẩm</span>
+<span class="stn-dot" aria-hidden="true"></span>
+<span class="stn-desc">Cuộn phim · tường treo đúng khổ · sổ kiểm kê · lọc theo mảng</span>
+</a>
+<a class="stn" href="WorkDetail.dc.html" style="left: 1236px; top: 338px; width: 310px">
+<span class="stn-no">01.1 · /tac-pham/…</span>
+<span class="stn-name">Chi tiết tác phẩm</span>
+<span class="stn-dot end" aria-hidden="true"></span>
+<span class="stn-desc">Kéo so sánh phác ↔ thật · bảng màu · cận cảnh</span>
+</a>
 
-<a class="node" href="PortraitLab.dc.html" style="position: absolute; left: 500px; top: 688px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #2b2ef0; color: #ffffff; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">02.1 · /gioi-thieu/chan-dung</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Chân dung</b><br><span style="font-size: 14px; line-height: 20px">Ảnh tách nền · in lệch · đèn phố · vẽ mù một nét</span></span></a>
+<a class="stn" href="About.dc.html" style="left: 786px; top: 478px; width: 360px">
+<span class="stn-no">02 · /gioi-thieu</span>
+<span class="stn-name">Giới thiệu</span>
+<span class="stn-dot" aria-hidden="true"></span>
+<span class="stn-desc">Ba bàn tay · sợi dây thời gian · ngăn kéo kỹ năng</span>
+</a>
+<a class="stn" href="PortraitLab.dc.html" style="left: 1236px; top: 478px; width: 310px">
+<span class="stn-no">02.1 · /gioi-thieu/chan-dung</span>
+<span class="stn-name">Chân dung</span>
+<span class="stn-dot end" aria-hidden="true"></span>
+<span class="stn-desc">Ảnh tách nền · in lệch · đèn phố · vẽ mù một nét</span>
+</a>
 
-<a class="node" href="JournalPost.dc.html" style="position: absolute; left: 840px; top: 688px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #2b2ef0; color: #ffffff; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">03.1 · /nhat-ky/…</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Bài viết</b><br><span style="font-size: 14px; line-height: 20px">Chữ hoa đầu đoạn · trích dẫn lớn · công thức pha màu</span></span></a>
+<a class="stn" href="Journal.dc.html" style="left: 786px; top: 618px; width: 360px">
+<span class="stn-no">03 · /nhat-ky</span>
+<span class="stn-name">Nhật ký</span>
+<span class="stn-dot" aria-hidden="true"></span>
+<span class="stn-desc">Bài nổi bật · lọc chủ đề · lưới tạp chí · thư từ</span>
+</a>
+<a class="stn" href="JournalPost.dc.html" style="left: 1236px; top: 618px; width: 310px">
+<span class="stn-no">03.1 · /nhat-ky/…</span>
+<span class="stn-name">Bài viết</span>
+<span class="stn-dot end" aria-hidden="true"></span>
+<span class="stn-desc">Chữ hoa đầu đoạn · trích dẫn lớn · công thức pha màu</span>
+</a>
 
-<a class="node" href="Thanks.dc.html" style="position: absolute; left: 1180px; top: 688px; width: 260px; height: 136px; box-sizing: border-box; padding: 14px 18px; display: flex; align-items: center; text-decoration: none; background: #2b2ef0; color: #ffffff; border: 2px solid #0f0f14; box-shadow: 6px 6px 0 #0f0f14; line-height: 1.3"><span><span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 11px; letter-spacing: 0.06em">04.1 · /dat-du-an/cam-on</span><br><b style="font-size: 22px; font-weight: 800; font-stretch: 75%">Cảm ơn</b><br><span style="font-size: 14px; line-height: 20px">Hoa giấy rơi · ba bước tiếp theo · đường quay về</span></span></a>
+<a class="stn" href="Commission.dc.html" style="left: 786px; top: 758px; width: 360px">
+<span class="stn-no">04 · /dat-du-an</span>
+<span class="stn-name">Đặt dự án</span>
+<span class="stn-dot" aria-hidden="true"></span>
+<span class="stn-desc">Form 4 bước · chọn mảng &amp; quy mô · tông màu · hỏi đáp</span>
+</a>
+<a class="stn" href="Thanks.dc.html" style="left: 1236px; top: 758px; width: 310px">
+<span class="stn-no">04.1 · /dat-du-an/cam-on</span>
+<span class="stn-name">Cảm ơn</span>
+<span class="stn-dot end" aria-hidden="true"></span>
+<span class="stn-desc">Hoa giấy rơi · ba bước tiếp theo · đường quay về</span>
+</a>
 
-<div style="position: absolute; left: 72px; top: 52px; font-size: 48px; font-weight: 800; font-stretch: 75%; line-height: 56px; letter-spacing: -0.02em">Sơ đồ trang</div>
-<div style="position: absolute; left: 72px; top: 116px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; line-height: 16px; color: #3a3a42">Web cá nhân của Nguyễn Tuấn Anh · 9 trang · 3 cấp — bấm vào một ô để mở trang đó</div>
-<div style="position: absolute; left: 72px; top: 248px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; color: #3a3a42">CẤP 0 · GỐC</div>
-<div style="position: absolute; left: 160px; top: 396px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; color: #3a3a42">CẤP 1 · MENU CHÍNH</div>
-<div style="position: absolute; left: 160px; top: 844px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; color: #3a3a42">CẤP 2 · TRANG CON</div>
+<a class="hub" href="Main.dc.html" style="left: 64px; top: 545px; width: 304px; height: 170px">
+<span style="position: absolute; left: 0; top: 10px; width: 226px; display: block">
+<span class="stn-no">00 · /</span>
+<span class="stn-name" style="height: 48px; font-size: 50px; line-height: 48px">Trang chủ</span>
+<span class="stn-desc">Tên in lệch màu · mẩu tác phẩm xé · sổ tay · con dấu liên hệ</span>
+</span>
+<span class="hub-mark" aria-hidden="true" style="left: 248px; top: 0; width: 56px; height: 110px"><b>00</b><b>⇄</b></span>
+</a>
 
-<div style="position: absolute; left: 160px; top: 902px; width: 20px; height: 20px; box-sizing: border-box; background: #d8ff3c; border: 2px solid #0f0f14"></div>
-<div style="position: absolute; left: 190px; top: 904px; font-size: 14px; line-height: 16px">Trang gốc</div>
-<div style="position: absolute; left: 304px; top: 902px; width: 20px; height: 20px; box-sizing: border-box; background: #ffffff; border: 2px solid #0f0f14"></div>
-<div style="position: absolute; left: 334px; top: 904px; font-size: 14px; line-height: 16px">Trang trong menu</div>
-<div style="position: absolute; left: 480px; top: 902px; width: 20px; height: 20px; box-sizing: border-box; background: #2b2ef0; border: 2px solid #0f0f14"></div>
-<div style="position: absolute; left: 510px; top: 904px; font-size: 14px; line-height: 16px">Trang con</div>
-<div style="position: absolute; left: 640px; top: 896px; width: 800px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; line-height: 16px; color: #3a3a42">Mọi trang có chung menu và chân trang dẫn về Đặt dự án. Thẻ tác phẩm → Chi tiết; thẻ bài → Bài viết; nút “Gửi yêu cầu” → Cảm ơn; ảnh chân dung ở Trang chủ và Giới thiệu → Chân dung.</div>
+<p class="sm-it" aria-hidden="true" style="position: absolute; left: 116px; top: 482px; margin: 0; font-size: 22px; white-space: nowrap; rotate: -4deg">bạn đang ở đây →</p>
+<svg aria-hidden="true" width="40" height="54" viewBox="0 0 40 54" style="position: absolute; left: 320px; top: 480px; overflow: visible; filter: drop-shadow(3px 3px 0 #0F0F14)"><path d="M20 52 C14 40 3 30 3 19 A17 17 0 0 1 37 19 C37 30 26 40 20 52 Z" fill="#FF5A2C" stroke="#0F0F14" stroke-width="2.5"></path><circle cx="20" cy="19" r="6.5" fill="#F2F1EC" stroke="#0F0F14" stroke-width="2.5"></circle></svg>
+
+<p class="sm-mono" style="position: absolute; left: 66px; top: 46px; margin: 0; font-size: 13px; color: #3a3a42"><span style="display: inline-block; padding: 2px 8px; margin-right: 10px; background: #0F0F14; color: #D8FF3C">Bản đồ tuyến</span>Web cá nhân Nguyễn Tuấn Anh</p>
+<h1 style="position: absolute; left: 58px; top: 80px; margin: 0; font-weight: 800; font-stretch: 75%; font-size: 138px; line-height: 0.9; letter-spacing: -0.04em; white-space: nowrap; color: #2B2EF0; text-shadow: -7px 5px 0 #FF8FB8">Sơ đồ trang</h1>
+<div style="position: absolute; left: 70px; top: 222px">
+<p class="sm-it" style="margin: 0; font-size: 26px; line-height: 1.2">bấm vào một ga — tàu chạy thẳng tới trang đó</p>
+<svg aria-hidden="true" width="430" height="20" viewBox="0 0 430 20" preserveAspectRatio="none" style="display: block; margin-top: 2px; overflow: visible"><path d="M4 12 C70 4 140 16 220 9 S 360 4 426 11" fill="none" stroke="#FF5A2C" stroke-width="5" stroke-linecap="round"></path></svg>
+</div>
+
+<svg role="img" aria-label="Con dấu: tàu chạy hơi điên" width="164" height="164" viewBox="0 0 200 200" style="position: absolute; left: 812px; top: 56px; rotate: -9deg; overflow: visible; filter: drop-shadow(6px 7px 0 #0F0F14)">
+<defs><path id="sm-ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"></path></defs>
+<circle cx="100" cy="100" r="96" fill="#FF5A2C"></circle>
+<circle cx="100" cy="100" r="89" fill="none" stroke="#F2F1EC" stroke-width="2"></circle>
+<circle cx="100" cy="100" r="56" fill="none" stroke="#F2F1EC" stroke-width="2"></circle>
+<text fill="#F2F1EC" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 75%; font-size: 19px; letter-spacing: 1.6px"><textPath href="#sm-ring">TÀU CHẠY HƠI ĐIÊN ✶ 9 GA ✶ 4 TUYẾN ✶</textPath></text>
+<text x="100" y="134" text-anchor="middle" fill="#0F0F14" style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 96px">!</text>
+</svg>
+
+<section class="tk" aria-label="Chú giải bản đồ" style="left: 1140px; top: 40px; width: 404px; rotate: 1.5deg">
+<span class="tk-tape" aria-hidden="true"></span>
+<div class="tk-stub"><span>Vé · một chiều</span></div>
+<div style="padding: 16px 18px 16px 18px">
+<p class="sm-mono" style="margin: 0; font-size: 11px; color: #3a3a42">Chú giải</p>
+<h2 style="margin: 4px 0 0; font-weight: 800; font-stretch: 75%; font-size: 36px; line-height: 1; letter-spacing: -0.02em">4 tuyến, <span class="sm-it" style="font-weight: 400; font-stretch: 100%; color: #C2391A">9 ga</span></h2>
+<ul class="tk-lines">
+<li><i style="background: #2B2EF0"></i>01 Tác phẩm</li>
+<li><i style="background: #FF8FB8"></i>02 Giới thiệu</li>
+<li><i style="background: #D8FF3C"></i>03 Nhật ký</li>
+<li><i style="background: #FF5A2C"></i>04 Đặt dự án</li>
+</ul>
+<div class="tk-sym">
+<span><svg aria-hidden="true" width="14" height="24" viewBox="0 0 14 24"><rect x="1.5" y="1.5" width="11" height="21" rx="5.5" fill="#FFFFFF" stroke="#0F0F14" stroke-width="3"></rect></svg>ga đổi tuyến</span>
+<span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#FFFFFF" stroke="#0F0F14" stroke-width="3.5"></circle></svg>ga</span>
+<span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7.5" fill="#0F0F14"></circle><circle cx="9" cy="9" r="2.6" fill="#FFFFFF"></circle></svg>ga cuối · trang con</span>
+</div>
+<div class="tk-walk">
+<svg aria-hidden="true" width="34" height="14" viewBox="0 0 34 14" style="flex: none; margin-top: 3px"><path d="M2 7 H32" stroke="#0F0F14" stroke-width="3" stroke-dasharray="1 6" stroke-linecap="round"></path></svg>
+<span><b>Lối đi bộ:</b> chân trang mọi ga dẫn về Đặt dự án; ảnh chân dung ở Trang chủ và Giới thiệu dẫn tới Chân dung.</span>
+</div>
+</div>
+</section>
+
+<svg aria-hidden="true" width="78" height="78" viewBox="0 0 78 78" style="position: absolute; left: 66px; top: 888px; overflow: visible">
+<circle cx="39" cy="39" r="30" fill="#FBFBF8" stroke="#0F0F14" stroke-width="2.5"></circle>
+<path d="M39 9 L46 39 L39 69 L32 39 Z" fill="#F2F1EC" stroke="#0F0F14" stroke-width="2"></path>
+<path d="M39 9 L46 39 L32 39 Z" fill="#FF5A2C" stroke="#0F0F14" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M9 39 L39 34 L69 39 L39 44 Z" fill="none" stroke="#0F0F14" stroke-width="1.5"></path>
+<text x="39" y="-4" text-anchor="middle" fill="#0F0F14" style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 13px">B</text>
+</svg>
+<p class="sm-it" style="position: absolute; left: 158px; top: 904px; width: 160px; margin: 0; font-size: 16px; line-height: 1.25">đi hướng nào cũng có lối về Trang chủ</p>
+
+<div aria-label="Thước đo theo số cú bấm từ Trang chủ" role="img" style="position: absolute; left: 340px; top: 912px; width: 910px; height: 2px; background: #0F0F14">
+<i class="rl-tick big" style="left: -1px"></i>
+<i class="rl-tick" style="left: 114px"></i>
+<i class="rl-tick" style="left: 229px"></i>
+<i class="rl-tick" style="left: 344px"></i>
+<i class="rl-tick big" style="left: 458px"></i>
+<i class="rl-tick" style="left: 571px"></i>
+<i class="rl-tick" style="left: 684px"></i>
+<i class="rl-tick" style="left: 797px"></i>
+<i class="rl-tick big" style="left: 908px"></i>
+<span class="rl-lab" style="left: 0"><b>0 cú bấm</b><span>Cấp 0 · gốc</span></span>
+<span class="rl-lab" style="left: 460px"><b>1 cú bấm</b><span>Cấp 1 · menu chính</span></span>
+<span class="rl-lab" style="left: 910px"><b>2 cú bấm</b><span>Cấp 2 · trang con</span></span>
+</div>
+
+<p style="position: absolute; right: 56px; top: 948px; margin: 0; font-family: 'Space Mono', ui-monospace, monospace; font-size: 12px; color: #3a3a42">© 2026 Nguyễn Tuấn Anh</p>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1600,"height":1000}}'>
 class Component extends DCLogic {
   renderVals() {
-    return {};
+    const motion = (this.props.motion ?? true) !== false;
+    return { rootCls: 'sm', motion };
   }
 }
 </script>
