@@ -22,6 +22,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script src="./support.js"></script>
+<script src="/_blob/f03a6d827e15052a36e5b98ed81f7e79"></script>
 </head>
 <body>
 <x-dc>
@@ -47,9 +48,9 @@ sc-if,sc-for{display:contents}
 .ulink:hover::after{transform:scaleX(1)}
 .foot-cta{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
 .foot-cta:hover{transform:translateX(10px)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid #0f0f14;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid #0f0f14;text-decoration:none;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-size:17px;font-weight:700;letter-spacing:0;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
 .btn:hover{transform:rotate(-3deg) scale(1.04)}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;min-height:44px;padding:0 20px;border-radius:999px;border:2px solid #0f0f14;background:transparent;color:#0f0f14;cursor:pointer;transition:background .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-size:17px;font-weight:700;letter-spacing:0;min-height:44px;padding:0 20px;border-radius:999px;border:2px solid #0f0f14;background:transparent;color:#0f0f14;cursor:pointer;transition:background .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
 .chip:hover{transform:translateY(-3px) rotate(-2deg)}
 .chip.is-on{background:#0f0f14;color:#f2f1ec}
 
@@ -88,14 +89,18 @@ sc-if,sc-for{display:contents}
 .still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
 @media (prefers-reduced-motion:reduce){.site *,.site *::before,.site *::after{animation:none!important;transition:none!important}}
 @media (max-width:700px){.post{min-height:0}.post-text{min-height:360px}}
+/*xg-css*/.xg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.2s ease}.xg.xg-on{opacity:1}
+/*FX-CSS*/.inkcur{position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:9990;display:none}.inkcur.is-on{display:block}.plate-t{--reg:.7;text-shadow:calc(var(--reg) * -.035em) calc(var(--reg) * .025em) 0 var(--plate1,#FF8FB8),calc(var(--reg) * .03em) calc(var(--reg) * -.02em) 0 var(--plate2,#D8FF3C)}@view-transition{navigation:auto}::view-transition-old(root){animation:vtOut .4s cubic-bezier(.4,0,.2,1) both}::view-transition-new(root){animation:vtIn .55s cubic-bezier(.2,.8,.2,1) both}@keyframes vtOut{to{transform:translateY(-4%) rotate(-1deg);opacity:0}}@keyframes vtIn{from{transform:translateY(8%) rotate(1.5deg);opacity:0}to{transform:none;opacity:1}}@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+/*PG-CSS*/.feat{position:relative}.feat::before{content:"";position:absolute;left:-22px;top:18px;bottom:18px;width:30px;z-index:4;pointer-events:none;background:radial-gradient(circle at 15px 11px,#f2f1ec 0 5px,transparent 5.5px) 0 0/30px 26px,repeating-linear-gradient(180deg,transparent 0 6px,#0f0f14 6px 8px,#b9b9c2 8px 14px,#0f0f14 14px 16px,transparent 16px 26px)}
 </style>
 </helmet>
 <div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow: hidden">
 
-<header id="top" style="background: #f2f1ec; color: #0f0f14">
+<header id="top" style="position: relative; isolation: isolate; background: #f2f1ec; color: #0f0f14">
+<canvas class="xg" aria-hidden="true"></canvas>
 <nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
 <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="pulse" aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; display: inline-block; background: {{ground}}; color: {{ground}}"></span>tuấn anh</a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0">
 <a class="navlink" href="Works.dc.html">Tác phẩm</a>
 <a class="navlink" href="About.dc.html">Giới thiệu</a>
 <a class="navlink is-active" href="Journal.dc.html" aria-current="page">Nhật ký</a>
@@ -104,24 +109,24 @@ sc-if,sc-for{display:contents}
 </nav>
 
 <section style="max-width: 1440px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 56px) 72px">
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52"><a href="Main.dc.html" style="text-decoration: none">Trang chủ</a> / Nhật ký</p>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 17px; letter-spacing: 0; color: #4a4a52"><a href="Main.dc.html" style="text-decoration: none">Trang chủ</a> / Nhật ký</p>
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; margin-top: 20px">
-<h1 class="j-title" style="margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(80px, 13vw, 210px); line-height: 0.82; letter-spacing: -0.045em">Nhật ký<br><em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.03em; color: {{ground}}">studio</em></h1>
+<h1 class="plate-t j-title" style="--plate2: #2B2EF0; margin: 0; font-weight: 800; font-stretch: 75%; font-size: clamp(80px, 13vw, 210px); line-height: 0.82; letter-spacing: -0.045em">Nhật ký<br><em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.03em; color: {{ground}}">studio</em></h1>
 <p style="margin: 0; max-width: 30ch; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 1.9vw, 25px); line-height: 1.45; text-wrap: pretty">Ghi chép từ bàn vẽ: màu pha hỏng, giấy cắt thừa, và những điều học được giữa hai dự án.</p>
 </div>
 </section>
 </header>
 
 <section aria-label="Bài nổi bật" style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 112px">
-<a class="feat" href="JournalPost.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); overflow: hidden; border: 2px solid #0f0f14; box-shadow: 12px 12px 0 #0f0f14; background: #0f0f14; color: #f2f1ec; text-decoration: none">
+<a class="feat" href="JournalPost.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); border: 2px solid #0f0f14; box-shadow: 12px 12px 0 #0f0f14; background: #0f0f14; color: #f2f1ec; text-decoration: none">
 <span style="display: block; position: relative; overflow: hidden; min-height: 440px"><img class="feat-img" src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" alt="Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"><span class="feat-badge" aria-hidden="true" style="background: {{accent}}">bài<br>nổi bật</span></span>
 <span style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: clamp(28px, 4vw, 56px)">
-<span style="font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #c9c9d1">Màu sắc · 18.10.2026 · 8 phút đọc</span>
+<span style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 17px; letter-spacing: 0; color: #c9c9d1">Màu sắc, 18.10.2026, 8 phút đọc</span>
 <span style="display: flex; flex-direction: column; gap: 20px">
 <span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(40px, 4.6vw, 72px); line-height: 1.02; letter-spacing: -0.02em">Pha một màu xanh không có tên</span>
 <span style="max-width: 36ch; font-size: 19px; line-height: 1.55; color: rgba(242,241,236,0.85)">Ba tuần, mười hai lọ màu và một kết luận: màu đẹp nhất thường là màu bạn không gọi tên được.</span>
 </span>
-<span class="read-more" style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{accent}}">Đọc bài<svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span class="read-more" style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0; color: {{accent}}">Đọc bài<svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
 </span>
 </a>
 </section>
@@ -146,10 +151,10 @@ sc-if,sc-for{display:contents}
 <svg class="post-star" viewBox="0 0 40 40" aria-hidden="true" style="color: {{p.starColor}}"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
 </sc-if>
 <span class="post-body">
-<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase"><span class="tag">{{p.tag}}</span><span>{{p.date}} · {{p.read}}</span></span>
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 16px; letter-spacing: 0"><span class="tag">{{p.tag}}</span><span>{{p.date}}, {{p.read}}</span></span>
 <span class="post-title">{{p.title}}</span>
 <span style="font-size: 17px; line-height: 1.55; max-width: 34ch">{{p.excerpt}}</span>
-<span class="read-more" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Đọc<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span class="read-more" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0">Đọc<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
 </span>
 </a>
 </sc-for>
@@ -161,18 +166,18 @@ sc-if,sc-for{display:contents}
 <div style="position: relative; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 72px; align-items: end; padding: clamp(28px, 4vw, 56px); border: 2px solid #f2f1ec">
 <svg class="news-star" viewBox="0 0 40 40" aria-hidden="true" style="color: {{accent}}"><path fill="currentColor" d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
 <div style="position: relative">
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad">Thư từ studio</p>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 17px; letter-spacing: 0; color: #a3a3ad">Thư từ studio</p>
 <h2 id="nl-title" style="margin: 12px 0 0; max-width: 14ch; font-weight: 800; font-stretch: 75%; font-size: clamp(44px, 5.5vw, 84px); line-height: 0.92; letter-spacing: -0.035em">Mỗi tháng một lá thư, <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; color: {{accent}}">không hơn</em>.</h2>
 <p style="margin: 20px 0 0; max-width: 40ch; font-size: 18px; line-height: 1.55; color: rgba(242,241,236,0.85)">Tranh mới, bản in sắp mở bán, và vài dòng nhật ký không đăng ở đây.</p>
 </div>
 <div style="position: relative">
 <sc-if value="{{notSubbed}}" hint-placeholder-val="{{ true }}">
-<label for="nl-email" style="display: block; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c9d1">Email của bạn</label>
+<label for="nl-email" style="display: block; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 17px; letter-spacing: 0; color: #c9c9d1">Email của bạn</label>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px">
 <input id="nl-email" class="nl-input" type="email" placeholder="ban@email.com" autocomplete="email">
 <button type="button" class="btn" onClick="{{subscribe}}" style="background: {{accent}}; color: #0f0f14; border-color: {{accent}}">Đăng ký</button>
 </div>
-<p style="margin: 12px 0 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 12px; color: #a3a3ad">Hủy bất cứ lúc nào, chỉ với một cú bấm.</p>
+<p style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 600; font-size: 14px; color: #a3a3ad">Hủy bất cứ lúc nào, chỉ với một cú bấm.</p>
 </sc-if>
 <sc-if value="{{subbed}}" hint-placeholder-val="{{ false }}">
 <p class="thanks" style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.2; color: {{accent}}">Cảm ơn! Hẹn gặp bạn trong hộp thư.</p>
@@ -187,7 +192,7 @@ sc-if,sc-for{display:contents}
 <div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 32px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
 <a class="foot-cta" href="Commission.dc.html" style="max-width: 12ch; text-decoration: none; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.04em">Cùng làm một điều <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">rực rỡ</em>?</a>
-<nav aria-label="Sơ đồ trang" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<nav aria-label="Sơ đồ trang" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0">
 <a class="ulink" href="Main.dc.html">Trang chủ</a>
 <a class="ulink" href="Works.dc.html">Tác phẩm</a>
 <a class="ulink" href="About.dc.html">Giới thiệu</a>
@@ -195,17 +200,316 @@ sc-if,sc-for{display:contents}
 <a class="ulink" href="Commission.dc.html">Đặt dự án</a>
 </nav>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 600; font-size: 15px; color: rgba(255,255,255,0.85)">
 <span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
 <a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
 </div>
 </div>
 </footer>
 
+<canvas class="inkcur" aria-hidden="true"></canvas>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":3900}}'>
 class Component extends DCLogic {
+  /*FX-BEGIN — chung cho mọi trang: vệt mực theo chuột, tiêu đề in lệch bản tự căn lại, vật thể "đặt xuống" khi cuộn tới */
+  fxLive() {
+    if ((this.props && this.props.motion) === false) return false;
+    try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
+  }
+  fxScrollMode() {
+    const vh = window.innerHeight, dh = document.documentElement.scrollHeight;
+    return vh > 0 && vh < 1700 && dh > vh * 1.3;
+  }
+  fxMount() {
+    if (this._fx || typeof window === 'undefined') return;
+    this._fx = { stop: [] };
+    const fx = this._fx;
+    const live = this.fxLive();
+    const scroll = this.fxScrollMode();
+    // 1. vệt mực: chỉ khi có chuột thật và trang cuộn được (không chạy trên bảng vẽ canvas)
+    let fine = false;
+    try { fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch (e) { fine = false; }
+    const cv = document.querySelector('.inkcur');
+    if (cv && fine && live && scroll) {
+      const g = cv.getContext('2d');
+      const dots = [];
+      let raf = 0, lx = -99, ly = -99, k = 0, W = 0, H = 0;
+      const size = () => { const d = Math.min(window.devicePixelRatio || 1, 2); W = window.innerWidth; H = window.innerHeight; cv.width = W * d; cv.height = H * d; g.setTransform(d, 0, 0, d, 0, 0); };
+      size();
+      const cols = ['#FF8FB8', '#2B2EF0', '#FF5A2C'];
+      const draw = () => {
+        raf = 0;
+        g.clearRect(0, 0, W, H);
+        const now = performance.now();
+        for (let i = dots.length - 1; i >= 0; i--) {
+          const d = dots[i];
+          const a = 1 - (now - d.t) / 700;
+          if (a <= 0) { dots.splice(i, 1); continue; }
+          const r = d.r * (0.55 + 0.45 * a);
+          g.globalAlpha = a * 0.85;
+          g.fillStyle = '#FF8FB8'; g.beginPath(); g.arc(d.x - 2.2, d.y + 1.6, r, 0, 6.283); g.fill();
+          g.fillStyle = d.c; g.beginPath(); g.arc(d.x, d.y, r, 0, 6.283); g.fill();
+        }
+        g.globalAlpha = 1;
+        if (dots.length) raf = requestAnimationFrame(draw);
+      };
+      const move = (e) => {
+        const dx = e.clientX - lx, dy = e.clientY - ly;
+        if (dx * dx + dy * dy < 140) return;
+        lx = e.clientX; ly = e.clientY; k++;
+        dots.push({ x: lx, y: ly, r: 2.5 + (k % 3), c: cols[1 + (k % 2)], t: performance.now() });
+        if (dots.length > 60) dots.shift();
+        if (!raf) raf = requestAnimationFrame(draw);
+      };
+      window.addEventListener('pointermove', move, { passive: true });
+      window.addEventListener('resize', size);
+      cv.classList.add('is-on');
+      fx.stop.push(() => { window.removeEventListener('pointermove', move); window.removeEventListener('resize', size); if (raf) cancelAnimationFrame(raf); });
+    }
+    // 2 + 3 cần GSAP
+    const go = (n) => {
+      const gs = window.gsap, ST = window.ScrollTrigger;
+      if (!gs) { if (n < 60) fx.wait = setTimeout(() => go(n + 1), 120); return; }
+      if (ST) gs.registerPlugin(ST);
+      const ctx = gs.context(() => {
+        const heads = gs.utils.toArray('.plate-t');
+        if (live && heads.length) {
+          gs.fromTo(heads, { '--reg': 2.4 }, { '--reg': 0.7, duration: 1.4, ease: 'elastic.out(1, 0.45)', stagger: 0.08, delay: 0.15 });
+          if (scroll && ST) heads.forEach((h) => gs.to(h, { '--reg': 0, ease: 'none', scrollTrigger: { trigger: h, start: 'top 40%', end: 'bottom top', scrub: 0.5 } }));
+        }
+        if (live && scroll && ST) {
+          gs.utils.toArray('.drop-in').forEach((el, i) => {
+            gs.from(el, { y: 70, rotation: (i % 2 ? 5 : -5), opacity: 0, duration: 0.85, ease: 'back.out(1.6)', clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+          });
+        }
+      });
+      fx.stop.push(() => ctx.revert());
+    };
+    go(0);
+  }
+  fxUnmount() {
+    if (!this._fx) return;
+    if (this._fx.wait) clearTimeout(this._fx.wait);
+    this._fx.stop.forEach((f) => { try { f(); } catch (e) { /* bỏ qua */ } });
+    this._fx = null;
+  }
+  /*FX-END*/
+  /*XG-BEGIN — xưởng 3D in riso: nền tự chuyển động + vật thể 3D, WebGL thuần, không thư viện ngoài */
+  xgMount(sel, scene) {
+    if (this._xg || typeof document === 'undefined') return;
+    const find = (n) => {
+      const cv = document.querySelector(sel);
+      if (!cv) { if (n < 50) this._xgWait = setTimeout(() => find(n + 1), 120); return; }
+      try { this._xg = this.xgInit(cv, scene); } catch (err) { cv.style.display = 'none'; }
+    };
+    find(0);
+  }
+  xgUnmount() {
+    if (this._xgWait) clearTimeout(this._xgWait);
+    if (this._xg) this._xg.stop();
+    this._xg = null;
+  }
+  xgInit(cv, scene) {
+    const gl = cv.getContext('webgl2', { antialias: false, alpha: false, depth: false, stencil: false, powerPreference: 'low-power', preserveDrawingBuffer: false });
+    if (!gl) { cv.style.display = 'none'; return null; }
+    const N = 6;
+    const VS = '#version 300 es\nin vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+    const FS = [
+      '#version 300 es',
+      'precision highp float;out vec4 xgOut;',
+      'uniform vec2 uRes;uniform float uTime;uniform vec2 uCam;uniform float uDot;',
+      'uniform vec3 uGround,uInk,uScr1,uScr2,uShadow,uEnv;uniform vec3 uTz[4];uniform vec3 uStr;',
+      'uniform vec3 uPos[6];uniform mat3 uRm[6];uniform vec3 uSz[6];uniform vec3 uCol[6];uniform vec4 uInf[6];',
+      'mat2 r2(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}',
+      'float h21(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}',
+      'float h31(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}',
+      'float nz(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h21(i),h21(i+vec2(1,0)),f.x),mix(h21(i+vec2(0,1)),h21(i+vec2(1,1)),f.x),f.y);}',
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*nz(p);p=p*2.03+17.1;a*=.5;}return v;}',
+      'float sdE(vec3 p,vec3 r){float k0=length(p/r);float k1=length(p/(r*r));return k0*(k0-1.)/max(k1,1e-4);}',
+      'float sdT(vec3 p,vec2 t){vec2 q=vec2(length(p.xz)-t.x,p.y);return length(q)-t.y;}',
+      'float sdB(vec3 p,vec3 b){vec3 q=abs(p)-b;return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.);}',
+      'float sdC(vec3 p,float h,float r){vec2 d=abs(vec2(length(p.xz),p.y))-vec2(r,h);return min(max(d.x,d.y),0.)+length(max(d,0.));}',
+      'float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}',
+      'float obj(int i,vec3 p){vec4 f=uInf[i];vec3 s=uSz[i];vec3 q=uRm[i]*(p-uPos[i]);float k=f.x;',
+      ' if(k<.5)return sdE(q,s);',
+      ' if(k<1.5)return sdT(q,s.xy);',
+      ' if(k<2.5)return sdB(q,s)-.035;',
+      ' if(k<3.5){vec3 a=q-vec3(0.,s.y*.28,0.);a.y-=clamp(a.y,-s.y*.5,s.y*.5);float bar=length(a)-s.x*(1.+.35*clamp(q.y/s.y,-1.,1.));float dt=length(q-vec3(0.,-s.y*.78,0.))-s.x*1.1;return min(bar,dt);}',
+      ' if(k<4.5){float c=sdC(q,s.y,s.x)-.03;float g=sdT(q-vec3(0.,s.y+.01,0.),vec2(s.x*.72,.035));return min(c,g);}',
+      ' return length(q)-s.x;}',
+      'vec2 map(vec3 p){vec2 r=vec2(1e5,-1.);float bl=1e5;float bi=-1.;',
+      ' for(int i=0;i<6;i++){if(uInf[i].w<.5)continue;float d=obj(i,p);',
+      '  if(uInf[i].x>4.5){if(d<bl&&bi<0.)bi=float(i);bl=smin(bl,d,.42);}else if(d<r.x)r=vec2(d,float(i));}',
+      ' if(bl<r.x)r=vec2(bl,bi);return r;}',
+      'bool near(vec3 ro,vec3 rd){for(int i=0;i<6;i++){if(uInf[i].w<.5)continue;vec3 oc=ro-uPos[i];float b=dot(oc,rd);float c=dot(oc,oc)-uInf[i].z*uInf[i].z;if(b*b-c>0.&&b<0.)return true;}return false;}',
+      'vec2 march(vec3 ro,vec3 rd){if(!near(ro,rd))return vec2(99.,-1.);float t=0.;for(int i=0;i<80;i++){vec2 h=map(ro+rd*t);if(h.x<.0012*t+.0008)return vec2(t,h.y);t+=h.x*.92;if(t>18.)break;}return vec2(99.,-1.);}',
+      'vec3 nrm(vec3 p){vec2 e=vec2(.0015,-.0015);return normalize(e.xyy*map(p+e.xyy).x+e.yyx*map(p+e.yyx).x+e.yxy*map(p+e.yxy).x+e.xxx*map(p+e.xxx).x);}',
+      'float ht(vec2 fr,float amt,float cell,float ang){vec2 p=r2(ang)*fr/cell;vec2 g=fract(p)-.5;float r=sqrt(clamp(amt,0.,1.))*.64;float aa=1.2/cell;return smoothstep(r+aa,r-aa,length(g));}',
+      'void main(){vec2 fr=gl_FragCoord.xy;vec2 uv=(fr-.5*uRes)/uRes.y;',
+      ' vec3 ro=vec3(uCam.x*.42,uCam.y*.26,6.);vec3 ta=vec3(uCam.x*.06,uCam.y*.04,0.);',
+      ' vec3 ww=normalize(ta-ro),uu=normalize(cross(ww,vec3(0,1,0))),vv=cross(uu,ww);',
+      ' vec3 rd=normalize(uv.x*uu+uv.y*vv+1.586*ww);',
+      ' vec3 col=uGround;',
+      ' float f=fbm(uv*1.5+vec2(uTime*.022,-uTime*.016));',
+      ' col=mix(col,uScr1,ht(fr,smoothstep(.42,.86,f)*.62,uDot,.785)*uStr.x);',
+      ' float f2=fbm(uv*.85-vec2(uTime*.011,uTime*.019)+7.3);',
+      ' col=mix(col,uScr2,ht(fr+uDot*.5,smoothstep(.55,.92,f2)*.5,uDot*1.35,.262)*uStr.y);',
+      ' vec2 h=march(ro,rd);',
+      ' if(h.y<0.){vec2 hs=march(ro+vec3(-.15,.17,0.),rd);if(hs.y>=0.)col=mix(col,uShadow,uStr.z);}',
+      ' else{vec3 p=ro+rd*h.x;vec3 n=nrm(p);vec3 base=vec3(0.);vec4 inf=vec4(0.);vec3 q=vec3(0.);',
+      '  int id=int(h.y+.5);base=uCol[id];inf=uInf[id];q=uRm[id]*(p-uPos[id]);',
+      '  vec3 L=normalize(vec3(-.55,.78,.5));float dif=max(dot(n,L),0.);float fres=1.-max(dot(n,-rd),0.);',
+      '  float spec=pow(max(dot(reflect(-L,n),-rd),0.),28.);vec3 c=base;',
+      '  if(inf.y>.5&&inf.y<1.5){vec3 r=reflect(rd,n);float y=r.y+.12*sin(r.x*4.+uTime*.3);',
+      '   c=mix(uInk,uEnv,smoothstep(-.42,-.36,y));c=mix(c,uGround,smoothstep(-.06,0.,y));c=mix(c,vec3(1.),smoothstep(.26,.32,y));',
+      '   c=mix(c,uTz[1],smoothstep(.62,.68,y)*.85);}',
+      '  else{',
+      '   if(inf.y>1.5){vec3 cp=q*6.;vec3 ci=floor(cp);float hh=h31(ci);vec3 o=vec3(h31(ci+1.3),h31(ci+2.7),h31(ci+5.1))*.6+.2;',
+      '    float dd=length(fract(cp)-o);float on=step(.22,hh)*smoothstep(.27,.21,dd*(.7+hh*.6));',
+      '    vec3 sc=hh<.5?uTz[0]:(hh<.68?uTz[1]:(hh<.84?uTz[2]:uTz[3]));c=mix(c,sc,on);}',
+      '   float sh=dif*.78+.22;c=mix(c,mix(c,uInk,.55),ht(fr,smoothstep(.8,.15,sh),uDot*.9,.785));c=mix(c,mix(c,vec3(1.),.22),step(.9,dif));',
+      '   c=mix(c,vec3(1.),smoothstep(.42,.55,spec)*.92);}',
+      '  c=mix(c,uInk,smoothstep(.6,.7,fres));col=c;}',
+      ' col+=(h21(fr*.73)-.5)*.035;',
+      ' xgOut=vec4(col,1.);}'
+    ].join('\n');
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const U = {};
+    ['uRes', 'uTime', 'uCam', 'uDot', 'uGround', 'uInk', 'uScr1', 'uScr2', 'uShadow', 'uEnv', 'uStr', 'uTz'].forEach((k) => { U[k] = gl.getUniformLocation(prog, k); });
+    ['uPos', 'uRm', 'uSz', 'uCol', 'uInf'].forEach((k) => { U[k] = gl.getUniformLocation(prog, k); });
+    const hex = (h) => { const m = /^#?([0-9a-f]{6})$/i.exec(String(h || '').trim()); const v = m ? parseInt(m[1], 16) : 0; return [((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255]; };
+    const rot = (ax, ay, az) => {
+      const cx = Math.cos(ax), sx = Math.sin(ax), cy = Math.cos(ay), sy = Math.sin(ay), cz = Math.cos(az), sz = Math.sin(az);
+      // R = Rz*Ry*Rx (world->local uses transpose; GLSL mat3 is column-major so passing row-major R gives R^T)
+      return [cy * cz, cz * sx * sy - cx * sz, cx * cz * sy + sx * sz, cy * sz, cx * cz + sx * sy * sz, cx * sy * sz - cz * sx, -sy, cy * sx, cx * cy];
+    };
+    let W = 0, H = 0, raf = 0, last = -1, visible = true, alive = true, t0 = performance.now();
+    const cam = { x: 0, y: 0, tx: 0, ty: 0 };
+    const resize = () => {
+      const r = cv.getBoundingClientRect();
+      const q = Math.min(window.devicePixelRatio || 1, 2) * (r.width > 1100 ? 0.5 : 0.6);
+      const w = Math.max(2, Math.round(r.width * q)), h = Math.max(2, Math.round(r.height * q));
+      if (w !== W || h !== H) { W = w; H = h; cv.width = w; cv.height = h; gl.viewport(0, 0, w, h); }
+      return q;
+    };
+    let scale = resize();
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => { scale = resize(); if (!this.xgLive()) draw(last < 0 ? 0 : last); }) : null;
+    if (ro) ro.observe(cv);
+    const io = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (visible) kick(); }) : null;
+    if (io) io.observe(cv);
+    const onMove = (e) => {
+      const r = cv.getBoundingClientRect();
+      if (!r.width) return;
+      cam.tx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+      cam.ty = Math.max(-1, Math.min(1, -(((e.clientY - r.top) / r.height) * 2 - 1)));
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    const draw = (t) => {
+      const sc = scene.call(this, t);
+      const P = sc.palette;
+      gl.uniform2f(U.uRes, W, H);
+      gl.uniform1f(U.uTime, t);
+      gl.uniform2f(U.uCam, cam.x + Math.sin(t * 0.13) * 0.18, cam.y + Math.sin(t * 0.09 + 1.3) * 0.12);
+      gl.uniform1f(U.uDot, (sc.dot || 7) * scale);
+      gl.uniform3fv(U.uGround, hex(P.ground));
+      gl.uniform3fv(U.uInk, hex(P.ink || '#0F0F14'));
+      gl.uniform3fv(U.uScr1, hex(P.scr1));
+      gl.uniform3fv(U.uScr2, hex(P.scr2));
+      gl.uniform3fv(U.uShadow, hex(P.shadow || '#0F0F14'));
+      gl.uniform3fv(U.uEnv, hex(P.env || '#F2F1EC'));
+      gl.uniform3fv(U.uStr, sc.strength || [0.5, 0.3, 0.85]);
+      gl.uniform3fv(U.uTz, [].concat(hex(P.tz[0]), hex(P.tz[1]), hex(P.tz[2]), hex(P.tz[3])));
+      const pos = [], rm = [], sz = [], col = [], inf = [];
+      const ax = Math.min(1, (W / Math.max(H, 1)) / 1.45);
+      for (let i = 0; i < N; i++) {
+        const o = sc.objects[i];
+        if (!o) { pos.push(0, 0, 0); rm.push(1, 0, 0, 0, 1, 0, 0, 0, 1); sz.push(1, 1, 1); col.push(0, 0, 0); inf.push(0, 0, 0, 0); continue; }
+        const b = o.bob || [0, 0, 0], sp = o.speed || 0.5, ph = o.phase || 0;
+        pos.push((o.p[0] + Math.sin(t * sp * 0.7 + ph) * b[0]) * ax, o.p[1] + Math.sin(t * sp + ph) * b[1], o.p[2] + Math.cos(t * sp * 0.6 + ph) * b[2]);
+        const r0 = o.r || [0, 0, 0], rs = o.spin || [0, 0, 0];
+        rm.push.apply(rm, rot(r0[0] + rs[0] * t, r0[1] + rs[1] * t, r0[2] + rs[2] * t));
+        const k = 0.55 + 0.45 * ax;
+        sz.push(o.s[0] * k, o.s[1] * (o.k === 1 ? 1 : k), o.s[2] * k);
+        col.push.apply(col, hex(o.c));
+        inf.push(o.k, o.m || 0, o.bound || Math.max(o.s[0], o.s[1], o.s[2]) * 1.25 + 0.15, 1);
+      }
+      gl.uniform3fv(U.uPos, pos);
+      gl.uniformMatrix3fv(U.uRm, false, rm);
+      gl.uniform3fv(U.uSz, sz);
+      gl.uniform3fv(U.uCol, col);
+      gl.uniform4fv(U.uInf, inf);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    let idle = 0;
+    const tick = (now) => {
+      raf = 0;
+      if (!alive || !visible || document.hidden) return;
+      if (!this.xgLive()) { draw(last < 0 ? 4 : last); idle = setTimeout(kick, 800); return; }
+      const t = (now - t0) / 1000;
+      if (t - last >= 1 / 30) {
+        cam.x += (cam.tx - cam.x) * 0.06;
+        cam.y += (cam.ty - cam.y) * 0.06;
+        last = t;
+        draw(t);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    const kick = () => { idle = 0; if (!raf && alive) raf = requestAnimationFrame(tick); };
+    const onVis = () => { if (!document.hidden) kick(); };
+    document.addEventListener('visibilitychange', onVis);
+    draw(4);
+    kick();
+    cv.classList.add('xg-on');
+    return {
+      kick,
+      stop: () => {
+        alive = false;
+        if (raf) cancelAnimationFrame(raf);
+        if (idle) clearTimeout(idle);
+        window.removeEventListener('pointermove', onMove);
+        document.removeEventListener('visibilitychange', onVis);
+        if (ro) ro.disconnect();
+        if (io) io.disconnect();
+      }
+    };
+  }
+  xgLive() {
+    if ((this.props && this.props.motion) === false) return false;
+    try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
+  }
+  /*XG-END*/
+  /*XGS-BEGIN*/
+  xgScene(t) {
+    const T = t;
+    return {
+      dot: 10, strength: [0.6, 0.18, 0.88],
+      palette: { ground: '#F2F1EC', scr1: '#D9D7CE', scr2: '#2B2EF0', shadow: '#0F0F14', env: '#F2F1EC', tz: ['#0F0F14', '#D8FF3C', '#FF5A2C', '#F2F1EC'] },
+      objects: [
+        { k: 5, m: 0, p: [2.35 + Math.sin(T * 0.31) * 0.35, 0.72, -0.2], s: [0.36, 0, 0], bob: [0.04, 0.08, 0.05], speed: 0.6, c: '#2B2EF0' },
+        { k: 5, m: 0, p: [2.95 + Math.cos(T * 0.27) * 0.3, 0.42 + Math.sin(T * 0.23) * 0.2, -0.3], s: [0.27, 0, 0], bob: [0.05, 0.07, 0.04], speed: 0.7, phase: 1.2, c: '#2B2EF0' },
+        { k: 5, m: 0, p: [1.85 - Math.sin(T * 0.21) * 0.25, 0.32, 0.0], s: [0.2, 0, 0], bob: [0.04, 0.09, 0.03], speed: 0.8, phase: 2.1, c: '#2B2EF0' },
+        { k: 0, m: 2, p: [3.95, 1.2, -0.6], s: [0.34, 0.22, 0.28], r: [0.3, 0.2, 0.3], spin: [0.05, 0.22, 0], bob: [0.04, 0.08, 0.03], speed: 0.65, phase: 0.8, c: '#FF8FB8' }
+      ]
+    };
+  }
+  /*XGS-END*/
+  componentWillUnmount() {
+    this.fxUnmount(); this.xgUnmount(); }
+  componentDidMount() {
+    this.fxMount(); this.xgMount('.xg', this.xgScene); }
   renderVals() {
     const p = this.props;
     const s = this.state || {};
@@ -228,7 +532,7 @@ class Component extends DCLogic {
         ...x,
         isText,
         hasImg: !isText,
-        cls: isText ? 'post post-text' : 'post',
+        cls: isText ? 'drop-in post post-text' : 'drop-in post',
         bg,
         fg,
         starColor: x.look === 'ground' ? accent : '#0f0f14'

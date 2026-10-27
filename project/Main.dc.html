@@ -22,6 +22,8 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script src="./support.js"></script>
+<script src="/_blob/fb94455f4fcb6f1e0f6bedb931fe6aeb"></script>
+<script src="/_blob/f03a6d827e15052a36e5b98ed81f7e79"></script>
 </head>
 <body>
 <x-dc>
@@ -92,7 +94,7 @@ sc-if,sc-for{display:contents}
 .ghost{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;translate:var(--gx,8px) var(--gy,6px);transition:opacity .3s;pointer-events:none}
 .stamp-cta:hover .press,.stamp-cta:focus-visible .press{scale:.94}
 .stamp-cta:hover .ghost,.stamp-cta:focus-visible .ghost{opacity:var(--go,.35)}
-.spec{position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:2px;max-width:calc(100% - 18px);margin:-26px 0 0 18px;padding:10px 16px 12px 34px;background:#ffffff;color:#0f0f14;border:1.5px solid #0f0f14;box-shadow:4px 4px 0 #0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:12px;line-height:1.45;letter-spacing:.02em;rotate:-1.5deg}
+.spec{position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:2px;max-width:calc(100% - 18px);margin:-26px 0 0 18px;padding:10px 16px 12px 34px;background:#ffffff;color:#0f0f14;border:1.5px solid #0f0f14;box-shadow:4px 4px 0 #0f0f14;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-weight:500;font-size:14px;line-height:1.45;letter-spacing:0;rotate:-1.5deg}
 .spec.r{rotate:1.2deg}
 .spec::before{content:"";position:absolute;left:11px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;border:1.5px solid #0f0f14;background:#F2F1EC}
 .spec h3{margin:2px 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-variation-settings:"SOFT" 60,"WONK" 1;font-size:clamp(24px,2.2vw,32px);letter-spacing:0;line-height:1.1}
@@ -135,9 +137,9 @@ sc-if,sc-for{display:contents}
 .piece{position:absolute;z-index:1;display:block;margin:0;text-decoration:none;transition:scale .35s cubic-bezier(.3,1.6,.5,1)}
 .piece img{display:block;width:100%;height:auto;filter:drop-shadow(10px 12px 0 #0f0f14)}
 .piece:hover,.piece:focus-visible{scale:1.04;z-index:2}
-.pA{top:0;right:2%;width:46%;rotate:5deg;animation:dropIn 1.1s .45s cubic-bezier(.2,.8,.2,1) both}
-.pB{top:40%;left:0;width:62%;rotate:-6deg;animation:dropIn 1.1s .65s cubic-bezier(.2,.8,.2,1) both}
-.pC{top:63%;right:0;width:40%;rotate:9deg;animation:dropIn 1.1s .85s cubic-bezier(.2,.8,.2,1) both}
+.pA{top:0;right:2%;width:46%;rotate:5deg;animation:dropIn 1.1s .45s cubic-bezier(.2,.8,.2,1) both,xgFloat 6.2s ease-in-out 1.6s infinite alternate}
+.pB{top:40%;left:0;width:62%;rotate:-6deg;animation:dropIn 1.1s .65s cubic-bezier(.2,.8,.2,1) both,xgFloat 7.4s ease-in-out 1.8s infinite alternate-reverse}
+.pC{top:63%;right:0;width:40%;rotate:9deg;animation:dropIn 1.1s .85s cubic-bezier(.2,.8,.2,1) both,xgFloat 6.8s ease-in-out 2s infinite alternate}
 .star-cut{position:absolute;z-index:2;top:-3%;left:34%;width:46px;height:46px;overflow:visible;rotate:14deg;filter:drop-shadow(3px 3px 0 #0f0f14)}
 .star-cut path{fill:#FF5A2C;stroke:#ffffff;stroke-width:2;stroke-linejoin:round}
 .badge{position:absolute;z-index:6;left:-64px;bottom:2%;display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;color:#ffffff}
@@ -160,7 +162,7 @@ sc-if,sc-for{display:contents}
 /* ---------- works ---------- */
 .tabs{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px;padding:0 8px}
 .tabs::after{content:"";position:absolute;z-index:2;left:0;right:0;bottom:-8px;height:8px;background:linear-gradient(#0f0f14 0 2px,#f2f1ec 2px);pointer-events:none}
-.tab{position:relative;z-index:1;min-height:48px;padding:0 20px;border:2px solid #0f0f14;border-bottom:0;border-radius:10px 10px 0 0;color:#0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;translate:0 6px;transition:translate .3s cubic-bezier(.3,1.6,.5,1)}
+.tab{position:relative;z-index:1;min-height:48px;padding:0 20px;border:2px solid #0f0f14;border-bottom:0;border-radius:10px 10px 0 0;color:#0f0f14;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-size:17px;font-weight:700;letter-spacing:0;cursor:pointer;translate:0 6px;transition:translate .3s cubic-bezier(.3,1.6,.5,1)}
 .tab:hover{translate:0 2px}
 .tab.is-on,.tab.is-on:hover{translate:0 0;z-index:3}
 .tab-loop{position:absolute;inset:-18% -12%;width:124%;height:136%;overflow:visible;pointer-events:none;color:#2B2EF0}
@@ -210,7 +212,7 @@ sc-if,sc-for{display:contents}
 .page{background:#fbfbf8;padding:30px 22px 34px}
 .pg-area{position:relative;height:280px;overflow:hidden;border:2px solid #0f0f14}
 .pg-title{margin:0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:44px;line-height:1;letter-spacing:-.01em}
-.tool{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:2px solid #0f0f14;background:#fbfbf8;color:#0f0f14;box-shadow:3px 3px 0 #0f0f14;font-family:'Space Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:translate .15s,box-shadow .15s}
+.tool{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:2px solid #0f0f14;background:#fbfbf8;color:#0f0f14;box-shadow:3px 3px 0 #0f0f14;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-size:16px;font-weight:700;letter-spacing:0;cursor:pointer;transition:translate .15s,box-shadow .15s}
 .tool:hover{translate:-1px -1px;box-shadow:4px 4px 0 #0f0f14}
 .tool:active{translate:2px 2px;box-shadow:1px 1px 0 #0f0f14}
 .sk{fill:none;stroke:#3a3a42;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
@@ -229,7 +231,7 @@ sc-if,sc-for{display:contents}
 .canvas img{display:block;width:100%;height:100%;object-fit:cover;border:2px solid #0f0f14;box-shadow:6px 6px 0 #0f0f14}
 .cseal{position:absolute;right:-26px;bottom:-20px;--seal:76px}
 
-.more{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-family:'Space Mono','Courier New',monospace;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.more{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 28px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-size:17px;font-weight:700;letter-spacing:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
 .more:hover{transform:rotate(-3deg) scale(1.04)}
 .more .ico{transition:transform .3s}
 .more:hover .ico{transform:translateX(4px)}
@@ -285,9 +287,90 @@ sc-if,sc-for{display:contents}
 .tab{border-bottom:2px solid #0f0f14;border-radius:10px 10px 4px 4px;padding:0 12px}
 .tab.is-on{box-shadow:4px 4px 0 #0f0f14}
 }
+/*xg-amb*/@keyframes xgSway{0%{transform:perspective(1400px) rotateY(-2.6deg) rotateX(1.4deg) translate3d(0,0,0)}100%{transform:perspective(1400px) rotateY(2.6deg) rotateX(-1.4deg) translate3d(0,-8px,0)}}@keyframes xgFloat{0%{transform:translate3d(0,0,0) rotate(0deg)}100%{transform:translate3d(0,-12px,0) rotate(1.5deg)}}@keyframes xgRock{0%{transform:perspective(900px) rotateX(16deg) rotateY(-7deg)}100%{transform:perspective(900px) rotateX(5deg) rotateY(7deg)}}.card{animation:xgSway 7.5s ease-in-out infinite alternate;transform-origin:50% 0}.card:nth-child(2n){animation-duration:8.8s;animation-delay:-3.2s}.pframe{animation:xgFloat 6.8s ease-in-out infinite alternate}.wordmark{animation:xgRock 9s ease-in-out infinite alternate;transform-origin:50% 100%;text-shadow:1px 1px 0 rgba(15,15,20,.3),2px 2px 0 rgba(15,15,20,.28),3px 3px 0 rgba(15,15,20,.26),4px 4px 0 rgba(15,15,20,.24),5px 5px 0 rgba(15,15,20,.22),6px 6px 0 rgba(15,15,20,.2),7px 7px 0 rgba(15,15,20,.18),8px 8px 0 rgba(15,15,20,.16),9px 9px 0 rgba(15,15,20,.14),10px 10px 0 rgba(15,15,20,.12)}
+/*BN-CSS-BEGIN*/
+.bn-hero{--acc:#D8FF3C}
+.banin{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1;opacity:0;transition:opacity 1.2s ease}
+.banin.is-on{opacity:1}
+.crop{position:absolute;z-index:3;width:30px;height:30px;border:0 solid rgba(255,255,255,.75);pointer-events:none}
+.c-tl{left:14px;top:14px;border-left-width:1.5px;border-top-width:1.5px}
+.c-tr{right:14px;top:14px;border-right-width:1.5px;border-top-width:1.5px}
+.c-bl{left:14px;bottom:14px;border-left-width:1.5px;border-bottom-width:1.5px}
+.c-br{right:14px;bottom:14px;border-right-width:1.5px;border-bottom-width:1.5px}
+.bn-stage{position:relative;z-index:2;max-width:1440px;margin:0 auto;padding:8px clamp(16px,4vw,56px) 64px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:end;gap:32px 48px;min-height:clamp(660px,calc(100vh - 92px),880px);pointer-events:none}
+.bn-stage a,.bn-stage button,.bn-docket{pointer-events:auto}
+.bn-copy{align-self:end}
+.bn-slot{display:none}
+.bn-kicker{margin:0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(19px,1.7vw,24px);line-height:1.2;color:rgba(255,255,255,.92)}
+.bn-name{--reg:1;position:relative;margin:34px 0 0;display:flex;flex-direction:column;font-weight:800;font-stretch:75%;font-size:clamp(104px,15vw,232px);line-height:.8;letter-spacing:-.045em;color:#ffffff}
+.bn-line{position:relative;display:block;width:max-content;isolation:isolate;padding-top:.14em}
+.bn-line::before,.bn-line::after{content:attr(data-plate);position:absolute;left:0;top:0;padding-top:.14em;z-index:-1;pointer-events:none}
+.bn-line::before{color:#FF8FB8;transform:translate(calc(var(--reg) * -.045em),calc(var(--reg) * .03em))}
+.bn-line::after{color:var(--acc);mix-blend-mode:screen;opacity:.9;transform:translate(calc(var(--reg) * .035em),calc(var(--reg) * -.025em))}
+.bn-line.l2{margin-left:.42em}
+.bn-mad{position:relative;display:inline-block;margin:14px 0 0 .2em;font-size:clamp(34px,4vw,58px);line-height:1;color:var(--acc);rotate:-5deg}
+.bn-lede{margin:30px 0 0;max-width:36ch;font-family:'Fraunces',Georgia,serif;font-size:clamp(18px,1.5vw,22px);line-height:1.45;text-wrap:pretty}
+.bn-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.bn-btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;text-decoration:none;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-weight:700;font-size:17px;transition:translate .2s,box-shadow .2s}
+.bn-btn.solid{border:2px solid #0f0f14;box-shadow:4px 4px 0 #0f0f14}
+.bn-btn.solid:hover{translate:-2px -2px;box-shadow:6px 6px 0 #0f0f14}
+.bn-btn.line{border:2px solid #ffffff;color:#ffffff}
+.bn-btn.line:hover{background:#ffffff;color:#0f0f14}
+.bn-docket{position:relative;justify-self:end;align-self:end;width:min(100%,370px);margin-bottom:8px;padding:26px 22px 16px;background:#fbfbf6;color:#0f0f14;border:2px solid #0f0f14;box-shadow:8px 9px 0 #0f0f14;rotate:1.4deg}
+.bn-docket-h{margin:0;font-weight:800;font-stretch:75%;font-size:36px;line-height:.95;letter-spacing:-.02em}
+.bn-docket-s{margin:6px 0 14px;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:16px;line-height:1.3;color:#3a3a42}
+.bn-list{list-style:none;margin:0;padding:0;border-top:2px solid #0f0f14}
+.bn-item{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:8px;align-items:baseline;min-height:44px;padding:8px 6px;border-bottom:1px dashed rgba(15,15,20,.4);text-decoration:none;color:inherit;transition:background .15s,padding .2s}
+.bn-item:hover,.bn-item:focus-visible{background:var(--acc);padding-left:12px}
+.bn-no{grid-row:span 2;font-family:'Space Mono','Courier New',monospace;font-weight:700;font-size:13px}
+.bn-t{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:21px;line-height:1.1}
+.bn-k{font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:14px;color:#3a3a42}
+.bn-scroll{position:absolute;left:50%;bottom:20px;translate:-50% 0;display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-weight:700;font-size:16px;pointer-events:auto}
+.bn-scroll .ico{animation:bob 1.6s ease-in-out infinite}
+.ralo{position:relative;background:#f2f1ec;color:#0f0f14}
+.ralo-head{max-width:1440px;margin:0 auto;padding:120px clamp(16px,4vw,56px) 40px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 48px}
+.ralo-h{margin:0;display:flex;align-items:flex-start;gap:12px;font-weight:800;font-stretch:75%;font-size:clamp(64px,10vw,160px);line-height:.85;letter-spacing:-.04em}
+.ralo-n{margin-top:.12em;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-stretch:100%;font-size:.28em;line-height:1;letter-spacing:0}
+.ralo-sub{margin:16px 0 0;max-width:34ch;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(19px,1.7vw,24px);line-height:1.35}
+.ralo-stage{position:relative}
+.ralo-sticky{position:relative}
+.ralo-track{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:88px 56px;max-width:1440px;margin:0 auto;padding:40px clamp(16px,4vw,56px) 150px}
+.ralo-press{display:none}
+.sheet{position:relative;display:flex;flex-direction:column;gap:14px;flex:none;text-decoration:none;color:inherit;rotate:var(--tilt,0deg);transition:rotate .5s cubic-bezier(.3,1.6,.5,1),translate .3s cubic-bezier(.3,1.6,.5,1)}
+.sheet-paper{display:block;padding:12px;background:#fbfbf6;border:1.5px solid #0f0f14;box-shadow:8px 9px 0 #0f0f14}
+.sheet-paper img{display:block;height:clamp(240px,27vw,390px);width:auto;transition:filter .3s}
+.sheet:hover,.sheet:focus-visible{rotate:0deg;translate:0 -8px}
+.sheet:hover .sheet-paper img,.sheet:focus-visible .sheet-paper img{filter:drop-shadow(-7px 4px 0 #FF8FB8) drop-shadow(7px -4px 0 #2B2EF0)}
+.sheet-lab{display:grid;gap:2px;padding-left:4px}
+.sheet-no{font-family:'Space Mono','Courier New',monospace;font-weight:700;font-size:13px}
+.sheet-t{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:30px;line-height:1.05}
+.sheet-s{font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:15px;color:#3a3a42}
+.sheet-more{align-self:center}
+.sheet-more-in{display:inline-flex;align-items:center;gap:12px;min-height:64px;padding:0 30px;border:2px solid #0f0f14;border-radius:999px;font-weight:800;font-stretch:75%;font-size:30px;letter-spacing:-.01em;background:#ffffff;box-shadow:5px 5px 0 #0f0f14}
+.ralo.is-run .ralo-stage{height:calc(100vh + var(--run,2400px))}
+.ralo.is-run .ralo-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.ralo.is-run .ralo-track{flex-wrap:nowrap;width:max-content;max-width:none;margin:0;padding:0 0 0 0;gap:72px;will-change:transform}
+.ralo.is-run .ralo-press{display:block;position:absolute;right:-30px;top:6vh;bottom:6vh;width:150px;z-index:5;pointer-events:none}
+.roll{position:absolute;top:0;bottom:0;left:0;width:72px;border-radius:36px;background:linear-gradient(90deg,#000 0,#3b3b47 30%,#16161d 55%,#000 100%);box-shadow:-10px 0 0 rgba(15,15,20,.18)}
+.roll.r2{left:62px;background:linear-gradient(90deg,#000 0,#2B2EF0 32%,#14169c 60%,#000 100%)}
+.mf-text .mw{display:inline}
+.steps-row{position:relative}
+.pressline{position:absolute;left:-2%;width:104%;top:34%;height:160px;z-index:0;overflow:visible;pointer-events:none}
+.pressline path{fill:none;stroke:#FF5A2C;stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
+.steps-row>.step{z-index:1}
+@media (max-width:900px){
+.bn-stage{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:24px}
+.bn-docket{justify-self:start;rotate:-1deg;width:100%}
+.bn-scroll{display:none}
+.bn-name{font-size:clamp(84px,24vw,150px)}
+.bn-slot{display:block;height:min(100vw,620px)}
+.banin{top:var(--slot-top,640px);bottom:auto;height:var(--slot-h,100vw)}
+}
+/*BN-CSS-END*/
+/*FX-CSS*/.inkcur{position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:9990;display:none}.inkcur.is-on{display:block}.plate-t{--reg:.7;text-shadow:calc(var(--reg) * -.035em) calc(var(--reg) * .025em) 0 var(--plate1,#FF8FB8),calc(var(--reg) * .03em) calc(var(--reg) * -.02em) 0 var(--plate2,#D8FF3C)}@view-transition{navigation:auto}::view-transition-old(root){animation:vtOut .4s cubic-bezier(.4,0,.2,1) both}::view-transition-new(root){animation:vtIn .55s cubic-bezier(.2,.8,.2,1) both}@keyframes vtOut{to{transform:translateY(-4%) rotate(-1deg);opacity:0}}@keyframes vtIn{from{transform:translateY(8%) rotate(1.5deg);opacity:0}to{transform:none;opacity:1}}@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
 </style>
 </helmet>
-<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow: hidden">
+<div class="{{siteCls}}" style="font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; color: #0f0f14; background: #f2f1ec; overflow-x: clip">
 <svg class="fx" width="0" height="0" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden"><defs>
 <filter id="mnBleed" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="11" result="t"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
 <filter id="mnGrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
@@ -297,13 +380,15 @@ sc-if,sc-for{display:contents}
 <g id="mnSplatG"><path d="M147.9 100.4 Q146.4 100.1 140.9 111.1 Q135.4 122.2 149.2 132 Q163 141.7 151.9 135.4 Q140.7 129.1 137.8 129.4 Q134.9 129.8 126.1 134.8 Q117.3 139.9 120.3 148.8 Q123.3 157.6 120.2 152.2 Q117.1 146.8 115.8 144.6 Q114.6 142.3 116 148.7 Q117.5 155.1 115.5 151.7 Q113.4 148.2 112.8 147.6 Q112.2 147 110 145.1 Q107.8 143.2 109.7 159.3 Q111.6 175.4 108.8 162.9 Q106 150.4 101.5 147.4 Q97.1 144.5 95.3 158.3 Q93.5 172.1 93.2 164.4 Q92.9 156.8 84.2 147.6 Q75.4 138.5 67.8 148.7 Q60.2 159 65.1 150.2 Q69.9 141.4 63.4 132 Q56.9 122.5 52.5 124 Q48.1 125.5 51.6 122.8 Q55.1 120.1 58.7 117.5 Q62.3 114.9 60.8 115.3 Q59.3 115.7 61.7 111 Q64.1 106.3 49.3 108.1 Q34.5 109.9 40.4 108 Q46.3 106.2 54.9 88.8 Q63.6 71.5 68.3 71.2 Q72.9 70.9 64.2 60.3 Q55.5 49.7 61.6 55.3 Q67.8 60.9 71 61.2 Q74.2 61.5 76.1 60 Q77.9 58.5 80.5 62.4 Q83.1 66.3 74.6 49.3 Q66.1 32.4 73 44.2 Q79.8 56 83.5 58.8 Q87.3 61.7 88 58.9 Q88.7 56.1 98.6 56.4 Q108.6 56.7 118.7 59.5 Q128.8 62.4 139.5 50 Q150.2 37.6 142.2 49 Q134.2 60.4 136.2 74.5 Q138.3 88.6 142.6 88 Q146.9 87.4 146.2 91 Q145.5 94.5 154.5 94.2 Q163.6 93.9 159.6 95.3 Q155.7 96.6 152.6 97.2 Q149.6 97.7 162.3 98.1 Q175 98.5 162.2 99.6 Q149.3 100.7 147.9 100.4 Z"></path><circle cx="98.9" cy="21.2" r="2.5"></circle><circle cx="138" cy="175.6" r="4.8"></circle><circle cx="69.8" cy="27.4" r="5.6"></circle><circle cx="36" cy="163.5" r="2"></circle><circle cx="27.7" cy="54.8" r="2.3"></circle><circle cx="108" cy="13.9" r="7.7"></circle><circle cx="131.1" cy="174.5" r="7.2"></circle></g>
 </defs></svg>
 
-<header style="background: {{ground}}; color: #ffffff; position: relative; overflow: hidden">
+<header class="bn-hero" style="--acc: {{accent}}; background: {{ground}}; color: #ffffff; position: relative; overflow: hidden; isolation: isolate">
+<canvas class="banin" aria-hidden="true"></canvas>
 <sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
 <svg class="grain on-dark" aria-hidden="true" style="z-index: 0"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
 </sc-if>
+<span class="crop c-tl" aria-hidden="true"></span><span class="crop c-tr" aria-hidden="true"></span><span class="crop c-bl" aria-hidden="true"></span><span class="crop c-br" aria-hidden="true"></span>
 <nav aria-label="Điều hướng chính" style="position: relative; z-index: 8; max-width: 1440px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
 <a class="logo" href="#top" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; font-size: 32px; letter-spacing: -0.02em"><span class="dot pulse" aria-hidden="true" style="width: 12px; height: 12px; display: inline-block; background: {{accent}}; color: {{accent}}"></span>tuấn anh</a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0">
 <a class="navlink" href="Works.dc.html">Tác phẩm</a>
 <a class="navlink" href="About.dc.html">Giới thiệu</a>
 <a class="navlink" href="Journal.dc.html">Nhật ký</a>
@@ -311,27 +396,28 @@ sc-if,sc-for{display:contents}
 </div>
 </nav>
 
-<section id="top" style="position: relative; z-index: 2; max-width: 1440px; margin: 0 auto; padding: 8px clamp(16px, 4vw, 56px) 88px">
-<div class="hero-wrap" onPointerMove="{{heroMove}}" onPointerLeave="{{heroLeave}}">
-<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85)">Thiết kế nghệ thuật — Poster · Minh họa · Nhận diện · 3D · Giao diện</p>
-<div style="position: relative; margin-top: 20px">
-<h1 class="giant" aria-label="Nguyễn Tuấn Anh" style="margin: 0; padding-top: 0.16em; font-weight: 800; font-stretch: 75%; font-size: clamp(104px, 21vw, 300px); line-height: 0.82; letter-spacing: -0.045em; color: #ffffff"><span class="riso on-dark" data-riso="TUẤN" aria-hidden="true" style="--rx: {{rx}}px; --ry: {{ry}}px; display: flex; width: max-content"><span class="ch c1">T</span><span class="ch c2">U</span><span class="ch c3">Ấ</span><span class="ch c4">N</span></span><span class="riso on-dark" data-riso="ANH" aria-hidden="true" style="--rx: {{rx}}px; --ry: {{ry}}px; display: flex; width: max-content; margin-left: 0.62em"><span class="ch" style="animation-delay: 0.45s">A</span><span class="ch" style="animation-delay: 0.55s">N</span><span class="ch" style="animation-delay: 0.65s">H</span></span></h1>
-<p class="note scribble" aria-hidden="true" style="left: 34%; top: 60%; margin: 0; font-size: clamp(38px, 6vw, 92px); line-height: 1; color: {{accent}}">điên <span style="position: relative; display: inline-block">vừa đủ<svg class="hn" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -6%; bottom: -0.22em; width: 112%; height: 0.36em; overflow: visible"><path class="ink mid" pathLength="1" d="M4 15 C 40 7, 72 21, 112 13 S 184 5, 222 14 S 282 21, 296 10"></path><path class="ink mid late" pathLength="1" d="M26 22 C 90 17, 170 24, 270 18"></path></svg></span><svg class="hn hero-arrow" viewBox="0 0 140 90" aria-hidden="true"><path class="ink" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></p>
+<section id="top" class="bn-stage" aria-label="Giới thiệu nhanh">
+<div class="bn-copy">
+<p class="bn-kicker">Xưởng in của Nguyễn Tuấn Anh, Hà Nội</p>
+<h1 class="bn-name" aria-label="Tuấn Anh"><span class="bn-line" data-plate="TUẤN" aria-hidden="true">TUẤN</span><span class="bn-line l2" data-plate="ANH" aria-hidden="true">ANH</span></h1>
+<p class="note scribble bn-mad" aria-hidden="true">điên vừa đủ<svg class="hn" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; bottom: -0.3em; width: 108%; height: 0.4em; overflow: visible"><path class="ink mid" pathLength="1" d="M4 15 C 40 7, 72 21, 112 13 S 184 5, 222 14 S 270 20, 296 10"></path></svg></p>
+<p class="bn-lede">Tôi làm poster, minh họa, nhận diện, 3D và giao diện. Những thứ hay bị gọi là điên: poster nghiêng ngả, ứng dụng cố tình chỉ sai đường, đá chồng ngược trọng lực.</p>
+<div class="bn-cta">
+<a class="bn-btn solid" href="#ra-lo" style="background: {{accent}}; color: #0f0f14">Xem tờ in mới ra lò<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
+<a class="bn-btn line" href="Commission.dc.html">Đặt một dự án</a>
 </div>
-<div class="hero-foot" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 40px; margin-top: 44px; max-width: 640px">
-<p style="margin: 0; max-width: 30ch; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 2vw, 26px); line-height: 1.35; text-wrap: pretty">Tôi làm những thứ hay bị gọi là điên — poster nghiêng ngả, ứng dụng cố tình chỉ sai đường, đá chồng ngược trọng lực.</p>
-<a class="scroll-cue" href="#tac-pham" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Cuộn xuống<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
 </div>
+<div class="bn-slot" aria-hidden="true"></div>
 
-<div class="collage">
-<svg class="splat splat-in hero-splat" viewBox="0 0 200 200" aria-hidden="true" style="color: {{accent}}"><use href="#mnSplatG"></use></svg>
-<a class="piece pA peel" href="WorkDetail.dc.html" aria-label="Xem Điên vừa đủ"><img src="/_blob/ba35d4e2d42f76a23e2811874855e02d" width="640" height="800" alt="Điên vừa đủ — poster chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-top" aria-hidden="true"></span></a>
-<a class="piece pB peel" href="WorkDetail.dc.html" aria-label="Xem Đêm phố"><img src="/_blob/a423d9596a472000b5c35702848b8e4b" width="820" height="547" alt="Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-tl" aria-hidden="true"></span><span class="tape-strip dark tp-br" aria-hidden="true"></span></a>
-<a class="piece pC peel" href="WorkDetail.dc.html" aria-label="Xem Gác Xép"><img src="/_blob/e360ecb345186299a175c9ecb988d921" width="600" height="600" alt="Gác Xép — bảng nhận diện với logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, xé rời khỏi tờ giấy"><span class="tape-strip dark tp-top" aria-hidden="true"></span></a>
-<svg class="star-cut" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0 L23 15 L37 9 L25 20 L37 31 L23 25 L20 40 L17 25 L3 31 L15 20 L3 9 L17 15 Z"></path></svg>
-<a class="badge stamp-cta" href="#tac-pham" aria-label="Xem tác phẩm"><span class="press"><span class="seal" aria-hidden="true"><svg viewBox="0 0 100 100"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="94" height="94" rx="7"></rect><rect class="seal-rim" x="10" y="10" width="80" height="80" rx="3"></rect><text class="seal-cut" x="50" y="46" textLength="70" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">TUẤN</text><text class="seal-cut" x="50" y="84" textLength="56" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">ANH</text></g></svg></span><span class="ghost" aria-hidden="true"><span class="seal"><svg viewBox="0 0 100 100"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="94" height="94" rx="7"></rect><rect class="seal-rim" x="10" y="10" width="80" height="80" rx="3"></rect><text class="seal-cut" x="50" y="46" textLength="70" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">TUẤN</text><text class="seal-cut" x="50" y="84" textLength="56" lengthAdjust="spacingAndGlyphs" style="font-size: 32px">ANH</text></g></svg></span></span></span><span class="stampline" aria-hidden="true" style="background: {{accent}}">ĐANG NHẬN DỰ ÁN</span></a>
-</div>
-</div>
+<aside class="bn-docket bn-ui" aria-labelledby="docket-title">
+<span class="tape-strip tp-top" aria-hidden="true"></span>
+<p id="docket-title" class="bn-docket-h">Trên bàn hôm nay</p>
+<p class="bn-docket-s">Bấm vào tên hoặc tờ in trên bàn để xem kỹ.</p>
+<ol class="bn-list">
+<sc-for list="{{docket}}" as="d" hint-placeholder-count="6"><li><a class="bn-item" href="WorkDetail.dc.html" data-print="{{d.i}}" onPointerEnter="{{d.on}}" onPointerLeave="{{d.off}}" onFocus="{{d.on}}" onBlur="{{d.off}}"><span class="bn-no">Nº {{d.no}}</span><span class="bn-t">{{d.title}}</span><span class="bn-k">{{d.kind}}</span></a></li></sc-for>
+</ol>
+</aside>
+<a class="bn-scroll" href="#ra-lo">Cuộn xuống<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
 </section>
 </header>
 
@@ -349,12 +435,11 @@ sc-if,sc-for{display:contents}
 </div>
 </div>
 
-<section id="tac-pham" style="position: relative; background: #f2f1ec; color: #0f0f14">
-<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 140px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 80px">
+<section id="ra-lo" class="ralo" aria-labelledby="ralo-title">
+<div class="ralo-head">
 <div>
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">(01) — Tác phẩm chọn lọc</p>
-<h2 style="margin: 12px 0 0; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-stretch: 75%; font-size: clamp(64px, 11vw, 168px); line-height: 0.85; letter-spacing: -0.04em">Tác phẩm<span style="margin-top: 0.12em; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-stretch: 100%; font-size: 0.28em; line-height: 1; letter-spacing: 0">({{count}})</span></h2>
+<h2 id="ralo-title" class="ralo-h">Mới ra lò<span class="ralo-n">({{count}})</span></h2>
+<p class="ralo-sub">Sáu tờ vừa in xong, mực còn ướt. Bấm vào tờ nào để xem kỹ.</p>
 </div>
 <div class="tabs" role="group" aria-label="Lọc theo lĩnh vực">
 <button type="button" class="{{chipAll}}" aria-pressed="{{pressAll}}" onClick="{{pickAll}}" style="background: #ffffff">Tất cả<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
@@ -363,59 +448,26 @@ sc-if,sc-for{display:contents}
 <button type="button" class="{{chipDigital}}" aria-pressed="{{pressDigital}}" onClick="{{pickDigital}}" style="background: #7D86FF">Số &amp; tương tác<svg class="hn tab-loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path class="ink-h" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></button>
 </div>
 </div>
-
-<div class="gallery">
-<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}">
-<article class="card g5 ink-host">
-<div class="hnote hn" aria-hidden="true"><span class="note">thước đo đúng 87%</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Điên vừa đủ — chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%"><img class="bp-wet" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt="" aria-hidden="true" style="filter: url(#mnBleed)"></a>
-<div class="spec"><span>MẪU Nº 02 · 2026</span><h3>Điên vừa đủ</h3><span>Poster · khổ 60 × 75 cm</span></div>
-</article>
-<article class="card g7 lift ink-host peel">
-<span class="tape-strip tp-tr" aria-hidden="true"></span>
-<div class="hnote hn" aria-hidden="true"><span class="note">leo năm tầng mới tới</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" width="1400" height="1400" style="aspect-ratio: 1 / 1" alt="Gác Xép — bảng nhận diện: logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp"><span class="plates" aria-hidden="true"><img class="plate pl-pink" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" alt="" style="filter: url(#mnRisoPink)"><img class="plate pl-blue" src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" alt="" style="filter: url(#mnRisoBlue)"></span></a>
-<div class="spec r"><span>MẪU Nº 04 · 2025</span><h3>Gác Xép</h3><span>Nhận diện thương hiệu · logo, màu, ấn phẩm</span></div>
-</article>
-</sc-if>
-<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}">
-<article class="card g4 ink-host">
-<div class="hnote hn" aria-hidden="true"><span class="note">dậy từ 4 giờ để xem</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/80535c369d55d41873b43749680ba93e" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Long Biên, 5 giờ sáng — cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông"><span class="plates" aria-hidden="true"><img class="plate pl-pink" src="/_blob/80535c369d55d41873b43749680ba93e" alt="" style="filter: url(#mnRisoPink)"><img class="plate pl-blue" src="/_blob/80535c369d55d41873b43749680ba93e" alt="" style="filter: url(#mnRisoBlue)"></span></a>
-<div class="spec"><span>MẪU Nº 03 · 2025</span><h3>Long Biên, 5 giờ sáng</h3><span>Minh họa số · tỉ lệ 4:5</span></div>
-</article>
-<article class="card g4 lift ink-host peel">
-<span class="tape-strip tp-tr" aria-hidden="true"></span>
-<div class="hnote hn" aria-hidden="true"><span class="note">ngoài đời là đổ</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" style="aspect-ratio: 4 / 5" alt="Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">trọng lực = 0</span></a>
-<div class="spec r"><span>MẪU Nº 05 · 2026</span><h3>Cân bằng giả</h3><span>3D · ảnh render · tỉ lệ 4:5</span></div>
-</article>
-</sc-if>
-<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}">
-<article class="card g4 ink-host">
-<div class="hnote hn" aria-hidden="true"><span class="note">mỗi sợi là một chiếc xe</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/5c7bd031a4aa5734c27fc7388907c0af" width="1800" height="1200" style="aspect-ratio: 3 / 2" alt="Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">seed 0417 · chạy lại</span></a>
-<div class="spec"><span>MẪU Nº 06 · 2026</span><h3>Đêm phố</h3><span>Nghệ thuật tạo sinh · viết bằng code</span></div>
-</article>
-<article class="card g8 gs3 ink-host">
-<div class="hnote hn" aria-hidden="true"><span class="note">chỉ sai đường, cố ý</span><svg class="harrow" viewBox="0 0 140 90"><path class="ink-h" pathLength="1" d="M8 80 C 30 82, 62 70, 84 50 C 98 37, 108 25, 120 12"></path><path class="ink-h late" pathLength="1" d="M98 12 C 106 11, 114 10, 122 9 C 121 17, 120 25, 117 33"></path></svg></div>
-<a class="frame" href="WorkDetail.dc.html"><img class="art" src="/_blob/e6dda941d38e6e2b7ebe29d21f804cf2" width="1800" height="1200" style="aspect-ratio: 3 / 2" alt="Đi lạc — ba màn hình ứng dụng bản đồ: màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc"><span class="codegrid" aria-hidden="true"></span><span class="seedtag" aria-hidden="true">bản thử · 47 phút lạc</span></a>
-<div class="spec r"><span>MẪU Nº 01 · 2026</span><h3>Đi lạc</h3><span>Giao diện / UX · ứng dụng di động, 3 màn hình</span></div>
-</article>
-</sc-if>
+<div class="ralo-stage">
+<div class="ralo-sticky">
+<div class="ralo-press" aria-hidden="true"><span class="roll"></span><span class="roll r2"></span></div>
+<div class="ralo-track">
+<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -1.6deg"><span class="sheet-paper"><img src="/_blob/e6dda941d38e6e2b7ebe29d21f804cf2" width="1800" height="1200" alt="Đi lạc: ba màn hình ứng dụng bản đồ, màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc"></span><span class="sheet-lab"><span class="sheet-no">Nº 01, 2026</span><span class="sheet-t">Đi lạc</span><span class="sheet-s">Ứng dụng di động, 3 màn hình</span></span></a></sc-if>
+<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.4deg"><span class="sheet-paper"><img src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" alt="Điên vừa đủ: chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%"></span><span class="sheet-lab"><span class="sheet-no">Nº 02, 2026</span><span class="sheet-t">Điên vừa đủ</span><span class="sheet-s">Poster khổ 60 × 75 cm</span></span></a></sc-if>
+<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -0.8deg"><span class="sheet-paper"><img src="/_blob/80535c369d55d41873b43749680ba93e" width="1200" height="1500" alt="Long Biên, 5 giờ sáng: cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông"></span><span class="sheet-lab"><span class="sheet-no">Nº 03, 2025</span><span class="sheet-t">Long Biên, 5 giờ sáng</span><span class="sheet-s">Minh họa số, tỉ lệ 4:5</span></span></a></sc-if>
+<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.8deg"><span class="sheet-paper"><img src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" width="1400" height="1400" alt="Gác Xép: bảng nhận diện với logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp"></span><span class="sheet-lab"><span class="sheet-no">Nº 04, 2025</span><span class="sheet-t">Gác Xép</span><span class="sheet-s">Nhận diện thương hiệu: logo, màu, ấn phẩm</span></span></a></sc-if>
+<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -1.2deg"><span class="sheet-paper"><img src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" alt="Cân bằng giả: bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên"></span><span class="sheet-lab"><span class="sheet-no">Nº 05, 2026</span><span class="sheet-t">Cân bằng giả</span><span class="sheet-s">Ảnh render 3D, tỉ lệ 4:5</span></span></a></sc-if>
+<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.1deg"><span class="sheet-paper"><img src="/_blob/5c7bd031a4aa5734c27fc7388907c0af" width="1800" height="1200" alt="Đêm phố: hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen"></span><span class="sheet-lab"><span class="sheet-no">Nº 06, 2026</span><span class="sheet-t">Đêm phố</span><span class="sheet-s">Nghệ thuật tạo sinh, viết bằng code</span></span></a></sc-if>
+<a class="sheet sheet-more" href="Works.dc.html"><span class="sheet-more-in">Xem cả phòng tranh<svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
-<div style="display: flex; justify-content: center; margin-top: 96px"><a class="more" href="Works.dc.html">Xem toàn bộ bộ sưu tập<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
 </div>
-<sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
-<svg class="grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
-</sc-if>
+</div>
 </section>
 
 <div class="tear" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #0f0f14"></i></div>
-<section id="tuyen-ngon" style="background: #0f0f14; color: #f2f1ec; position: relative; overflow: hidden">
+<section id="tuyen-ngon" style="background: #0f0f14; color: #f2f1ec; position: relative; overflow: hidden" aria-label="Tuyên ngôn">
 <div style="max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px)">
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3ad">(02) — Tuyên ngôn</p>
-<p style="margin: 32px 0 0; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(34px, 5.4vw, 84px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: pretty">Tôi làm <span class="pillw" style="rotate: -4deg"><img class="pill" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span> những thứ <span class="strike hn" aria-hidden="true"><span style="opacity: 0.55">an toàn</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; top: 38%; width: 108%; height: 0.4em; overflow: visible; color: #FF5A2C"><path class="ink" pathLength="1" d="M2 12 C 50 8, 96 15, 150 10 S 250 7, 298 12"></path><path class="ink late" pathLength="1" d="M10 15 C 90 13, 190 9, 292 6"></path></svg></span> <span class="loopw" style="color: {{accent}}">bị gọi là điên<svg class="hn" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: -18% -6%; width: 112%; height: 136%; overflow: visible; pointer-events: none"><path class="ink" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></span> — tấm bản đồ chỉ sai đường, chồng đá không chịu đổ <span class="pillw" style="rotate: 3deg"><img class="pill" src="/_blob/950d916a2103e84df23e30b44bf91101" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>, và những ý tưởng <em>chưa ai dám làm</em> <span class="pillw" style="rotate: -2deg"><img class="pill" src="/_blob/80535c369d55d41873b43749680ba93e" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>.</p>
+<p class="mf-text" style="margin: 32px 0 0; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(34px, 5.4vw, 84px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: pretty"><span class="mw">Tôi</span> <span class="mw">làm</span> <span class="mw pillw" style="rotate: -4deg"><img class="pill" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span> <span class="mw">những</span> <span class="mw">thứ</span> <span class="mw strike hn" aria-hidden="true"><span style="opacity: 0.55">an toàn</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; top: 38%; width: 108%; height: 0.4em; overflow: visible; color: #FF5A2C"><path class="ink" pathLength="1" d="M2 12 C 50 8, 96 15, 150 10 S 250 7, 298 12"></path><path class="ink late" pathLength="1" d="M10 15 C 90 13, 190 9, 292 6"></path></svg></span> <span class="loopw" style="color: {{accent}}">bị gọi là điên<svg class="hn" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: -18% -6%; width: 112%; height: 136%; overflow: visible; pointer-events: none"><path class="mw ink" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></span> — tấm bản đồ chỉ sai đường, chồng đá không chịu đổ <span class="pillw" style="rotate: 3deg"><img class="pill" src="/_blob/950d916a2103e84df23e30b44bf91101" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>, và những ý tưởng <em>chưa ai dám làm</em> <span class="pillw" style="rotate: -2deg"><img class="pill" src="/_blob/80535c369d55d41873b43749680ba93e" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>.</p>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 64px 80px; align-items: end; margin-top: 120px">
 <div class="pframe">
@@ -439,13 +491,13 @@ sc-if,sc-for{display:contents}
 </div>
 <div>
 <p style="margin: 0; max-width: 34em; font-size: clamp(19px, 1.6vw, 23px); line-height: 1.55; text-wrap: pretty">Nguyễn Tuấn Anh làm thiết kế nghệ thuật — poster, minh họa, nhận diện thương hiệu, 3D, giao diện và cả code. Một người tự do, ngẫu hứng, với những ý tưởng thường bị coi là của thằng điên. Phần lớn trong số đó, làm ra rồi thì ai cũng thích.</p>
-<p style="margin: 20px 0 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 14px; line-height: 1.6; color: #a3a3ad">Học ở Đại học Bách khoa Hà Nội · sống và làm việc tự do ở Hà Nội.</p>
+<p style="margin: 20px 0 0; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 600; font-size: 16px; line-height: 1.6; color: #a3a3ad">Học ở Đại học Bách khoa Hà Nội, giờ sống và làm việc tự do ở Hà Nội.</p>
 <dl style="margin: 40px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); border-top: 1px solid rgba(242,241,236,0.3)">
-<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Lĩnh vực</dt>
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 18px; letter-spacing: 0; color: #a3a3ad">Lĩnh vực</dt>
 <dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Poster, minh họa, nhận diện, 3D, giao diện, code</dd>
-<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Nơi làm việc</dt>
-<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Hà Nội · nhận làm từ xa</dd>
-<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #a3a3ad">Nhận dự án</dt>
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 18px; letter-spacing: 0; color: #a3a3ad">Nơi làm việc</dt>
+<dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Hà Nội, nhận làm từ xa</dd>
+<dt style="padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 18px; letter-spacing: 0; color: #a3a3ad">Nhận dự án</dt>
 <dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid rgba(242,241,236,0.3); font-size: 18px">Đang nhận — nhắn Zalo hoặc email</dd>
 </dl>
 <a class="more" href="About.dc.html" style="margin-top: 40px; color: #f2f1ec">Đọc câu chuyện đầy đủ<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
@@ -455,17 +507,17 @@ sc-if,sc-for{display:contents}
 </section>
 
 <div class="tear flip" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #f2f1ec"></i></div>
-<section id="studio" style="position: relative; background: #f2f1ec; color: #0f0f14">
+<section id="studio" style="position: relative; background: #f2f1ec; color: #0f0f14" aria-label="Trên bàn làm việc">
 <div style="max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px)">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
 <div>
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a4a52">(03) — Trên bàn làm việc</p>
 <h2 style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(48px, 7vw, 112px); line-height: 0.9; letter-spacing: -0.035em">Một thiết kế<br>ra đời thế nào</h2>
 </div>
 <p style="margin: 0; max-width: 26ch; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4">Ba bước, lặp lại cho đến khi sản phẩm tự nói “xong rồi”.</p>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 56px 36px; align-items: start; margin-top: 88px">
+<div class="steps-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 56px 36px; align-items: start; margin-top: 88px">
+<svg class="pressline" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 120 C 150 30, 260 150, 420 80 S 690 10, 820 90 S 1050 150, 1192 40"></path></svg>
 <article class="step peel" style="rotate: -1.5deg">
 <span class="tape-strip pink tp-top" aria-hidden="true"></span>
 <div class="drop">
@@ -534,26 +586,25 @@ sc-if,sc-for{display:contents}
 </section>
 
 <div class="tear" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: {{ground}}"></i></div>
-<section id="lien-he" style="background: {{ground}}; color: #ffffff; position: relative; overflow: hidden">
+<section id="lien-he" style="background: {{ground}}; color: #ffffff; position: relative; overflow: hidden" aria-label="Liên hệ">
 <sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
 <svg class="grain on-dark" aria-hidden="true"><rect width="100%" height="100%" filter="url(#mnGrain)"></rect></svg>
 </sc-if>
 <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px) 0">
-<p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85)">(04) — Liên hệ</p>
 <h2 style="margin: 24px 0 0; max-width: 11ch; font-weight: 800; font-stretch: 75%; font-size: clamp(56px, 9.5vw, 150px); line-height: 0.9; letter-spacing: -0.04em">Cùng làm một điều <em style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-stretch: 100%; letter-spacing: -0.02em; color: {{accent}}">rực rỡ</em>?</h2>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 48px; margin-top: 64px">
 <div style="display: flex; flex-direction: column; gap: 24px; max-width: 560px">
 <p style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 2vw, 26px); line-height: 1.4">Một dự án, một ý tưởng điên điên, hay chỉ muốn nói xin chào — nhắn Zalo hoặc gửi thư đều được.</p>
 <p style="margin: 0; font-family: 'Space Mono', 'Courier New', monospace; font-size: clamp(14px, 1.5vw, 17px); font-weight: 700; overflow-wrap: anywhere"><a href="mailto:nguyentuananh512005@gmail.com" style="position: relative; display: inline-block; text-decoration: none">nguyentuananh512005@gmail.com<svg class="hn" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -2%; bottom: -0.75em; width: 104%; height: 0.9em; overflow: visible; color: {{accent}}"><path class="ink mid" pathLength="1" d="M4 15 C 40 7, 72 21, 112 13 S 184 5, 222 14 S 282 21, 296 10"></path><path class="ink mid late" pathLength="1" d="M26 22 C 90 17, 170 24, 270 18"></path></svg></a></p>
-<div style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<div style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-size: 17px; font-weight: 700; letter-spacing: 0">
 <a class="ulink" href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" rel="noopener">Facebook<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
-<a class="ulink" href="https://zalo.me/0375492993" target="_blank" rel="noopener">Zalo · 0375 492 993<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
+<a class="ulink" href="https://zalo.me/0375492993" target="_blank" rel="noopener">Zalo 0375 492 993<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
 <a class="ulink" href="tel:0375492993">Gọi điện<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
 </div>
 </div>
 <a class="stamp-cta big" href="Commission.dc.html" aria-label="Đặt dự án với Tuấn Anh" style="position: relative; flex-shrink: 0; display: block; width: 220px; margin-right: 12px; text-decoration: none; color: #ffffff"><span class="press"><span class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="114" height="114" rx="8"></rect><rect class="seal-rim" x="11" y="11" width="98" height="98" rx="4"></rect><text class="seal-cut sq" x="60" y="47">VIẾT</text><text class="seal-cut sq" x="60" y="76">CHO</text><text class="seal-cut sq" x="52" y="105">TÔI</text><path class="seal-arw" d="M88 103 L102 89 M92 89 L102 89 L102 99"></path></g></svg></span><span class="ghost" aria-hidden="true"><span class="seal"><svg viewBox="0 0 120 120"><g filter="url(#mnWear)"><rect class="seal-ink" x="3" y="3" width="114" height="114" rx="8"></rect><rect class="seal-rim" x="11" y="11" width="98" height="98" rx="4"></rect><text class="seal-cut sq" x="60" y="47">VIẾT</text><text class="seal-cut sq" x="60" y="76">CHO</text><text class="seal-cut sq" x="52" y="105">TÔI</text><path class="seal-arw" d="M88 103 L102 89 M92 89 L102 89 L102 99"></path></g></svg></span></span></span></a>
 </div>
-<footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 96px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Space Mono', 'Courier New', monospace; font-size: 13px; color: rgba(255,255,255,0.85)">
+<footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 96px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.4); font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 600; font-size: 15px; color: rgba(255,255,255,0.85)">
 <span>© 2026 Nguyễn Tuấn Anh. Bản quyền tác phẩm thuộc về tác giả.</span>
 <a class="ulink" href="#top">Lên đầu trang<svg class="ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
 </footer>
@@ -561,22 +612,578 @@ sc-if,sc-for{display:contents}
 <div class="wordmark" aria-hidden="true" style="filter: url(#mnBleed); font-size: 19vw; padding-top: 0.12em">TUẤN ANH</div>
 </section>
 
+<canvas class="inkcur" aria-hidden="true"></canvas>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"grain":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"notes":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":9000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#2B2EF0","options":["#2B2EF0","#5B1FD1","#0B5D3B","#0F0F14"],"section":"Màu"},"accent":{"editor":"color","default":"#D8FF3C","options":["#D8FF3C","#FF8FB8","#FFC21A"],"section":"Màu"},"motion":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"grain":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"notes":{"editor":"boolean","default":true,"section":"Hiệu ứng"},"$preview":{"width":1440,"height":7400}}'>
 class Component extends DCLogic {
+  /*FX-BEGIN — chung cho mọi trang: vệt mực theo chuột, tiêu đề in lệch bản tự căn lại, vật thể "đặt xuống" khi cuộn tới */
+  fxLive() {
+    if ((this.props && this.props.motion) === false) return false;
+    try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
+  }
+  fxScrollMode() {
+    const vh = window.innerHeight, dh = document.documentElement.scrollHeight;
+    return vh > 0 && vh < 1700 && dh > vh * 1.3;
+  }
+  fxMount() {
+    if (this._fx || typeof window === 'undefined') return;
+    this._fx = { stop: [] };
+    const fx = this._fx;
+    const live = this.fxLive();
+    const scroll = this.fxScrollMode();
+    // 1. vệt mực: chỉ khi có chuột thật và trang cuộn được (không chạy trên bảng vẽ canvas)
+    let fine = false;
+    try { fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch (e) { fine = false; }
+    const cv = document.querySelector('.inkcur');
+    if (cv && fine && live && scroll) {
+      const g = cv.getContext('2d');
+      const dots = [];
+      let raf = 0, lx = -99, ly = -99, k = 0, W = 0, H = 0;
+      const size = () => { const d = Math.min(window.devicePixelRatio || 1, 2); W = window.innerWidth; H = window.innerHeight; cv.width = W * d; cv.height = H * d; g.setTransform(d, 0, 0, d, 0, 0); };
+      size();
+      const cols = ['#FF8FB8', '#2B2EF0', '#FF5A2C'];
+      const draw = () => {
+        raf = 0;
+        g.clearRect(0, 0, W, H);
+        const now = performance.now();
+        for (let i = dots.length - 1; i >= 0; i--) {
+          const d = dots[i];
+          const a = 1 - (now - d.t) / 700;
+          if (a <= 0) { dots.splice(i, 1); continue; }
+          const r = d.r * (0.55 + 0.45 * a);
+          g.globalAlpha = a * 0.85;
+          g.fillStyle = '#FF8FB8'; g.beginPath(); g.arc(d.x - 2.2, d.y + 1.6, r, 0, 6.283); g.fill();
+          g.fillStyle = d.c; g.beginPath(); g.arc(d.x, d.y, r, 0, 6.283); g.fill();
+        }
+        g.globalAlpha = 1;
+        if (dots.length) raf = requestAnimationFrame(draw);
+      };
+      const move = (e) => {
+        const dx = e.clientX - lx, dy = e.clientY - ly;
+        if (dx * dx + dy * dy < 140) return;
+        lx = e.clientX; ly = e.clientY; k++;
+        dots.push({ x: lx, y: ly, r: 2.5 + (k % 3), c: cols[1 + (k % 2)], t: performance.now() });
+        if (dots.length > 60) dots.shift();
+        if (!raf) raf = requestAnimationFrame(draw);
+      };
+      window.addEventListener('pointermove', move, { passive: true });
+      window.addEventListener('resize', size);
+      cv.classList.add('is-on');
+      fx.stop.push(() => { window.removeEventListener('pointermove', move); window.removeEventListener('resize', size); if (raf) cancelAnimationFrame(raf); });
+    }
+    // 2 + 3 cần GSAP
+    const go = (n) => {
+      const gs = window.gsap, ST = window.ScrollTrigger;
+      if (!gs) { if (n < 60) fx.wait = setTimeout(() => go(n + 1), 120); return; }
+      if (ST) gs.registerPlugin(ST);
+      const ctx = gs.context(() => {
+        const heads = gs.utils.toArray('.plate-t');
+        if (live && heads.length) {
+          gs.fromTo(heads, { '--reg': 2.4 }, { '--reg': 0.7, duration: 1.4, ease: 'elastic.out(1, 0.45)', stagger: 0.08, delay: 0.15 });
+          if (scroll && ST) heads.forEach((h) => gs.to(h, { '--reg': 0, ease: 'none', scrollTrigger: { trigger: h, start: 'top 40%', end: 'bottom top', scrub: 0.5 } }));
+        }
+        if (live && scroll && ST) {
+          gs.utils.toArray('.drop-in').forEach((el, i) => {
+            gs.from(el, { y: 70, rotation: (i % 2 ? 5 : -5), opacity: 0, duration: 0.85, ease: 'back.out(1.6)', clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+          });
+        }
+      });
+      fx.stop.push(() => ctx.revert());
+    };
+    go(0);
+  }
+  fxUnmount() {
+    if (!this._fx) return;
+    if (this._fx.wait) clearTimeout(this._fx.wait);
+    this._fx.stop.forEach((f) => { try { f(); } catch (e) { /* bỏ qua */ } });
+    this._fx = null;
+  }
+  /*FX-END*/
+  /*BANIN-BEGIN — bàn in 3D (three.js r180 nạp ở <head>): tờ in rơi xuống tấm lót cắt, đồ vật trên bàn, hậu kỳ in riso */
+  bnMount() {
+    if (this._bn || typeof window === 'undefined') return;
+    const go = (n) => {
+      const cv = document.querySelector('.banin');
+      if (!cv || !window.THREE) { if (n < 80) this._bnWait = setTimeout(() => go(n + 1), 120); return; }
+      try { this._bn = this.bnInit(cv); } catch (err) { if (window.console) console.warn('ban-in', err); cv.style.display = 'none'; }
+    };
+    go(0);
+  }
+  bnUnmount() {
+    if (this._bnWait) clearTimeout(this._bnWait);
+    if (this._bn) this._bn.stop();
+    this._bn = null;
+  }
+  bnLive() {
+    if ((this.props && this.props.motion) === false) return false;
+    try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
+  }
+  bnInit(cv) {
+    const T = window.THREE;
+    const self = this;
+    const renderer = new T.WebGLRenderer({ canvas: cv, antialias: true, alpha: false, powerPreference: 'high-performance' });
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = T.PCFShadowMap;
+    renderer.outputColorSpace = T.SRGBColorSpace;
+    const scene = new T.Scene();
+    const groundHex = () => (self.props && self.props.ground) || '#2B2EF0';
+    const accentHex = () => (self.props && self.props.accent) || '#D8FF3C';
+    const cam = new T.PerspectiveCamera(30, 1, 0.1, 120);
+    const camBase = { x: 0.9, y: 10.2, z: 8.6, tx: 1.3, ty: 0, tz: 0.35 };
+
+    // ánh sáng: trời trắng + nắng chéo trái trên để bóng đổ cứng sang phải dưới
+    scene.add(new T.HemisphereLight(0xffffff, 0x8f93ff, 1.15));
+    const sun = new T.DirectionalLight(0xffffff, 2.1);
+    sun.position.set(-4.5, 11, 6);
+    sun.target.position.set(2.5, 0, 0);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    const sc = sun.shadow.camera;
+    sc.left = -8; sc.right = 8; sc.top = 8; sc.bottom = -8; sc.near = 1; sc.far = 30;
+    sun.shadow.bias = -0.0006;
+    sun.shadow.normalBias = 0.02;
+    scene.add(sun, sun.target);
+
+    // tấm lót cắt: lưới vẽ bằng canvas 2D (không dính CORS)
+    const mk = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+    const matCanvas = mk(1024, 1024);
+    const drawMat = () => {
+      const g = matCanvas.getContext('2d');
+      g.fillStyle = groundHex(); g.fillRect(0, 0, 1024, 1024);
+      g.strokeStyle = 'rgba(255,255,255,0.10)'; g.lineWidth = 1.5;
+      for (let i = 0; i <= 1024; i += 51.2) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 1024); g.stroke(); g.beginPath(); g.moveTo(0, i); g.lineTo(1024, i); g.stroke(); }
+      g.strokeStyle = 'rgba(255,255,255,0.26)'; g.lineWidth = 2.5;
+      for (let i = 0; i <= 1024; i += 256) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 1024); g.stroke(); g.beginPath(); g.moveTo(0, i); g.lineTo(1024, i); g.stroke(); }
+      g.strokeStyle = 'rgba(255,255,255,0.16)'; g.lineWidth = 2;
+      g.beginPath(); g.moveTo(0, 0); g.lineTo(1024, 1024); g.stroke();
+      g.beginPath(); g.arc(512, 512, 180, 0, Math.PI * 2); g.stroke();
+      g.fillStyle = 'rgba(255,255,255,0.32)'; g.font = '700 22px "Space Mono", monospace';
+      for (let i = 1; i < 4; i++) { g.fillText(String(i * 5), i * 256 + 8, 26); g.fillText(String(i * 5), 8, i * 256 - 8); }
+    };
+    drawMat();
+    const matTex = new T.CanvasTexture(matCanvas);
+    matTex.colorSpace = T.SRGBColorSpace;
+    matTex.wrapS = matTex.wrapT = T.RepeatWrapping;
+    matTex.repeat.set(5, 5);
+    matTex.anisotropy = 8;
+    const table = new T.Mesh(new T.PlaneGeometry(50, 50), new T.MeshLambertMaterial({ map: matTex }));
+    table.rotation.x = -Math.PI / 2;
+    table.receiveShadow = true;
+    scene.add(table);
+
+    // môi trường giả cho chrome: dải trắng, cobalt, mực, chanh
+    const envCanvas = mk(512, 256);
+    const drawEnv = () => {
+      const g = envCanvas.getContext('2d');
+      const gr = g.createLinearGradient(0, 0, 0, 256);
+      gr.addColorStop(0, '#ffffff'); gr.addColorStop(0.32, '#ffffff'); gr.addColorStop(0.36, accentHex()); gr.addColorStop(0.42, accentHex());
+      gr.addColorStop(0.46, '#9fa3ff'); gr.addColorStop(0.55, groundHex()); gr.addColorStop(0.8, '#0f0f14'); gr.addColorStop(1, '#0f0f14');
+      g.fillStyle = gr; g.fillRect(0, 0, 512, 256);
+    };
+    drawEnv();
+    const envTex = new T.CanvasTexture(envCanvas);
+    envTex.mapping = T.EquirectangularReflectionMapping;
+    envTex.colorSpace = T.SRGBColorSpace;
+    const pmrem = new T.PMREMGenerator(renderer);
+    let envMap = pmrem.fromEquirectangular(envTex).texture;
+
+    // đá terrazzo: hạt màu vẽ ngẫu nhiên có hạt giống
+    let seed = 1977;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    const terrazzo = (base) => {
+      const c = mk(512, 256); const g = c.getContext('2d');
+      g.fillStyle = base; g.fillRect(0, 0, 512, 256);
+      const cols = ['#0F0F14', '#F2F1EC', '#FF5A2C', '#2B2EF0', '#D8FF3C', '#FF8FB8'];
+      for (let i = 0; i < 260; i++) {
+        g.fillStyle = cols[Math.floor(rnd() * cols.length)];
+        const x = rnd() * 512, y = rnd() * 256, r = 2 + rnd() * 6;
+        g.beginPath(); g.ellipse(x, y, r, r * (0.5 + rnd() * 0.6), rnd() * 3, 0, Math.PI * 2); g.fill();
+      }
+      const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+    };
+
+    // tờ in: giấy trắng có độ cong + tranh + nhãn
+    const works = this.bnWorks();
+    const paperMat = new T.MeshLambertMaterial({ color: 0xfbfbf6, side: T.DoubleSide });
+    const curl = (geo, k) => {
+      const p = geo.attributes.position;
+      for (let i = 0; i < p.count; i++) { const x = p.getX(i); p.setZ(i, p.getZ(i) + k * x * x); }
+      p.needsUpdate = true; geo.computeVertexNormals();
+    };
+    const label = (w) => {
+      const c = mk(512, 64); const g = c.getContext('2d');
+      g.fillStyle = '#fbfbf6'; g.fillRect(0, 0, 512, 64);
+      g.fillStyle = '#0f0f14'; g.font = '700 26px "Space Mono", monospace'; g.fillText('Nº ' + w.no, 6, 42);
+      g.font = 'italic 400 30px "Fraunces", Georgia, serif'; g.fillText(w.title, 120, 42);
+      const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; t.anisotropy = 8; return t;
+    };
+    const fallbackArt = (w) => {
+      const c = mk(512, Math.round(512 * w.ah / w.aw)); const g = c.getContext('2d');
+      g.fillStyle = w.pal[0]; g.fillRect(0, 0, c.width, c.height);
+      g.fillStyle = w.pal[1]; g.beginPath(); g.arc(c.width * 0.68, c.height * 0.32, c.width * 0.3, 0, Math.PI * 2); g.fill();
+      g.fillStyle = w.pal[2]; g.font = '800 ' + Math.round(c.width * 0.16) + 'px "Bricolage Grotesque", Arial, sans-serif';
+      g.fillText(w.title.toUpperCase(), c.width * 0.07, c.height * 0.86);
+      const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+    };
+    const clean = (img) => { try { const c = mk(2, 2); const g = c.getContext('2d'); g.drawImage(img, 0, 0, 2, 2); g.getImageData(0, 0, 1, 1); return true; } catch (e) { return false; } };
+    const labels = [];
+    const loader = new T.TextureLoader();
+    loader.setCrossOrigin('anonymous');
+    const prints = works.map((w, i) => {
+      const grp = new T.Group();
+      const m = 0.09, lab = 0.16;
+      const pw = w.aw + m * 2, ph = w.ah + m * 2 + lab;
+      const pg = new T.PlaneGeometry(pw, ph, 18, 1); pg.rotateX(-Math.PI / 2); curl(pg, 0);
+      const paper = new T.Mesh(pg, paperMat); paper.castShadow = true; paper.receiveShadow = true;
+      const artMat = new T.MeshLambertMaterial({ map: fallbackArt(w) });
+      const ag = new T.PlaneGeometry(w.aw, w.ah); ag.rotateX(-Math.PI / 2);
+      const art = new T.Mesh(ag, artMat); art.position.set(0, 0.004, -lab / 2); art.receiveShadow = true;
+      loader.load(w.src, (tex) => {
+        if (!clean(tex.image)) return; // ảnh khác nguồn không dùng được trong WebGL: giữ bản vẽ thay
+        tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 8;
+        artMat.map = tex; artMat.needsUpdate = true;
+        kick();
+      }, undefined, () => {});
+      const lg = new T.PlaneGeometry(w.aw, lab * 0.8); lg.rotateX(-Math.PI / 2);
+      const lb = new T.Mesh(lg, new T.MeshLambertMaterial({ map: label(w) }));
+      labels.push({ m: lb.material, w });
+      lb.position.set(0, 0.004, w.ah / 2 + m * 0.3 - lab / 2 + lab * 0.42);
+      grp.add(paper, art, lb);
+      grp.userData = { w, i, rest: w.rest, h0: 0.006 + (w.lay || 0) * 0.014, lift: 0, liftT: 0 };
+      scene.add(grp);
+      return grp;
+    });
+
+    // đồ vật: chồng đá Cân bằng giả, vòng chrome, dấu chấm than, cuộn băng dính
+    const stack = new T.Group();
+    const stones = [
+      { c: '#2B2EF0', s: [0.62, 0.26, 0.5], y: 0.26, r: 0.1 },
+      { c: '#FF5A2C', s: [0.5, 0.22, 0.42], y: 0.7, r: -0.18 },
+      { c: '#FF8FB8', s: [0.42, 0.2, 0.36], y: 1.08, r: 0.25 },
+      { c: '#D8FF3C', s: [0.2, 0.2, 0.2], y: 1.42, r: 0 }
+    ].map((d) => {
+      const mesh = new T.Mesh(new T.SphereGeometry(1, 48, 32), new T.MeshStandardMaterial({ map: terrazzo(d.c), roughness: 0.42, metalness: 0, envMap, envMapIntensity: 0.35 }));
+      mesh.scale.set(d.s[0], d.s[1], d.s[2]); mesh.position.y = d.y; mesh.rotation.y = d.r;
+      mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData = d;
+      stack.add(mesh); return mesh;
+    });
+    stack.position.set(5.75, 0, 0.3);
+    scene.add(stack);
+    const ring = new T.Mesh(new T.TorusGeometry(0.42, 0.075, 32, 96), new T.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: 0.12, envMap, envMapIntensity: 1.2 }));
+    ring.castShadow = true;
+    ring.position.set(5.75, 2.35, 0.3);
+    scene.add(ring);
+    const bang = new T.Group();
+    const coral = new T.MeshStandardMaterial({ color: 0xff5a2c, roughness: 0.38, envMap, envMapIntensity: 0.3 });
+    const bar = new T.Mesh(new T.CapsuleGeometry(0.13, 0.62, 8, 24), coral); bar.position.y = 0.62; bar.castShadow = true;
+    const dotm = new T.Mesh(new T.SphereGeometry(0.15, 32, 20), coral); dotm.position.y = 0.14; dotm.castShadow = true;
+    bang.add(bar, dotm);
+    bang.position.set(0.85, 0, 3.25);
+    bang.rotation.z = 0.28;
+    scene.add(bang);
+    const tape = new T.Mesh(new T.TorusGeometry(0.36, 0.15, 24, 64), new T.MeshStandardMaterial({ color: new T.Color(accentHex()), roughness: 0.55 }));
+    tape.rotation.x = Math.PI / 2;
+    tape.position.set(3.35, 0.15, 2.65);
+    tape.castShadow = true;
+    tape.visible = false;
+    scene.add(tape);
+
+    // hậu kỳ: in riso (lệch bản hồng, lưới chấm ở vùng tối, hạt giấy)
+    const rt = new T.WebGLRenderTarget(2, 2, { type: T.HalfFloatType, samples: 4 });
+    const post = new T.ShaderMaterial({
+      uniforms: { tDiffuse: { value: rt.texture }, uRes: { value: new T.Vector2(2, 2) }, uDot: { value: 7 }, uMis: { value: 3 }, uPink: { value: new T.Color('#FF8FB8') } },
+      vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+      fragmentShader: [
+        'uniform sampler2D tDiffuse;uniform vec2 uRes;uniform float uDot;uniform float uMis;uniform vec3 uPink;varying vec2 vUv;',
+        'float lum(vec3 c){return dot(c,vec3(.2126,.7152,.0722));}',
+        'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}',
+        'void main(){vec2 px=1./uRes;vec3 c=texture2D(tDiffuse,vUv).rgb;',
+        ' float l0=lum(c);float l1=lum(texture2D(tDiffuse,vUv+vec2(-uMis,uMis*.7)*px).rgb);',
+        ' float edge=clamp((l1-l0)*3.,0.,1.);c=mix(c,uPink*uPink,edge*.5);',
+        ' float dk=1.-sqrt(clamp(l0,0.,1.));vec2 g=mat2(.7071,-.7071,.7071,.7071)*gl_FragCoord.xy/uDot;vec2 f=fract(g)-.5;',
+        ' float r=sqrt(clamp((dk-.5)*1.6,0.,1.))*.62;float aa=1.2/uDot;c=mix(c,c*.45,smoothstep(r+aa,r-aa,length(f))*.65);',
+        ' c+=(h(gl_FragCoord.xy*.71)-.5)*.022;',
+        ' gl_FragColor=linearToOutputTexel(vec4(c,1.));}'
+      ].join('\n'),
+      depthTest: false, depthWrite: false
+    });
+    const postScene = new T.Scene();
+    const postCam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    postScene.add(new T.Mesh(new T.PlaneGeometry(2, 2), post));
+
+    // kích thước + quan sát
+    let W = 0, H = 0, dpr = 1;
+    const host = cv.parentElement;
+    const slot = document.querySelector('.bn-slot');
+    const place = () => {
+      if (!slot || !host) return;
+      const sr = slot.getBoundingClientRect();
+      if (sr.height > 0) {
+        const hr = host.getBoundingClientRect();
+        host.style.setProperty('--slot-top', Math.round(sr.top - hr.top) + 'px');
+        host.style.setProperty('--slot-h', Math.round(sr.height) + 'px');
+      }
+    };
+    const resize = () => {
+      place();
+      const r = cv.getBoundingClientRect();
+      const w = Math.max(2, Math.round(r.width)), h = Math.max(2, Math.round(r.height));
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      if (w === W && h === H) return;
+      W = w; H = h;
+      renderer.setPixelRatio(dpr);
+      renderer.setSize(w, h, false);
+      rt.setSize(Math.round(w * dpr), Math.round(h * dpr));
+      post.uniforms.uRes.value.set(w * dpr, h * dpr);
+      post.uniforms.uDot.value = 6.5 * dpr;
+      post.uniforms.uMis.value = 2.6 * dpr;
+      cam.aspect = w / h;
+      // màn hẹp (điện thoại): bàn nằm trong khung riêng dưới chữ, máy nhìn vào giữa đám tờ in
+      if (cam.aspect < 1.25) { Object.assign(camBase, { x: 2.95, y: 9.4, z: 6.1, tx: 2.95, ty: 0, tz: 0.45 }); cam.fov = 36 + Math.max(0, 1 - cam.aspect) * 14; }
+      else { Object.assign(camBase, { x: 0.9, y: 10.2, z: 8.6, tx: 1.3, ty: 0, tz: 0.35 }); cam.fov = 30; }
+      cam.updateProjectionMatrix();
+    };
+    resize();
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => { resize(); kick(); }) : null;
+    if (ro) ro.observe(cv);
+    let visible = true;
+    const io = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (visible) kick(); }) : null;
+    if (io) io.observe(cv);
+
+    // chuột: nghiêng máy + rê lên tờ in thì tờ in nhấc lên, bấm thì mở trang chi tiết
+    const ptr = { x: 0, y: 0, tx: 0, ty: 0, nx: 0, ny: 0, in: false };
+    const ray = new T.Raycaster();
+    const ndc = new T.Vector2();
+    let hover = -1, forced = -1;
+    const isUi = (el) => !!(el && el.closest && el.closest('a,button,input,label,select,textarea,.bn-ui'));
+    const onMove = (e) => {
+      const r = cv.getBoundingClientRect();
+      if (!r.width) return;
+      ptr.in = e.clientY >= r.top && e.clientY <= r.bottom && e.clientX >= r.left && e.clientX <= r.right;
+      ptr.nx = ((e.clientX - r.left) / r.width) * 2 - 1;
+      ptr.ny = -(((e.clientY - r.top) / r.height) * 2 - 1);
+      ptr.tx = Math.max(-1, Math.min(1, ptr.nx));
+      ptr.ty = Math.max(-1, Math.min(1, ptr.ny));
+      ptr.ui = isUi(e.target);
+      kick();
+    };
+    const onClick = (e) => {
+      if (hover < 0 || isUi(e.target)) return;
+      const a = document.querySelector('[data-print="' + hover + '"]');
+      if (a && a.click) a.click();
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('click', onClick);
+
+    // rơi: trọng lực + nảy nhẹ + nằm phẳng dần (giả lập vật lý, đặt được chỗ nằm cuối)
+    const live0 = this.bnLive();
+    const t0 = performance.now();
+    prints.forEach((g, i) => {
+      const u = g.userData;
+      u.delay = live0 ? 0.25 + i * 0.32 : -10;
+      u.y0 = 5 + (i % 3) * 1.2; u.vy = 0; u.y = u.y0; u.land = false; u.bounces = 0;
+      u.sx = (i % 2 ? 1.6 : -1.4) + (i - 2.5) * 0.25; u.sz = -1.2 + (i % 3) * 0.6;
+      u.rx0 = (i % 2 ? 0.9 : -0.8); u.rz0 = (i % 3 - 1) * 0.7;
+    });
+    let lastT = 0;
+    const step = (t, dt) => {
+      const fan = scrollP;
+      prints.forEach((g, i) => {
+        const u = g.userData, R = u.rest;
+        const lt = t - u.delay;
+        if (lt < 0) { g.visible = false; return; }
+        g.visible = true;
+        if (!u.land) {
+          u.vy -= 22 * dt; u.y += u.vy * dt;
+          if (u.y <= u.h0) { u.y = u.h0; if (u.bounces < 2 && Math.abs(u.vy) > 1.2) { u.vy = -u.vy * 0.22; u.bounces++; } else { u.vy = 0; u.land = true; } }
+        }
+        const k = Math.min(1, Math.max(0, (u.y0 - u.y) / u.y0));
+        const e = 1 - Math.pow(1 - (u.land ? 1 : k), 3);
+        const fanX = fan * (R[0] - 3) * 0.18, fanZ = fan * (R[1]) * 0.22;
+        u.liftT = (i === hover || i === forced) ? 1 : 0;
+        u.lift += (u.liftT - u.lift) * Math.min(1, dt * 9);
+        const wob = live0 ? Math.sin(t * 0.9 + i * 1.7) * 0.012 : 0;
+        g.position.set(R[0] + u.sx * (1 - e) + fanX, u.y + u.lift * 0.32, R[1] + u.sz * (1 - e) + fanZ);
+        g.rotation.set(u.rx0 * (1 - e) - u.lift * 0.12, R[2] + (1 - e) * 1.4 + wob, u.rz0 * (1 - e) + u.lift * 0.06);
+      });
+      // đá chồng chênh vênh: lắc nhẹ, vòng chrome quay
+      stones.forEach((m, j) => { m.rotation.z = Math.sin(t * 0.8 + j) * 0.05 * (j + 1) * (live0 ? 1 : 0); m.position.x = Math.sin(t * 0.8 + j) * 0.03 * j * (live0 ? 1 : 0); });
+      ring.rotation.set(1.2 + Math.sin(t * 0.5) * 0.25, t * 0.6, 0.3);
+      ring.position.y = 2.35 + Math.sin(t * 1.1) * 0.08;
+      bang.rotation.y = t * 0.35;
+      tape.rotation.z = t * 0.2;
+    };
+
+    let scrollP = 0;
+    const setScroll = (p) => { scrollP = p; kick(); };
+
+    const render = (t) => {
+      ptr.x += (ptr.tx - ptr.x) * 0.05;
+      ptr.y += (ptr.ty - ptr.y) * 0.05;
+      const drift = live0 ? Math.sin(t * 0.15) * 0.25 : 0;
+      const sp = scrollP;
+      cam.position.set(camBase.x + ptr.x * 0.6 + drift, camBase.y - ptr.y * 0.35 + sp * 2.2, camBase.z - sp * 3.2);
+      cam.lookAt(camBase.tx + ptr.x * 0.2, camBase.ty, camBase.tz - sp * 1.1);
+      // rê chuột
+      if (ptr.in && !ptr.ui) {
+        ndc.set(ptr.nx, ptr.ny);
+        ray.setFromCamera(ndc, cam);
+        const hits = ray.intersectObjects(prints, true);
+        let best = -1;
+        if (hits.length) { let o = hits[0].object; while (o && o.userData.i === undefined) o = o.parent; best = o ? o.userData.i : -1; }
+        if (best !== hover) { hover = best; host.style.cursor = best >= 0 ? 'pointer' : ''; }
+      } else if (hover !== -1) { hover = -1; host.style.cursor = ''; }
+      renderer.setRenderTarget(rt);
+      renderer.render(scene, cam);
+      renderer.setRenderTarget(null);
+      renderer.render(postScene, postCam);
+    };
+
+    let raf = 0, alive = true, last = -1, idle = 0;
+    const tick = (now) => {
+      raf = 0;
+      if (!alive || !visible || document.hidden) return;
+      const t = (now - t0) / 1000;
+      const dt = Math.min(0.05, last < 0 ? 0.016 : t - last);
+      last = t;
+      const live = self.bnLive();
+      step(live ? t : 30, live ? dt : 1);
+      render(live ? t : 30);
+      const settling = prints.some((g) => !g.userData.land || Math.abs(g.userData.lift - g.userData.liftT) > 0.002);
+      if (live || settling || Math.abs(ptr.x - ptr.tx) > 0.002) raf = requestAnimationFrame(tick);
+      else idle = setTimeout(kick, 900);
+    };
+    const kick = () => { if (idle) { clearTimeout(idle); idle = 0; } if (!raf && alive) raf = requestAnimationFrame(tick); };
+    const onVis = () => { if (!document.hidden) kick(); };
+    document.addEventListener('visibilitychange', onVis);
+    if (!live0) prints.forEach((g) => { g.userData.y = g.userData.h0; g.userData.land = true; });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!alive) return; labels.forEach((L) => { const old = L.m.map; L.m.map = label(L.w); L.m.needsUpdate = true; old.dispose(); }); kick(); });
+    kick();
+    cv.classList.add('is-on');
+    return {
+      kick,
+      setScroll,
+      highlight: (i) => { forced = i; kick(); },
+      repaint: () => { drawMat(); matTex.needsUpdate = true; drawEnv(); envTex.needsUpdate = true; envMap.dispose(); envMap = pmrem.fromEquirectangular(envTex).texture; ring.material.envMap = envMap; ring.material.needsUpdate = true; tape.material.color.set(accentHex()); kick(); },
+      stop: () => {
+        alive = false;
+        if (raf) cancelAnimationFrame(raf);
+        if (idle) clearTimeout(idle);
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('click', onClick);
+        document.removeEventListener('visibilitychange', onVis);
+        if (ro) ro.disconnect();
+        if (io) io.disconnect();
+        renderer.dispose();
+      }
+    };
+  }
+  bnWorks() {
+    // aw/ah: khổ tranh trên bàn (đơn vị 3D); rest: [x, z, góc xoay] chỗ nằm cuối
+    return [
+      { no: '02', title: 'Điên vừa đủ', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', aw: 1.6, ah: 2.0, rest: [1.35, 0.15, 0.14], lay: 5, pal: ['#2B2EF0', '#FF5A2C', '#D8FF3C'] },
+      { no: '04', title: 'Gác Xép', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', aw: 1.75, ah: 1.75, rest: [4.7, -0.95, -0.22], lay: 1, pal: ['#D2553A', '#E9B53C', '#F3E9D8'] },
+      { no: '06', title: 'Đêm phố', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', aw: 2.3, ah: 1.53, rest: [4.15, 0.6, 0.1], lay: 2, pal: ['#0A0A10', '#5257FF', '#D8FF3C'] },
+      { no: '03', title: 'Long Biên, 5 giờ sáng', src: '/_blob/80535c369d55d41873b43749680ba93e', aw: 1.5, ah: 1.88, rest: [0.15, -1.5, -0.18], lay: 0, pal: ['#3B2A6B', '#FF8A3C', '#F7D774'] },
+      { no: '05', title: 'Cân bằng giả', src: '/_blob/950d916a2103e84df23e30b44bf91101', aw: 1.45, ah: 1.81, rest: [3.05, -1.1, 0.26], lay: 3, pal: ['#D9D6CF', '#FF8FB8', '#2B2EF0'] },
+      { no: '01', title: 'Đi lạc', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', aw: 2.25, ah: 1.5, rest: [2.0, 2.5, -0.12], lay: 4, pal: ['#2B2EF0', '#F2F1EC', '#FF5A2C'] }
+    ];
+  }
+  /*BANIN-END*/
+  /*STORY-BEGIN — kể chuyện theo cuộn (GSAP 3.15 + ScrollTrigger nạp ở <head>); chỉ bật khi trang cuộn được thật */
+  stMount() {
+    if (this._st || typeof window === 'undefined') return;
+    const go = (n) => {
+      if (!window.gsap || !window.ScrollTrigger) { if (n < 80) this._stWait = setTimeout(() => go(n + 1), 120); return; }
+      try { this._st = this.stInit(); } catch (err) { if (window.console) console.warn('story', err); }
+    };
+    go(0);
+  }
+  stUnmount() {
+    if (this._stWait) clearTimeout(this._stWait);
+    if (this._st) this._st.kill();
+    this._st = null;
+  }
+  stScrollMode() {
+    // trên canvas, bảng vẽ cao bằng cả trang nên không cuộn: giữ trạng thái tĩnh đã hoàn chỉnh
+    const vh = window.innerHeight, dh = document.documentElement.scrollHeight;
+    return vh > 0 && vh < 1700 && dh > vh * 1.6 && this.bnLive();
+  }
+  stInit() {
+    const g = window.gsap, ST = window.ScrollTrigger;
+    g.registerPlugin(ST);
+    const none = { kill() {}, refresh() {} };
+    if (!this.stScrollMode()) return none;
+    const q = (s) => document.querySelector(s);
+    const ralo = q('.ralo');
+    const ctx = g.context(() => {
+      const hero = q('.bn-hero'), name = q('.bn-name');
+      if (hero && name) {
+        g.fromTo(name, { '--reg': 1 }, {
+          '--reg': 0, ease: 'none',
+          scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom 25%', scrub: 0.5, onUpdate: (st) => { if (this._bn) this._bn.setScroll(st.progress); } }
+        });
+      }
+      const stage = ralo && ralo.querySelector('.ralo-stage');
+      const track = ralo && ralo.querySelector('.ralo-track');
+      if (ralo && stage && track && window.innerWidth >= 900) {
+        ralo.classList.add('is-run');
+        const len = () => track.scrollWidth;
+        const setLen = () => stage.style.setProperty('--run', Math.max(700, len() - window.innerWidth * 0.3) + 'px');
+        setLen();
+        g.fromTo(track, { x: () => window.innerWidth * 0.78 }, {
+          x: () => -(len() - window.innerWidth * 0.62), ease: 'none',
+          scrollTrigger: { trigger: stage, start: 'top top', end: 'bottom bottom', scrub: 0.6, invalidateOnRefresh: true, onRefreshInit: setLen }
+        });
+      }
+      const words = g.utils.toArray('.mf-text .mw');
+      if (words.length) {
+        g.fromTo(words, { opacity: 0.13 }, { opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '.mf-text', start: 'top 82%', end: 'bottom 48%', scrub: 0.4 } });
+      }
+      const pl = q('.pressline path');
+      if (pl) g.fromTo(pl, { strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: 'none', scrollTrigger: { trigger: '.steps-row', start: 'top 85%', end: 'bottom 55%', scrub: 0.5 } });
+      g.utils.toArray('.steps-row > .step').forEach((el, i) => {
+        g.from(el, { y: 90, rotation: (i - 1) * 7, opacity: 0, duration: 0.9, ease: 'back.out(1.5)', scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none reverse' } });
+      });
+      const stamp = q('#lien-he .stamp-cta');
+      if (stamp) g.from(stamp, { scale: 2.6, rotation: -32, opacity: 0, duration: 0.5, ease: 'power4.in', scrollTrigger: { trigger: stamp, start: 'top 85%', toggleActions: 'play none none reverse' } });
+    });
+    return {
+      kill() { ctx.revert(); if (ralo) ralo.classList.remove('is-run'); },
+      refresh() { ST.refresh(); }
+    };
+  }
+  /*STORY-END*/
+  componentDidMount() {
+    this.fxMount(); this.bnMount(); this.stMount(); }
   live() {
     if ((this.props.motion ?? true) === false) return false;
     try { return !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return true; }
   }
-  componentWillUnmount() { this._mt = 0; }
+  componentWillUnmount() {
+    this.fxUnmount();
+    this.bnUnmount(); this.stUnmount();
+     this._mt = 0; }
   renderVals() {
     const p = this.props;
     const s = this.state || {};
     const f = s.filter || 'all';
     const counts = { all: 6, paint: 2, collage: 2, digital: 2 };
     const chip = (k) => 'tab tab-' + k + ' ink-host' + (f === k ? ' is-on' : '');
-    const pick = (k) => () => this.setState({ filter: k });
+    const pick = (k) => () => { this.setState({ filter: k }); setTimeout(() => { if (this._st) this._st.refresh(); }, 80); };
+    const DOCK = [
+      { no: '01', title: 'Đi lạc', kind: 'Ứng dụng di động', i: 5 },
+      { no: '02', title: 'Điên vừa đủ', kind: 'Poster', i: 0 },
+      { no: '03', title: 'Long Biên, 5 giờ sáng', kind: 'Minh họa', i: 3 },
+      { no: '04', title: 'Gác Xép', kind: 'Nhận diện', i: 1 },
+      { no: '05', title: 'Cân bằng giả', kind: 'Ảnh 3D', i: 4 },
+      { no: '06', title: 'Đêm phố', kind: 'Tạo sinh', i: 2 }
+    ];
+    const docket = DOCK.map((d) => Object.assign({}, d, { on: () => { if (this._bn) this._bn.highlight(d.i); }, off: () => { if (this._bn) this._bn.highlight(-1); } }));
+    const look = (p.ground || '') + (p.accent || '');
+    if (this._look !== undefined && this._look !== look && this._bn) setTimeout(() => { if (this._bn) this._bn.repaint(); }, 0);
+    this._look = look;
     const tapeA = ['điên vừa đủ', 'chỉ sai đường cho vui', 'trọng lực nghỉ phép', 'code chạy lại lần nữa', 'Long Biên lúc 5 giờ sáng'];
     const tapeB = ['Nº 01 ĐI LẠC', 'Nº 02 ĐIÊN VỪA ĐỦ', 'Nº 03 LONG BIÊN, 5 GIỜ SÁNG', 'Nº 04 GÁC XÉP', 'Nº 05 CÂN BẰNG GIẢ', 'Nº 06 ĐÊM PHỐ'];
 
@@ -712,6 +1319,7 @@ class Component extends DCLogic {
       pickPaint: pick('paint'),
       pickCollage: pick('collage'),
       pickDigital: pick('digital'),
+      docket: docket,
       tapeA: tapeA.concat(tapeA),
       tapeB: tapeB.concat(tapeB),
       splats: splats,

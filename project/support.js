@@ -286,7 +286,7 @@
     'M25 4c11 0 21 7 20 19 0 13-9 21-21 21C11 45 3 36 4 23 4 11 13 4 25 4Z'
   ];
   const STUDIO_CSS = `
-#dcs{position:fixed;right:18px;bottom:18px;z-index:99999;font-family:'Space Mono','Courier New',monospace;color:#0f0f14;-webkit-font-smoothing:antialiased}
+#dcs{position:fixed;right:18px;bottom:18px;z-index:99999;font-family:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;font-stretch:85%;color:#0f0f14;-webkit-font-smoothing:antialiased}
 #dcs *,#dcs *::before,#dcs *::after{box-sizing:border-box}
 #dcs button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer}
 #dcs a{color:inherit}
@@ -306,7 +306,7 @@
 #dcs .dcs-sheet{position:absolute;right:0;bottom:98px;width:340px;max-width:calc(100vw - 36px);filter:drop-shadow(7px 8px 0 #0f0f14);transform-origin:92% 100%;opacity:0;visibility:hidden;translate:0 18px;rotate:3deg;transition:opacity .22s,translate .4s cubic-bezier(.3,1.5,.5,1),rotate .4s cubic-bezier(.3,1.5,.5,1),visibility 0s .4s}
 #dcs.is-open .dcs-sheet{opacity:1;visibility:visible;translate:0 0;rotate:-1deg;transition:opacity .2s,translate .45s cubic-bezier(.3,1.5,.5,1),rotate .45s cubic-bezier(.3,1.5,.5,1),visibility 0s}
 #dcs .dcs-tabs{position:relative;z-index:2;display:flex;gap:6px;padding-left:14px;margin-bottom:-2px}
-#dcs .dcs-tab{position:relative;padding:8px 14px 7px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#c9c7bd;border:2px solid #0f0f14;border-bottom:0;border-radius:10px 10px 0 0;color:#3a3a42;translate:0 3px;transition:translate .2s,background .2s}
+#dcs .dcs-tab{position:relative;padding:8px 14px 7px;font-size:13px;font-weight:700;letter-spacing:0;background:#c9c7bd;border:2px solid #0f0f14;border-bottom:0;border-radius:10px 10px 0 0;color:#3a3a42;translate:0 3px;transition:translate .2s,background .2s}
 #dcs .dcs-tab:hover{translate:0 0}
 #dcs .dcs-tab[aria-selected="true"]{background:#F2F1EC;color:#0f0f14;translate:0 0}
 #dcs .dcs-tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:5px;background:#F2F1EC}
@@ -314,29 +314,29 @@
 #dcs .dcs-tape{position:absolute;top:-14px;width:84px;height:26px;background:rgba(216,255,60,.78);mix-blend-mode:multiply;z-index:3;pointer-events:none}
 #dcs .dcs-tape.t1{right:22px;rotate:6deg}
 #dcs .dcs-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-#dcs .dcs-kick{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#4a4a52}
+#dcs .dcs-kick{font-size:12.5px;font-weight:700;letter-spacing:0;color:#4a4a52}
 #dcs .dcs-title{margin:4px 0 0;font-family:'Bricolage Grotesque','Arial Narrow',sans-serif;font-weight:800;font-stretch:75%;font-size:34px;line-height:.9;letter-spacing:-.03em}
 #dcs .dcs-title em{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-stretch:100%;letter-spacing:-.01em;color:#FF5A2C}
 #dcs .dcs-x{flex:none;width:34px;height:34px;border:2px solid #0f0f14;border-radius:50%;display:grid;place-items:center;background:#F2F1EC;transition:rotate .3s,background .2s}
 #dcs .dcs-x:hover{rotate:90deg;background:#D8FF3C}
 #dcs .dcs-x svg{width:14px;height:14px;stroke:#0f0f14;stroke-width:2.6;stroke-linecap:round}
 #dcs .dcs-sec{margin-top:16px}
-#dcs .dcs-lab{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#4a4a52;margin-bottom:8px}
+#dcs .dcs-lab{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0;color:#4a4a52;margin-bottom:8px}
 #dcs .dcs-lab::after{content:"";flex:1;border-top:2px dashed rgba(15,15,20,.25)}
 #dcs .dcs-pages{list-style:none;margin:0;padding:0}
 #dcs .dcs-page{display:flex;align-items:center;gap:6px;height:32px;padding:3px 8px;white-space:nowrap;text-decoration:none;font-size:13px;border-radius:2px;transition:background .15s,translate .15s}
 #dcs .dcs-page:hover{background:rgba(15,15,20,.07);translate:3px 0}
 #dcs .dcs-tree{flex:none;width:34px;height:32px;margin:-3px 0 -3px -4px;overflow:visible}#dcs .dcs-tree path{fill:none;stroke:rgba(15,15,20,.38);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#dcs .dcs-tree circle{fill:#0f0f14}#dcs .dcs-tree.star path{fill:#FF5A2C;stroke:#0f0f14;stroke-width:1.2}#dcs .dcs-li-map{margin-top:6px;padding-top:6px;border-top:2px dashed rgba(15,15,20,.2)}
-#dcs .dcs-no{min-width:32px;font-size:11px;color:#4a4a52}
+#dcs .dcs-no{min-width:32px;font-size:12px;color:#4a4a52}
 #dcs .dcs-name{font-family:'Bricolage Grotesque','Arial Narrow',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em}
 #dcs .dcs-page.lv0 .dcs-name{font-weight:800}#dcs .dcs-page.lv2 .dcs-no{margin-left:10px}#dcs .dcs-page.lv2 .dcs-name{font-size:15px;font-weight:600}
 #dcs .dcs-page[aria-current="page"]{background:linear-gradient(transparent 18%,#D8FF3C 18%,#D8FF3C 84%,transparent 84%)}
 #dcs .dcs-here{margin-left:auto;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:13px;color:#FF5A2C;white-space:nowrap}
-#dcs .dcs-canvas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:10px 12px;background:#0f0f14;color:#F2F1EC;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:2px solid #0f0f14;box-shadow:4px 4px 0 #2B2EF0;transition:translate .2s,box-shadow .2s}
+#dcs .dcs-canvas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:10px 12px;background:#0f0f14;color:#F2F1EC;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0;border:2px solid #0f0f14;box-shadow:4px 4px 0 #2B2EF0;transition:translate .2s,box-shadow .2s}
 #dcs .dcs-canvas:hover{translate:-2px -2px;box-shadow:6px 6px 0 #2B2EF0}
 #dcs .dcs-canvas b{color:#D8FF3C}
 #dcs .dcs-inks{display:flex;flex-wrap:wrap;gap:10px 8px}
-#dcs .dcs-ink{position:relative;width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;letter-spacing:.02em;color:#3a3a42}
+#dcs .dcs-ink{position:relative;width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;letter-spacing:.02em;color:#3a3a42}
 #dcs .dcs-ink svg{width:46px;height:46px;overflow:visible;transition:scale .25s cubic-bezier(.3,1.6,.5,1),rotate .25s}
 #dcs .dcs-ink:hover svg{scale:1.1;rotate:-6deg}
 #dcs .dcs-ink .daub{stroke:#0f0f14;stroke-width:2}
@@ -348,13 +348,13 @@
 #dcs .dcs-tg-t{display:block;font-family:'Bricolage Grotesque','Arial Narrow',sans-serif;font-weight:700;font-size:16px}
 #dcs .dcs-tg-d{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:13px;color:#4a4a52}
 #dcs .dcs-sw{position:relative;flex:none;margin-left:auto;width:58px;height:28px;border:2px solid #0f0f14;border-radius:999px;background:#F2F1EC;transition:background .2s}
-#dcs .dcs-sw::before{content:"tắt";position:absolute;right:7px;top:50%;translate:0 -50%;font-size:9px;font-weight:700;text-transform:uppercase;color:#4a4a52}
+#dcs .dcs-sw::before{content:"tắt";position:absolute;right:7px;top:50%;translate:0 -50%;font-size:11px;font-weight:700;color:#4a4a52}
 #dcs .dcs-sw::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#0f0f14;transition:translate .3s cubic-bezier(.3,1.6,.5,1)}
 #dcs .dcs-tg[aria-checked="true"] .dcs-sw{background:#D8FF3C}
 #dcs .dcs-tg[aria-checked="true"] .dcs-sw::before{content:"bật";right:auto;left:8px;color:#0f0f14}
 #dcs .dcs-tg[aria-checked="true"] .dcs-sw::after{translate:30px 0}
-#dcs .dcs-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:12px;border-top:2px solid #0f0f14;font-size:10px;color:#4a4a52}
-#dcs .dcs-reset{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+#dcs .dcs-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:12px;border-top:2px solid #0f0f14;font-size:12px;color:#4a4a52}
+#dcs .dcs-reset{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;letter-spacing:0;text-decoration:underline;text-underline-offset:3px}
 #dcs .dcs-reset:hover{color:#FF5A2C}
 #dcs .dcs-empty{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15px;color:#4a4a52;margin:6px 0 0}
 @keyframes dcsSpin{to{rotate:360deg}}
