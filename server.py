@@ -29,6 +29,7 @@ BLOB_MAP = {
     "768e50fd17905c1ce8a967a20115cd3d": "chandung-riso-hong.webp",
     "fb94455f4fcb6f1e0f6bedb931fe6aeb": "three-r180.global.js",
     "f03a6d827e15052a36e5b98ed81f7e79": "gsap-3.15.0-st.js",
+    "a65c487e20bfdc38d2f424d079be1a81": "lenis-1.3.27.min.js",
 }
 
 TRANSPARENT_GIF = (
