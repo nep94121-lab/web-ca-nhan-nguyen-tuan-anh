@@ -293,7 +293,7 @@ sc-if,sc-for{display:contents}
 <div class="phong-space">
 <p class="phong-note note hn" aria-hidden="true">gió lùa qua phòng phơi —<br>rê chuột lên tranh, bấm để xem kỹ</p>
 </div>
-<div class="phong-links" aria-hidden="true"><a tabindex="-1" data-print="0" href="WorkDetail.dc.html">Đi lạc</a><a tabindex="-1" data-print="1" href="WorkDetail.dc.html">Điên vừa đủ</a><a tabindex="-1" data-print="2" href="WorkDetail.dc.html">Long Biên, 5 giờ sáng</a><a tabindex="-1" data-print="3" href="WorkDetail.dc.html">Gác Xép</a><a tabindex="-1" data-print="4" href="WorkDetail.dc.html">Cân bằng giả</a><a tabindex="-1" data-print="5" href="WorkDetail.dc.html">Đêm phố</a></div>
+<div class="phong-links" aria-hidden="true"><a tabindex="-1" data-print="0" data-tp="01" href="WorkDetail.dc.html">Đi lạc</a><a tabindex="-1" data-print="1" data-tp="02" href="WorkDetail.dc.html">Điên vừa đủ</a><a tabindex="-1" data-print="2" data-tp="03" href="WorkDetail.dc.html">Vịnh Cát</a><a tabindex="-1" data-print="3" data-tp="04" href="WorkDetail.dc.html">Gác Xép</a><a tabindex="-1" data-print="4" data-tp="05" href="WorkDetail.dc.html">Cân bằng giả</a><a tabindex="-1" data-print="5" data-tp="06" href="WorkDetail.dc.html">Đêm phố</a></div>
 </header>
 
 <div class="tear flip" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #f2f1ec"></i></div>
@@ -324,7 +324,7 @@ sc-if,sc-for{display:contents}
 <div class="wall-in">
 <div class="wall-row">
 <sc-for list="{{items}}" as="w" hint-placeholder-count="6">
-<a class="tcard ink-host" href="WorkDetail.dc.html" style="width: min(100%, max(180px, calc({{w.cw}} * min(0.25vw, 3.6px))))">
+<a class="tcard ink-host" href="WorkDetail.dc.html" data-tp="{{w.no}}" style="width: min(100%, max(180px, calc({{w.cw}} * min(0.25vw, 3.6px))))">
 <span class="hang" style="--tilt: {{w.tilt}}deg">
 <svg class="wire" viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><path d="M50 1 L1 34"></path><path d="M50 1 L99 34"></path></svg>
 <span class="tframe bleed-pair">
@@ -364,7 +364,7 @@ sc-if,sc-for{display:contents}
 <div class="lhead" aria-hidden="true"><span>Nº</span><span>Tên tác phẩm</span><span class="lh-x">Lĩnh vực, định dạng</span><span class="lh-x">Năm</span><span></span></div>
 <p class="note hn" style="position: absolute; z-index: 5; right: clamp(56px, 12vw, 180px); top: -40px; margin: 0; color: #2B2EF0">chưa xong đâu</p>
 <sc-for list="{{items}}" as="w" hint-placeholder-count="6">
-<a class="lrow" href="WorkDetail.dc.html">
+<a class="lrow" href="WorkDetail.dc.html" data-tp="{{w.no}}">
 <span class="lno">{{w.no}}</span>
 <span class="ltitle">{{w.title}}</span>
 <span class="lmat"><span>{{w.material}}</span><span>{{w.size}}</span></span>
@@ -570,13 +570,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {
@@ -912,7 +913,7 @@ class Component extends DCLogic {
     return [
       { no: '01', title: 'Đi lạc', cat: 'digital', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', aw: 1.5, ah: 1.0, line: 0, x: -3.1, pal: ['#2B2EF0', '#F2F1EC', '#FF5A2C'] },
       { no: '02', title: 'Điên vừa đủ', cat: 'paint', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', aw: 0.92, ah: 1.15, line: 0, x: -1.6, pal: ['#2B2EF0', '#FF5A2C', '#D8FF3C'] },
-      { no: '03', title: 'Long Biên, 5 giờ sáng', cat: 'collage', src: '/_blob/80535c369d55d41873b43749680ba93e', aw: 0.92, ah: 1.15, line: 0, x: -0.35, pal: ['#3B2A6B', '#FF8A3C', '#F7D774'] },
+      { no: '03', title: 'Vịnh Cát', cat: 'collage', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc', aw: 0.92, ah: 1.15, line: 0, x: -0.35, pal: ['#753F53', '#1E5FA0', '#E8C29A'] },
       { no: '04', title: 'Gác Xép', cat: 'paint', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', aw: 1.05, ah: 1.05, line: 1, x: 1.1, pal: ['#D2553A', '#E9B53C', '#F3E9D8'] },
       { no: '05', title: 'Cân bằng giả', cat: 'collage', src: '/_blob/950d916a2103e84df23e30b44bf91101', aw: 0.92, ah: 1.15, line: 1, x: 2.25, pal: ['#D9D6CF', '#FF8FB8', '#2B2EF0'] },
       { no: '06', title: 'Đêm phố', cat: 'digital', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', aw: 1.35, ah: 0.9, line: 1, x: 3.65, pal: ['#0A0A10', '#5257FF', '#D8FF3C'] }
@@ -976,7 +977,7 @@ class Component extends DCLogic {
     const W = [
       { no: '01', title: 'Đi lạc', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', w: 1800, h: 1200, material: 'Giao diện / UX', size: 'Ứng dụng di động, 3 màn hình', year: 2026, cat: 'digital', alt: 'Đi lạc — ba màn hình ứng dụng bản đồ: màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc', cw: 90, ch: 60, tilt: -0.5 },
       { no: '02', title: 'Điên vừa đủ', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', w: 1200, h: 1500, material: 'Poster', size: 'Khổ 60 × 75 cm', year: 2026, cat: 'paint', alt: 'Điên vừa đủ — chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%', cw: 60, ch: 75, tilt: 0.4 },
-      { no: '03', title: 'Long Biên, 5 giờ sáng', src: '/_blob/80535c369d55d41873b43749680ba93e', w: 1200, h: 1500, material: 'Minh họa', size: 'Minh họa số, tỉ lệ 4:5', year: 2025, cat: 'collage', alt: 'Long Biên, 5 giờ sáng — cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông', cw: 40, ch: 50, tilt: -0.35 },
+      { no: '03', title: 'Vịnh Cát', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc', w: 1200, h: 1500, material: '3D tương tác', size: 'Web chạy trên trình duyệt', year: 2026, cat: 'collage', alt: 'Vịnh Cát: sa bàn 3D lúc hoàng hôn, bờ cát có con kênh và cầu gỗ, ba chiếc thuyền, những vòng sóng lan trên mặt vịnh', cw: 40, ch: 50, tilt: -0.35 },
       { no: '04', title: 'Gác Xép', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', w: 1400, h: 1400, material: 'Nhận diện thương hiệu', size: 'Logo, bảng màu, ấn phẩm', year: 2025, cat: 'paint', alt: 'Gác Xép — bảng nhận diện: logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp', cw: 70, ch: 70, tilt: 0.8 },
       { no: '05', title: 'Cân bằng giả', src: '/_blob/950d916a2103e84df23e30b44bf91101', w: 1200, h: 1500, material: '3D', size: 'Ảnh render, tỉ lệ 4:5', year: 2026, cat: 'collage', alt: 'Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên', cw: 48, ch: 60, tilt: -0.7 },
       { no: '06', title: 'Đêm phố', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', w: 1800, h: 1200, material: 'Nghệ thuật tạo sinh', size: 'Viết bằng code, khổ tùy biến', year: 2026, cat: 'digital', alt: 'Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen', cw: 120, ch: 80, tilt: 0.3, free: true }

@@ -400,13 +400,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {
@@ -679,7 +680,7 @@ class Component extends DCLogic {
     const T = [
       { id: 'poster', label: 'Poster', desc: 'Chữ lớn, ý tưởng to hơn', src: '/_blob/618c1af3907225f2605c3d89c62bd96c' },
       { id: 'brand', label: 'Nhận diện', desc: 'Logo, bảng màu, ấn phẩm', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2' },
-      { id: 'illus', label: 'Minh họa', desc: 'Kể chuyện bằng hình', src: '/_blob/80535c369d55d41873b43749680ba93e' },
+      { id: 'illus', label: 'Minh họa', desc: 'Kể chuyện bằng hình', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc' },
       { id: '3d', label: '3D', desc: 'Vật thể không cần trọng lực', src: '/_blob/950d916a2103e84df23e30b44bf91101' },
       { id: 'ui', label: 'Giao diện', desc: 'App, web, trải nghiệm', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2' },
       { id: 'code', label: 'Tạo sinh', desc: 'Hình vẽ bằng code', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af' }

@@ -417,7 +417,7 @@ sc-if,sc-for{display:contents}
 <p id="docket-title" class="bn-docket-h">Trên bàn hôm nay</p>
 <p class="bn-docket-s">Bấm vào tên hoặc tờ in trên bàn để xem kỹ.</p>
 <ol class="bn-list">
-<sc-for list="{{docket}}" as="d" hint-placeholder-count="6"><li><a class="bn-item" href="WorkDetail.dc.html" data-print="{{d.i}}" onPointerEnter="{{d.on}}" onPointerLeave="{{d.off}}" onFocus="{{d.on}}" onBlur="{{d.off}}"><span class="bn-no">Nº {{d.no}}</span><span class="bn-t">{{d.title}}</span><span class="bn-k">{{d.kind}}</span></a></li></sc-for>
+<sc-for list="{{docket}}" as="d" hint-placeholder-count="6"><li><a class="bn-item" href="WorkDetail.dc.html" data-tp="{{d.no}}" data-print="{{d.i}}" onPointerEnter="{{d.on}}" onPointerLeave="{{d.off}}" onFocus="{{d.on}}" onBlur="{{d.off}}"><span class="bn-no">Nº {{d.no}}</span><span class="bn-t">{{d.title}}</span><span class="bn-k">{{d.kind}}</span></a></li></sc-for>
 </ol>
 </aside>
 <a class="bn-scroll" href="#ra-lo">Cuộn xuống<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
@@ -455,12 +455,12 @@ sc-if,sc-for{display:contents}
 <div class="ralo-sticky">
 <div class="ralo-press" aria-hidden="true"><span class="roll"></span><span class="roll r2"></span></div>
 <div class="ralo-track">
-<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -1.6deg"><span class="sheet-paper"><img src="/_blob/e6dda941d38e6e2b7ebe29d21f804cf2" width="1800" height="1200" alt="Đi lạc: ba màn hình ứng dụng bản đồ, màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc"></span><span class="sheet-lab"><span class="sheet-no">Nº 01, 2026</span><span class="sheet-t">Đi lạc</span><span class="sheet-s">Ứng dụng di động, 3 màn hình</span></span></a></sc-if>
-<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.4deg"><span class="sheet-paper"><img src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" alt="Điên vừa đủ: chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%"></span><span class="sheet-lab"><span class="sheet-no">Nº 02, 2026</span><span class="sheet-t">Điên vừa đủ</span><span class="sheet-s">Poster khổ 60 × 75 cm</span></span></a></sc-if>
-<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -0.8deg"><span class="sheet-paper"><img src="/_blob/80535c369d55d41873b43749680ba93e" width="1200" height="1500" alt="Long Biên, 5 giờ sáng: cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông"></span><span class="sheet-lab"><span class="sheet-no">Nº 03, 2025</span><span class="sheet-t">Long Biên, 5 giờ sáng</span><span class="sheet-s">Minh họa số, tỉ lệ 4:5</span></span></a></sc-if>
-<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.8deg"><span class="sheet-paper"><img src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" width="1400" height="1400" alt="Gác Xép: bảng nhận diện với logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp"></span><span class="sheet-lab"><span class="sheet-no">Nº 04, 2025</span><span class="sheet-t">Gác Xép</span><span class="sheet-s">Nhận diện thương hiệu: logo, màu, ấn phẩm</span></span></a></sc-if>
-<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: -1.2deg"><span class="sheet-paper"><img src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" alt="Cân bằng giả: bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên"></span><span class="sheet-lab"><span class="sheet-no">Nº 05, 2026</span><span class="sheet-t">Cân bằng giả</span><span class="sheet-s">Ảnh render 3D, tỉ lệ 4:5</span></span></a></sc-if>
-<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" style="--tilt: 1.1deg"><span class="sheet-paper"><img src="/_blob/5c7bd031a4aa5734c27fc7388907c0af" width="1800" height="1200" alt="Đêm phố: hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen"></span><span class="sheet-lab"><span class="sheet-no">Nº 06, 2026</span><span class="sheet-t">Đêm phố</span><span class="sheet-s">Nghệ thuật tạo sinh, viết bằng code</span></span></a></sc-if>
+<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="01" style="--tilt: -1.6deg"><span class="sheet-paper"><img src="/_blob/e6dda941d38e6e2b7ebe29d21f804cf2" width="1800" height="1200" alt="Đi lạc: ba màn hình ứng dụng bản đồ, màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc"></span><span class="sheet-lab"><span class="sheet-no">Nº 01, 2026</span><span class="sheet-t">Đi lạc</span><span class="sheet-s">Ứng dụng di động, 3 màn hình</span></span></a></sc-if>
+<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="02" style="--tilt: 1.4deg"><span class="sheet-paper"><img src="/_blob/618c1af3907225f2605c3d89c62bd96c" width="1200" height="1500" alt="Điên vừa đủ: chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%"></span><span class="sheet-lab"><span class="sheet-no">Nº 02, 2026</span><span class="sheet-t">Điên vừa đủ</span><span class="sheet-s">Poster khổ 60 × 75 cm</span></span></a></sc-if>
+<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="03" style="--tilt: -0.8deg"><span class="sheet-paper"><img src="/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc" width="1200" height="1500" alt="Vịnh Cát: sa bàn 3D lúc hoàng hôn, bờ cát có con kênh và cầu gỗ, ba chiếc thuyền, những vòng sóng lan trên mặt vịnh"></span><span class="sheet-lab"><span class="sheet-no">Nº 03, 2026</span><span class="sheet-t">Vịnh Cát</span><span class="sheet-s">Sa bàn 3D tương tác, chơi trên web</span></span></a></sc-if>
+<sc-if value="{{showPaint}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="04" style="--tilt: 1.8deg"><span class="sheet-paper"><img src="/_blob/b1114a6e341fee3d913c0dbc719aaae2" width="1400" height="1400" alt="Gác Xép: bảng nhận diện với logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp"></span><span class="sheet-lab"><span class="sheet-no">Nº 04, 2025</span><span class="sheet-t">Gác Xép</span><span class="sheet-s">Nhận diện thương hiệu: logo, màu, ấn phẩm</span></span></a></sc-if>
+<sc-if value="{{showCollage}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="05" style="--tilt: -1.2deg"><span class="sheet-paper"><img src="/_blob/950d916a2103e84df23e30b44bf91101" width="1200" height="1500" alt="Cân bằng giả: bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên"></span><span class="sheet-lab"><span class="sheet-no">Nº 05, 2026</span><span class="sheet-t">Cân bằng giả</span><span class="sheet-s">Ảnh render 3D, tỉ lệ 4:5</span></span></a></sc-if>
+<sc-if value="{{showDigital}}" hint-placeholder-val="{{ true }}"><a class="sheet" href="WorkDetail.dc.html" data-tp="06" style="--tilt: 1.1deg"><span class="sheet-paper"><img src="/_blob/5c7bd031a4aa5734c27fc7388907c0af" width="1800" height="1200" alt="Đêm phố: hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen"></span><span class="sheet-lab"><span class="sheet-no">Nº 06, 2026</span><span class="sheet-t">Đêm phố</span><span class="sheet-s">Nghệ thuật tạo sinh, viết bằng code</span></span></a></sc-if>
 <a class="sheet sheet-more" href="Works.dc.html"><span class="sheet-more-in">Xem cả phòng tranh<svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </div>
@@ -470,7 +470,7 @@ sc-if,sc-for{display:contents}
 <div class="tear" aria-hidden="true"><i class="fib"></i><i class="sht" style="background: #0f0f14"></i></div>
 <section id="tuyen-ngon" style="background: #0f0f14; color: #f2f1ec; position: relative; overflow: hidden" aria-label="Tuyên ngôn">
 <div style="max-width: 1440px; margin: 0 auto; padding: 140px clamp(16px, 4vw, 56px)">
-<p class="mf-text" style="margin: 32px 0 0; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(34px, 5.4vw, 84px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: pretty"><span class="mw">Tôi</span> <span class="mw">làm</span> <span class="mw pillw" style="rotate: -4deg"><img class="pill" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span> <span class="mw">những</span> <span class="mw">thứ</span> <span class="mw strike hn" aria-hidden="true"><span style="opacity: 0.55">an toàn</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; top: 38%; width: 108%; height: 0.4em; overflow: visible; color: #FF5A2C"><path class="ink" pathLength="1" d="M2 12 C 50 8, 96 15, 150 10 S 250 7, 298 12"></path><path class="ink late" pathLength="1" d="M10 15 C 90 13, 190 9, 292 6"></path></svg></span> <span class="loopw" style="color: {{accent}}">bị gọi là điên<svg class="hn" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: -18% -6%; width: 112%; height: 136%; overflow: visible; pointer-events: none"><path class="mw ink" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></span> — tấm bản đồ chỉ sai đường, chồng đá không chịu đổ <span class="pillw" style="rotate: 3deg"><img class="pill" src="/_blob/950d916a2103e84df23e30b44bf91101" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>, và những ý tưởng <em>chưa ai dám làm</em> <span class="pillw" style="rotate: -2deg"><img class="pill" src="/_blob/80535c369d55d41873b43749680ba93e" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>.</p>
+<p class="mf-text" style="margin: 32px 0 0; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(34px, 5.4vw, 84px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: pretty"><span class="mw">Tôi</span> <span class="mw">làm</span> <span class="mw pillw" style="rotate: -4deg"><img class="pill" src="/_blob/618c1af3907225f2605c3d89c62bd96c" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span> <span class="mw">những</span> <span class="mw">thứ</span> <span class="mw strike hn" aria-hidden="true"><span style="opacity: 0.55">an toàn</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: -4%; top: 38%; width: 108%; height: 0.4em; overflow: visible; color: #FF5A2C"><path class="ink" pathLength="1" d="M2 12 C 50 8, 96 15, 150 10 S 250 7, 298 12"></path><path class="ink late" pathLength="1" d="M10 15 C 90 13, 190 9, 292 6"></path></svg></span> <span class="loopw" style="color: {{accent}}">bị gọi là điên<svg class="hn" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: -18% -6%; width: 112%; height: 136%; overflow: visible; pointer-events: none"><path class="mw ink" pathLength="1" d="M40 72 C 18 44, 66 12, 122 12 C 178 12, 212 38, 204 68 C 196 100, 134 112, 86 106 C 40 100, 10 84, 18 58 C 26 34, 76 20, 136 24"></path></svg></span> — tấm bản đồ chỉ sai đường, chồng đá không chịu đổ <span class="pillw" style="rotate: 3deg"><img class="pill" src="/_blob/950d916a2103e84df23e30b44bf91101" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>, và những ý tưởng <em>chưa ai dám làm</em> <span class="pillw" style="rotate: -2deg"><img class="pill" src="/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc" alt=""><span class="tape-strip dark ptape" aria-hidden="true"></span></span>.</p>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 64px 80px; align-items: end; margin-top: 120px">
 <div class="pframe">
@@ -753,13 +753,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {
@@ -1190,7 +1191,7 @@ class Component extends DCLogic {
       { no: '02', title: 'Điên vừa đủ', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', aw: 1.6, ah: 2.0, rest: [1.35, 0.15, 0.14], lay: 5, pal: ['#2B2EF0', '#FF5A2C', '#D8FF3C'] },
       { no: '04', title: 'Gác Xép', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', aw: 1.75, ah: 1.75, rest: [4.7, -0.95, -0.22], lay: 1, pal: ['#D2553A', '#E9B53C', '#F3E9D8'] },
       { no: '06', title: 'Đêm phố', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', aw: 2.3, ah: 1.53, rest: [4.15, 0.6, 0.1], lay: 2, pal: ['#0A0A10', '#5257FF', '#D8FF3C'] },
-      { no: '03', title: 'Long Biên, 5 giờ sáng', src: '/_blob/80535c369d55d41873b43749680ba93e', aw: 1.5, ah: 1.88, rest: [0.15, -1.5, -0.18], lay: 0, pal: ['#3B2A6B', '#FF8A3C', '#F7D774'] },
+      { no: '03', title: 'Vịnh Cát', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc', aw: 1.5, ah: 1.88, rest: [0.15, -1.5, -0.18], lay: 0, pal: ['#753F53', '#1E5FA0', '#E8C29A'] },
       { no: '05', title: 'Cân bằng giả', src: '/_blob/950d916a2103e84df23e30b44bf91101', aw: 1.45, ah: 1.81, rest: [3.05, -1.1, 0.26], lay: 3, pal: ['#D9D6CF', '#FF8FB8', '#2B2EF0'] },
       { no: '01', title: 'Đi lạc', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', aw: 2.25, ah: 1.5, rest: [2.0, 2.5, -0.12], lay: 4, pal: ['#2B2EF0', '#F2F1EC', '#FF5A2C'] }
     ];
@@ -1280,7 +1281,7 @@ class Component extends DCLogic {
     const DOCK = [
       { no: '01', title: 'Đi lạc', kind: 'Ứng dụng di động', i: 5 },
       { no: '02', title: 'Điên vừa đủ', kind: 'Poster', i: 0 },
-      { no: '03', title: 'Long Biên, 5 giờ sáng', kind: 'Minh họa', i: 3 },
+      { no: '03', title: 'Vịnh Cát', kind: '3D tương tác', i: 3 },
       { no: '04', title: 'Gác Xép', kind: 'Nhận diện', i: 1 },
       { no: '05', title: 'Cân bằng giả', kind: 'Ảnh 3D', i: 4 },
       { no: '06', title: 'Đêm phố', kind: 'Tạo sinh', i: 2 }
@@ -1289,8 +1290,8 @@ class Component extends DCLogic {
     const look = (p.ground || '') + (p.accent || '');
     if (this._look !== undefined && this._look !== look && this._bn) setTimeout(() => { if (this._bn) this._bn.repaint(); }, 0);
     this._look = look;
-    const tapeA = ['điên vừa đủ', 'chỉ sai đường cho vui', 'trọng lực nghỉ phép', 'code chạy lại lần nữa', 'Long Biên lúc 5 giờ sáng'];
-    const tapeB = ['Nº 01 ĐI LẠC', 'Nº 02 ĐIÊN VỪA ĐỦ', 'Nº 03 LONG BIÊN, 5 GIỜ SÁNG', 'Nº 04 GÁC XÉP', 'Nº 05 CÂN BẰNG GIẢ', 'Nº 06 ĐÊM PHỐ'];
+    const tapeA = ['điên vừa đủ', 'chỉ sai đường cho vui', 'trọng lực nghỉ phép', 'code chạy lại lần nữa', 'bấm mặt nước cho nó gợn'];
+    const tapeB = ['Nº 01 ĐI LẠC', 'Nº 02 ĐIÊN VỪA ĐỦ', 'Nº 03 VỊNH CÁT', 'Nº 04 GÁC XÉP', 'Nº 05 CÂN BẰNG GIẢ', 'Nº 06 ĐÊM PHỐ'];
 
     // hero: the pointer pulls the two riso plates of the name apart
     const RX0 = -6, RY0 = 4;

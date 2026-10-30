@@ -92,6 +92,7 @@ sc-if,sc-for{display:contents}
 }
 /*xg-amb*/@keyframes xgTilt{0%{transform:perspective(1600px) rotateY(-6deg) rotateX(2.5deg)}100%{transform:perspective(1600px) rotateY(5deg) rotateX(-2deg) translate3d(0,-6px,0)}}.xg-art{animation:xgTilt 8s ease-in-out infinite alternate}
 /*PL-CSS*/.plates3d{position:absolute;left:-7%;top:-9%;width:114%;height:118%;display:block;z-index:2;pointer-events:none;opacity:0;transition:opacity 1s ease}.plates3d.is-on{opacity:1}.xg-art.has-3d{animation:none}.xg-art.has-3d .dimg{animation:none;opacity:0}.xg-art.has-3d .dstar{display:none}.xg-art.has-3d figcaption{position:relative;z-index:3}
+.tech-dl{grid-template-columns:minmax(0,1fr) minmax(0,3fr)}@media (max-width:700px){.tech-dl{grid-template-columns:minmax(0,1fr)}.tech-dl dt{padding-bottom:0!important;border-bottom:0!important}}
 /*TM-CSS*/.trang-man{position:fixed;inset:0;z-index:100000;pointer-events:none;overflow:hidden;visibility:hidden}.trang-man i,.trang-man b{position:absolute;left:-2vw;right:-2vw;top:-4vh;bottom:-4vh;display:block;transform:translate3d(0,108%,0)}.trang-man i{background:#FF8FB8}.trang-man b{background:#2B2EF0;display:flex;align-items:center;justify-content:center}.trang-man span{padding:0 6vw;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-variation-settings:'wdth' 75,'opsz' 96;font-size:clamp(56px,11vw,180px);line-height:.86;letter-spacing:-.025em;text-align:center;color:#D8FF3C;text-shadow:-.04em .035em 0 #FF8FB8}html.tm-vao .trang-man,.trang-man.is-vao,.trang-man.is-roi{visibility:visible;pointer-events:auto}html.tm-vao .trang-man i,html.tm-vao .trang-man b{transform:none}.trang-man.is-vao b{animation:tmLen .62s cubic-bezier(.76,0,.24,1) .12s both}.trang-man.is-vao i{animation:tmLen .62s cubic-bezier(.76,0,.24,1) .2s both}.trang-man.is-roi i{animation:tmPhu .44s cubic-bezier(.76,0,.24,1) both}.trang-man.is-roi b{animation:tmPhu .44s cubic-bezier(.76,0,.24,1) .06s both}@keyframes tmLen{from{transform:none}to{transform:translate3d(0,-108%,0)}}@keyframes tmPhu{from{transform:translate3d(0,108%,0)}to{transform:none}}@media (prefers-reduced-motion:reduce){.trang-man{display:none}}html.lenis,html.lenis body{height:auto}html.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}.lenis [data-lenis-prevent],.lenis [data-lenis-prevent-wheel],.lenis [data-lenis-prevent-touch],.lenis [data-lenis-prevent-vertical],.lenis [data-lenis-prevent-horizontal]{overscroll-behavior:contain}.lenis.lenis-smooth iframe{pointer-events:none}.lenis.lenis-autoToggle{transition-property:overflow;transition-duration:1ms;transition-behavior:allow-discrete}
 </style>
 </helmet>
@@ -137,12 +138,32 @@ sc-if,sc-for{display:contents}
 <dd style="margin: 0; padding: 16px 0; border-bottom: 1px solid #0f0f14; font-size: 18px">Từ ý tưởng đến bản cuối</dd>
 </dl>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px">
+<sc-if value="{{hasDemo}}" hint-placeholder-val="{{ false }}"><a class="btn" href="{{work.demo}}" target="_blank" rel="noopener" style="background: {{accent}}; color: #0f0f14">Chơi thử<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></sc-if>
 <a class="btn" href="Commission.dc.html" style="background: #0f0f14; color: #f2f1ec">Làm một dự án như thế<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 <a class="btn" href="https://zalo.me/0375492993" style="background: transparent; color: #0f0f14">Hỏi qua Zalo</a>
 </div>
 </div>
 </div>
 </section>
+
+<sc-if value="{{hasTech}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="tech-title" style="background: #f2f1ec; border-top: 2px solid #0f0f14">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 56px) 112px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', 'Arial Narrow', Arial, sans-serif; font-stretch: 85%; font-weight: 700; font-size: 17px; letter-spacing: 0; color: #4a4a52">Bên trong {{work.title}}</p>
+<h2 id="tech-title" style="margin: 12px 0 0; font-weight: 800; font-stretch: 75%; font-size: clamp(40px, 5.5vw, 84px); line-height: 0.95; letter-spacing: -0.03em">Cách làm</h2>
+<dl class="tech-dl" style="margin: 48px 0 0; display: grid; max-width: 1080px; border-top: 2px solid #0f0f14">
+<sc-for list="{{tech}}" as="t" hint-placeholder-count="5">
+<dt style="padding: 20px 24px 20px 0; border-bottom: 1px solid #0f0f14; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 20px; color: #4a4a52">{{t.k}}</dt>
+<dd style="margin: 0; padding: 20px 0; border-bottom: 1px solid #0f0f14; font-size: 18px; line-height: 1.5; max-width: 60ch">{{t.v}}</dd>
+</sc-for>
+</dl>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px">
+<a class="btn" href="{{work.docs}}" target="_blank" rel="noopener" style="background: transparent; color: #0f0f14">Đọc giải thích kỹ thuật đầy đủ</a>
+<a class="btn" href="{{work.repo}}" target="_blank" rel="noopener" style="background: transparent; color: #0f0f14">Mã nguồn trên GitHub</a>
+</div>
+</div>
+</section>
+</sc-if>
 
 <section aria-labelledby="cmp-title" style="background: #0f0f14; color: #f2f1ec">
 <div style="max-width: 1440px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 56px)">
@@ -460,13 +481,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {
@@ -514,17 +536,26 @@ class Component extends DCLogic {
   componentDidMount() { this.tmMount(); this.plMount(); }
   componentWillUnmount() { this.tmUnmount(); this.plUnmount(); }
   plCurrent() { return this._plWork || null; }
+  // mở đúng tác phẩm vừa bấm ở trang chủ / trang Tác phẩm (ghi trong sessionStorage), hoặc theo #03 trên địa chỉ
+  tpStart() {
+    if (this._tp0 !== undefined) return this._tp0;
+    let no = '';
+    try { no = (location.hash || '').replace('#', '') || sessionStorage.getItem('tac-pham') || ''; sessionStorage.removeItem('tac-pham'); } catch (e) { no = ''; }
+    const i = ['01', '02', '03', '04', '05', '06'].indexOf(no);
+    this._tp0 = i >= 0 ? i : 1;
+    return this._tp0;
+  }
   renderVals() {
     const p = this.props;
     const s = this.state || {};
-    const idx = s.idx ?? 1;
+    const idx = s.idx ?? this.tpStart();
     const clip = s.clip ?? 50;
     const sw = s.sw ?? 0;
     const cats = { paint: 'Đồ họa in', collage: 'Minh họa & 3D', digital: 'Số & tương tác' };
     const W = [
       { no: '01', title: 'Đi lạc', src: '/_blob/e6dda941d38e6e2b7ebe29d21f804cf2', w: 1800, h: 1200, material: 'Giao diện / UX', size: 'Ứng dụng di động, 3 màn hình', year: 2026, cat: 'digital', alt: 'Đi lạc — ba màn hình ứng dụng bản đồ: màn chào xanh cobalt, bản đồ có đường đi đứt nét, màn thống kê 47 phút lạc', story: 'Một ứng dụng bản đồ cố tình chỉ sai đường, để người dùng lạc vào những ngõ chưa từng đi. Bạn bè bảo ý tưởng này điên; bản thử thì ai cũng xin dùng.', pal: ['#2B2EF0', '#D8FF3C', '#FF5A2C', '#0F0F14', '#ECE9E1'] },
       { no: '02', title: 'Điên vừa đủ', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', w: 1200, h: 1500, material: 'Poster', size: 'Khổ 60 × 75 cm', year: 2026, cat: 'paint', alt: 'Điên vừa đủ — chữ ĐIÊN vàng chanh nghiêng ngả trên nền xanh cobalt, bên dưới là VỪA ĐỦ và cây thước chỉ 87%', story: 'Poster cho một triển lãm cá nhân tưởng tượng. Chữ ĐIÊN được thả cho nghiêng ngả, chữ VỪA ĐỦ thì xếp thẳng hàng — và cây thước đo đúng 87%.', pal: ['#2B2EF0', '#D8FF3C', '#FF5A2C', '#FF8FB8', '#F2F1EC'] },
-      { no: '03', title: 'Long Biên, 5 giờ sáng', src: '/_blob/80535c369d55d41873b43749680ba93e', w: 1200, h: 1500, material: 'Minh họa', size: 'Minh họa số, tỉ lệ 4:5', year: 2025, cat: 'collage', alt: 'Long Biên, 5 giờ sáng — cây cầu sắt trước mặt trời mọc, xe đạp chở hoa, lá chuối và dòng sông', story: 'Cây cầu sắt lúc mặt trời vừa nhô lên sau dàn thép, mấy chiếc xe đạp chở hoa đi chợ sớm. Bầu trời chỉ có bảy dải màu, như một bản in lụa.', pal: ['#2A2D7A', '#8C4D8F', '#F49274', '#FFE19A', '#1E5C4A'] },
+      { no: '03', title: 'Vịnh Cát', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc', w: 1200, h: 1500, material: '3D tương tác', size: 'Web chạy trên trình duyệt (three.js, WebGL2)', year: 2026, cat: 'collage', alt: 'Vịnh Cát: sa bàn 3D lúc hoàng hôn, bờ cát có con kênh và cầu gỗ, ba chiếc thuyền, những vòng sóng lan trên mặt vịnh', story: 'Một vịnh nhỏ nằm gọn trên mặt bàn, chạy ngay trên trình duyệt. Bấm mặt nước là sóng lan ra, dội vào bờ, đẩy thuyền trôi và làm đàn cá giật mình bỏ chạy. Có ban ngày, hoàng hôn và ban đêm, lúc đó sóng phát sáng.', pal: ['#753F53', '#1E5FA0', '#45C1C4', '#E8C29A', '#D9733A'], demo: 'https://vinh-cat-web.vercel.app', repo: 'https://github.com/nep94121-lab/vinh-cat-web', docs: 'https://github.com/nep94121-lab/vinh-cat-web/blob/main/docs/KY_THUAT.md', tech: [{ k: 'Sóng', v: 'Phương trình sóng 2D trên lưới 384 × 256 ô, chạy trên GPU 120 bước mỗi giây. Nước nông thì sóng chậm lại, gặp bờ và đá thì dội ngược.' }, { k: 'Mặt nước', v: 'Khúc xạ đọc lại ảnh cảnh vật bên dưới. Màu nước đậm dần theo độ sâu (định luật Beer–Lambert), nhìn càng xiên càng thấy bầu trời phản chiếu (Fresnel).' }, { k: 'Vân sáng dưới đáy', v: 'Hai lớp nhiễu Voronoi chuyển động, méo theo độ dốc của sóng và tắt ở chỗ có bóng râm, như nắng xuyên qua mặt nước thật.' }, { k: 'Thuyền và cá', v: 'Thuyền đọc độ cao sóng từ GPU mà không bắt máy đứng chờ, nên nhấp nhô và trôi theo sóng. Đàn cá bơi theo nhóm, tránh chỗ cạn, giật mình bỏ chạy khi có sóng.' }, { k: 'Tối ưu', v: 'Gộp các vật đứng yên từ khoảng 700 xuống 46 lượt vẽ: mỗi khung hình từ khoảng 70 ms còn khoảng 9 ms trên card đồ họa tích hợp. Máy yếu thì tự hạ độ phân giải.' }] },
       { no: '04', title: 'Gác Xép', src: '/_blob/b1114a6e341fee3d913c0dbc719aaae2', w: 1400, h: 1400, material: 'Nhận diện thương hiệu', size: 'Logo, bảng màu, ấn phẩm', year: 2025, cat: 'paint', alt: 'Gác Xép — bảng nhận diện: logo mái nhà và cái thang, bảng màu gạch, rêu, nắng, vữa; cốc cà phê và danh thiếp', story: 'Nhận diện cho một quán cà phê sân thượng tưởng tượng. Leo năm tầng thang bộ mới tới, nên logo là một cái thang chui vào mái ngói.', pal: ['#D2553A', '#17473A', '#E9B53C', '#F3E9D8', '#1B1A17'] },
       { no: '05', title: 'Cân bằng giả', src: '/_blob/950d916a2103e84df23e30b44bf91101', w: 1200, h: 1500, material: '3D', size: 'Ảnh render, tỉ lệ 4:5', year: 2026, cat: 'collage', alt: 'Cân bằng giả — bốn viên đá terrazzo màu kẹo chồng lên nhau, một vòng chrome lơ lửng phía trên', story: 'Bốn viên đá terrazzo màu kẹo chồng lên nhau theo cách không thể đứng vững ngoài đời. Trong phần mềm 3D, trọng lực chỉ là một thanh trượt.', pal: ['#2B2EF0', '#FF5A2C', '#FF8FB8', '#D8FF3C', '#E8DFD1'] },
       { no: '06', title: 'Đêm phố', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', w: 1800, h: 1200, material: 'Nghệ thuật tạo sinh', size: 'Viết bằng code, khổ tùy biến', year: 2026, cat: 'digital', alt: 'Đêm phố — hàng nghìn sợi sáng xanh tím chuyển dần sang vàng chanh trên nền đen', story: 'Hàng nghìn đường thẳng đi theo một dòng chảy vô hình — giống xe máy lúc nửa đêm. Mỗi lần chạy code là một bản khác nhau.', pal: ['#0A0A10', '#2B2EF0', '#7D86FF', '#D8FF3C', '#FF5A2C'] }
@@ -546,6 +577,9 @@ class Component extends DCLogic {
       accent: p.accent ?? '#D8FF3C',
       siteCls: (p.motion ?? true) ? 'site anim' : 'site still',
       work,
+      hasDemo: !!base.demo,
+      hasTech: !!(base.tech && base.tech.length),
+      tech: base.tech || [],
       prev: W[(idx + N - 1) % N],
       next: W[(idx + 1) % N],
       clip,

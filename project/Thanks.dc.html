@@ -265,13 +265,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {

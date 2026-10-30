@@ -348,13 +348,14 @@ class Component extends DCLogic {
         tm.stop.push(() => { if (tick) gs.ticker.remove(tick); if (raf) cancelAnimationFrame(raf); lenis.destroy(); if (window.__lenis === lenis) window.__lenis = null; });
       } catch (e) { L = null; }
     }
-    if (!L && !(man && live && page)) return;
     // 3. Bấm link: link neo trong trang thì trượt mượt tới đó; link sang trang khác thì kéo màn lên rồi mới đi
     const here = (location.pathname.split('/').pop() || 'Main.dc.html').replace(/\.dc\.html$/, '');
     const click = (e) => {
       if (tm.pass || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const tp = a.getAttribute('data-tp');
+      if (tp) { try { sessionStorage.setItem('tac-pham', tp); } catch (err) { /* bỏ qua */ } }
       const m = /^(?:\.\/)?(?:([A-Za-z]+)\.dc\.html)?(#[\w-]*)?$/.exec(a.getAttribute('href') || '');
       if (!m || (!m[1] && !m[2])) return;
       if (!m[1] || (m[1] === here && m[2])) {
@@ -626,7 +627,7 @@ class Component extends DCLogic {
       { title: 'Bảng màu tháng mười', tag: 'Màu sắc', key: 'color', date: '05.10.2026', read: '2 phút', src: '', excerpt: 'Năm màu tôi dùng nhiều nhất tháng này, và lý do tôi bỏ màu thứ sáu.', look: 'ground' },
       { title: 'Một tuần với mực và nước', tag: 'Quá trình', key: 'proc', date: '27.09.2026', read: '6 phút', src: '/_blob/618c1af3907225f2605c3d89c62bd96c', excerpt: 'Bảy ngày làm Mực loang: những chậu nước hỏng, và giọt mực đã cứu cả bức tranh.' },
       { title: 'Ghi chép từ buổi treo tranh', tag: 'Ghi chép', key: 'note', date: '14.09.2026', read: '3 phút', src: '', excerpt: 'Treo tranh là vẽ thêm một lần nữa — lần này bằng ánh sáng và khoảng trống.', look: 'accent' },
-      { title: 'Màu cam của buổi trưa', tag: 'Màu sắc', key: 'color', date: '02.09.2026', read: '4 phút', src: '/_blob/80535c369d55d41873b43749680ba93e', excerpt: 'Vì sao cam gần đỏ lại khiến ta thấy nóng hơn cả đỏ? Vài thử nghiệm nhỏ trên giấy nháp.' },
+      { title: 'Màu cam của buổi trưa', tag: 'Màu sắc', key: 'color', date: '02.09.2026', read: '4 phút', src: '/_blob/dac8bc2b9f35ad6e224ab2d3f7fc4bcc', excerpt: 'Vì sao cam gần đỏ lại khiến ta thấy nóng hơn cả đỏ? Vài thử nghiệm nhỏ trên giấy nháp.' },
       { title: 'Code cũng là một cây cọ', tag: 'Ghi chép', key: 'note', date: '21.08.2026', read: '7 phút', src: '/_blob/5c7bd031a4aa5734c27fc7388907c0af', excerpt: 'Không có gì máy móc trong một thuật toán được viết lúc hai giờ sáng.' }
     ];
     const posts = P.filter((x) => t === 'all' || x.key === t).map((x) => {

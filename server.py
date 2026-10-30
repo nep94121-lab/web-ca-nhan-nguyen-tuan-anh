@@ -14,7 +14,7 @@ BLOB_MAP = {
     "2dfe8bf3b1450e792096c28c7430a508": "chan-dung-anh-goc.jpg",
     "8b3ccd25421622e7159367cc161d69b8": "chan-dung-tach-nen.webp",
     "618c1af3907225f2605c3d89c62bd96c": "tp02-poster-dien-vua-du.webp",
-    "80535c369d55d41873b43749680ba93e": "tp03-minh-hoa-long-bien.webp",
+    "dac8bc2b9f35ad6e224ab2d3f7fc4bcc": "tp03-3d-vinh-cat.webp",
     "b1114a6e341fee3d913c0dbc719aaae2": "tp04-nhan-dien-gac-xep.webp",
     "950d916a2103e84df23e30b44bf91101": "tp05-3d-can-bang-gia.webp",
     "e6dda941d38e6e2b7ebe29d21f804cf2": "tp01-giao-dien-di-lac.webp",
